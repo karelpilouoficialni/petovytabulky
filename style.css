@@ -2,53 +2,44 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --chalk-white: #f0ede0;
-  --chalk-yellow: #f5e642;
-  --chalk-green: #5dde7a;
-  --chalk-pink: #ff8fa3;
-  --chalk-blue: #7ec8e3;
-  --board-dark: #1a2e1a;
-  --board-mid: #234023;
-  --board-light: #2d5a2d;
+  --white: #eef1f7;
+  --muted: rgba(200,210,235,0.65);
+  --accent: #5b8dee;
+  --accent2: #7c3aed;
+  --accent-green: #34d399;
+  --accent-yellow: #fbbf24;
+  --accent-red: #f87171;
+  --accent-orange: #fb923c;
+  --bg-deep: #13151c;
+  --bg-mid: #1a1d27;
+  --bg-card: #1e2130;
+  --bg-border: rgba(255,255,255,0.07);
   --excel-green: #217346;
   --excel-light: #e2efda;
   --excel-header: #d6e4bc;
   --excel-border: #b5c7a0;
-  --excel-selected: #a9d08e;
-  --wood-dark: #6b3a2a;
-  --wood-light: #8b5e3c;
-  --tray-grey: #888;
 
-  --font-chalk: 'Special Elite', serif;
-  --font-mono: 'Share Tech Mono', monospace;
-  --font-hand: 'Caveat', cursive;
-  --font-retro: 'VT323', monospace;
+  --font-ui: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'DM Mono', 'Fira Code', monospace;
+  --font-display: 'DM Sans', system-ui, sans-serif;
 }
 
 html, body {
   width: 100%; height: 100%;
   overflow: hidden;
-  background: var(--board-dark);
-  font-family: var(--font-chalk);
-  color: var(--chalk-white);
+  background: var(--bg-deep);
+  font-family: var(--font-ui);
+  color: var(--white);
 }
 
 /* ===== SCREENS ===== */
 .screen { display: none; width: 100vw; height: 100vh; position: absolute; inset: 0; }
 .screen.active { display: flex; }
 
-/* ===== CHALKBOARD BACKGROUND ===== */
+/* ===== BACKGROUND ===== */
 .chalkboard-bg {
   width: 100%; height: 100%;
-  background:
-    radial-gradient(ellipse at 20% 30%, rgba(45,90,45,0.4) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 70%, rgba(30,60,30,0.5) 0%, transparent 50%),
-    linear-gradient(135deg, var(--board-mid) 0%, var(--board-dark) 50%, var(--board-mid) 100%);
-  border: 14px solid var(--wood-dark);
-  box-shadow:
-    inset 0 0 80px rgba(0,0,0,0.5),
-    inset 0 0 20px rgba(0,0,0,0.3),
-    0 8px 32px rgba(0,0,0,0.8);
+  background: #13151c;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -56,42 +47,26 @@ html, body {
   justify-content: center;
 }
 
-/* chalk texture overlay */
+/* Very faint noise texture */
 .chalkboard-bg::before {
   content: '';
   position: absolute; inset: 0;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 1;
 }
 
-/* chalk dust smears */
-.chalk-dust {
-  position: absolute; inset: 0; pointer-events: none;
-}
-.chalk-dust::before {
+/* Single soft glow top-left */
+.chalkboard-bg::after {
   content: '';
   position: absolute;
-  top: 15%; left: 5%; width: 35%; height: 3px;
-  background: rgba(240,237,224,0.04);
-  filter: blur(2px);
-  transform: rotate(-1deg);
-  box-shadow: 0 8px 0 rgba(240,237,224,0.02), 0 20px 0 rgba(240,237,224,0.015);
-}
-.chalk-dust::after {
-  content: '';
-  position: absolute;
-  top: 60%; right: 8%; width: 20%; height: 2px;
-  background: rgba(240,237,224,0.05);
-  filter: blur(1px);
-  transform: rotate(1deg);
+  top: -80px; left: -80px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(91,141,238,0.06) 0%, transparent 65%);
+  pointer-events: none;
 }
 
-/* wood frame bottom */
-.chalkboard-bg > .chalk-dust + * {
-  position: relative; z-index: 1;
-}
+.chalk-dust { display: none; }
 
 /* ===== HOME CONTENT ===== */
 .home-content {
@@ -114,33 +89,36 @@ html, body {
   line-height: 1;
 }
 .chalk-title {
-  font-family: var(--font-retro);
-  font-size: clamp(48px, 8vw, 88px);
-  color: var(--chalk-yellow);
-  text-shadow:
-    2px 2px 0 rgba(0,0,0,0.4),
-    -1px -1px 0 rgba(255,255,255,0.1);
-  letter-spacing: 6px;
-  animation: flicker 8s infinite;
+  font-family: var(--font-display);
+  font-size: clamp(52px, 9vw, 96px);
+  color: var(--white);
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 0.9;
+  background: linear-gradient(135deg, #fff 30%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .chalk-subtitle {
-  font-family: var(--font-retro);
-  font-size: clamp(28px, 5vw, 56px);
-  color: var(--chalk-green);
-  letter-spacing: 12px;
-  margin-top: -8px;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 4vw, 42px);
+  font-weight: 300;
+  color: var(--accent-green);
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  margin-top: 2px;
 }
 .chalk-tagline {
-  font-family: var(--font-hand);
-  font-size: clamp(14px, 2vw, 20px);
-  color: rgba(240,237,224,0.7);
-  margin-top: 4px;
+  font-family: var(--font-ui);
+  font-size: clamp(13px, 1.5vw, 16px);
+  color: var(--muted);
+  margin-top: 8px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
-@keyframes flicker {
-  0%,95%,100% { opacity: 1; }
-  97% { opacity: 0.85; }
-}
+
 
 /* ===== TEACHER FACE ===== */
 .teacher-intro {
@@ -155,28 +133,33 @@ html, body {
   border-radius: 50%;
   flex-shrink: 0;
   position: relative;
-  font-size: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  background: rgba(0,0,0,0.2);
   border: 3px solid rgba(240,237,224,0.15);
+  background: #111;
 }
 
-.teacher-face::after {
-  content: attr(data-emoji);
-  font-size: 56px;
-  line-height: 1;
+/* The actual image inside */
+.teacher-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  transition: opacity 0.3s;
 }
 
 .big-teacher {
   width: 130px;
   height: 130px;
-  font-size: 100px;
 }
-.big-teacher::after { font-size: 80px; }
+
+/* PNG swap guide shown in devtools:
+   Replace SVG files in teacher/ folder with your PNG photos named:
+     very-bad.png  |  bad.png  |  medium.png  |  good.png  |  very-good.png
+   Then update MOOD_IMAGES in game.js to point to .png extension.
+*/
 
 /* Mood states */
 .mood-very-bad  { border-color: #ff4444; box-shadow: 0 0 20px rgba(255,68,68,0.4); }
@@ -192,12 +175,12 @@ html, body {
 
 .speech-bubble {
   background: rgba(255,255,255,0.08);
-  border: 2px dashed rgba(240,237,224,0.3);
+  border: 1px solid var(--bg-border);
   border-radius: 12px;
   padding: 12px 16px;
-  font-family: var(--font-hand);
+  font-family: var(--font-ui);
   font-size: 18px;
-  color: var(--chalk-white);
+  color: var(--white);
   position: relative;
   flex: 1;
 }
@@ -207,17 +190,19 @@ html, body {
   left: -14px; top: 50%;
   transform: translateY(-50%);
   border: 7px solid transparent;
-  border-right-color: rgba(240,237,224,0.3);
+  border-right-color: rgba(200,215,255,0.3);
 }
 
 /* ===== SECTION LABELS ===== */
 .section-label {
-  font-family: var(--font-hand);
-  font-size: 22px;
-  color: var(--chalk-yellow);
-  border-bottom: 2px dashed rgba(245,230,66,0.4);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 3px;
+  text-transform: uppercase;
   padding-bottom: 4px;
-  letter-spacing: 2px;
+  opacity: 0.8;
 }
 
 /* ===== FUNCTION GRID ===== */
@@ -229,10 +214,10 @@ html, body {
 
 .func-chip {
   padding: 8px 16px;
-  border: 2px solid rgba(240,237,224,0.3);
+  border: 1.5px solid rgba(255,255,255,0.1);
   border-radius: 6px;
   background: rgba(255,255,255,0.05);
-  color: rgba(240,237,224,0.7);
+  color: var(--muted);
   font-family: var(--font-mono);
   font-size: 14px;
   cursor: pointer;
@@ -240,14 +225,14 @@ html, body {
   user-select: none;
 }
 .func-chip:hover {
-  border-color: var(--chalk-green);
-  color: var(--chalk-green);
+  border-color: var(--accent-green);
+  color: var(--accent-green);
   background: rgba(93,222,122,0.1);
 }
 .func-chip.selected {
-  border-color: var(--chalk-green);
+  border-color: var(--accent-green);
   background: rgba(93,222,122,0.2);
-  color: var(--chalk-green);
+  color: var(--accent-green);
   box-shadow: 0 0 12px rgba(93,222,122,0.3);
 }
 
@@ -264,27 +249,27 @@ html, body {
   align-items: center;
   gap: 4px;
   padding: 14px 10px;
-  border: 2px solid rgba(240,237,224,0.2);
+  border: 1px solid var(--bg-border);
   border-radius: 10px;
   background: rgba(255,255,255,0.04);
-  color: rgba(240,237,224,0.6);
+  color: var(--muted);
   cursor: pointer;
-  font-family: var(--font-chalk);
+  font-family: var(--font-ui);
   transition: all 0.25s;
 }
 .diff-btn:hover {
-  border-color: rgba(240,237,224,0.5);
-  background: rgba(255,255,255,0.08);
-  color: var(--chalk-white);
+  border-color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.06);
+  color: var(--white);
 }
 .diff-btn.active {
-  border-color: var(--chalk-yellow);
-  background: rgba(245,230,66,0.12);
-  color: var(--chalk-yellow);
+  border-color: var(--accent);
+  background: rgba(79,142,247,0.12);
+  color: var(--accent);
 }
 .diff-icon { font-size: 22px; }
 .diff-name { font-size: 16px; font-weight: bold; }
-.diff-count { font-size: 12px; font-family: var(--font-hand); opacity: 0.7; }
+.diff-count { font-size: 12px; font-family: var(--font-ui); opacity: 0.7; }
 
 /* ===== START BUTTON ===== */
 .start-btn {
@@ -294,7 +279,7 @@ html, body {
   border: none;
   border-radius: 10px;
   color: white;
-  font-family: var(--font-retro);
+  font-family: var(--font-display);
   font-size: 28px;
   letter-spacing: 4px;
   cursor: pointer;
@@ -312,16 +297,18 @@ html, body {
 .game-layout {
   width: 100%; height: 100%;
   display: flex;
-  background: #1a1a2e;
+  background: #13151c;
   gap: 0;
+  border-top: none;
 }
 
 /* ===== TEACHER PANEL ===== */
 .teacher-panel {
   width: 150px;
   flex-shrink: 0;
-  background: linear-gradient(180deg, #0f1923 0%, #1a2438 100%);
-  border-right: 2px solid rgba(255,255,255,0.08);
+  background: #171a24;
+  border-right: 1px solid rgba(255,255,255,0.06);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -330,7 +317,7 @@ html, body {
 }
 
 .mood-label {
-  font-family: var(--font-hand);
+  font-family: var(--font-ui);
   font-size: 13px;
   color: rgba(255,255,255,0.6);
   text-align: center;
@@ -340,16 +327,16 @@ html, body {
   text-align: center;
 }
 .score-label {
-  font-family: var(--font-hand);
+  font-family: var(--font-ui);
   font-size: 12px;
   color: rgba(255,255,255,0.4);
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 .score-value {
-  font-family: var(--font-retro);
+  font-family: var(--font-display);
   font-size: 36px;
-  color: var(--chalk-yellow);
+  color: var(--accent-yellow);
   line-height: 1;
 }
 
@@ -375,13 +362,13 @@ html, body {
 .timer-text {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-retro);
+  font-family: var(--font-display);
   font-size: 28px;
-  color: var(--chalk-white);
+  color: var(--white);
 }
 
 .progress-info {
-  font-family: var(--font-hand);
+  font-family: var(--font-ui);
   font-size: 15px;
   color: rgba(255,255,255,0.5);
 }
@@ -393,7 +380,7 @@ html, body {
   border: 1px solid rgba(255,255,255,0.15);
   border-radius: 6px;
   color: rgba(255,255,255,0.5);
-  font-family: var(--font-hand);
+  font-family: var(--font-ui);
   font-size: 13px;
   cursor: pointer;
   transition: all 0.2s;
@@ -420,7 +407,7 @@ html, body {
 .task-badge {
   background: var(--excel-green);
   color: white;
-  font-family: var(--font-retro);
+  font-family: var(--font-display);
   font-size: 16px;
   letter-spacing: 2px;
   padding: 4px 12px;
@@ -430,9 +417,9 @@ html, body {
 }
 
 .task-desc {
-  font-family: var(--font-hand);
+  font-family: var(--font-ui);
   font-size: 20px;
-  color: var(--chalk-white);
+  color: var(--white);
   line-height: 1.4;
 }
 
@@ -612,7 +599,7 @@ html, body {
   border: none;
   border-radius: 5px;
   color: white;
-  font-family: var(--font-chalk);
+  font-family: var(--font-ui);
   font-size: 15px;
   cursor: pointer;
   transition: all 0.2s;
@@ -628,9 +615,9 @@ html, body {
   padding: 8px 12px;
 }
 .hint-text {
-  font-family: var(--font-hand);
+  font-family: var(--font-ui);
   font-size: 15px;
-  color: var(--chalk-yellow);
+  color: var(--accent-yellow);
 }
 
 /* ===== RESULT OVERLAY ===== */
@@ -663,16 +650,16 @@ html, body {
 
 .result-icon { font-size: 64px; line-height: 1; margin-bottom: 12px; }
 .result-msg {
-  font-family: var(--font-retro);
+  font-family: var(--font-display);
   font-size: 32px;
-  color: var(--chalk-yellow);
+  color: var(--accent-yellow);
   letter-spacing: 2px;
   margin-bottom: 8px;
 }
 .result-answer {
   font-family: var(--font-mono);
   font-size: 13px;
-  color: rgba(240,237,224,0.6);
+  color: var(--muted);
   margin-bottom: 20px;
 }
 
@@ -682,7 +669,7 @@ html, body {
   border: none;
   border-radius: 8px;
   color: white;
-  font-family: var(--font-retro);
+  font-family: var(--font-display);
   font-size: 22px;
   letter-spacing: 2px;
   cursor: pointer;
@@ -693,8 +680,7 @@ html, body {
 /* ===== RESULTS SCREEN ===== */
 .results-bg {
   width: 100%; height: 100%;
-  background:
-    radial-gradient(ellipse at center, #1a3a2a 0%, #0a1a0f 100%);
+  background: #13151c;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -716,16 +702,16 @@ html, body {
 }
 
 .results-title {
-  font-family: var(--font-retro);
+  font-family: var(--font-display);
   font-size: 52px;
-  color: var(--chalk-yellow);
+  color: var(--accent-yellow);
   letter-spacing: 6px;
 }
 
 .results-grade {
-  font-family: var(--font-chalk);
+  font-family: var(--font-ui);
   font-size: 28px;
-  color: var(--chalk-green);
+  color: var(--accent-green);
 }
 
 .results-stats {
@@ -741,20 +727,20 @@ html, body {
   min-width: 90px;
 }
 .stat-num {
-  font-family: var(--font-retro);
+  font-family: var(--font-display);
   font-size: 42px;
-  color: var(--chalk-yellow);
+  color: var(--accent-yellow);
   line-height: 1;
 }
 .stat-lbl {
-  font-family: var(--font-hand);
+  font-family: var(--font-ui);
   font-size: 14px;
   color: rgba(255,255,255,0.5);
   margin-top: 4px;
 }
 
 .results-comment {
-  font-family: var(--font-hand);
+  font-family: var(--font-ui);
   font-size: 20px;
   color: rgba(240,237,224,0.8);
   max-width: 400px;
@@ -770,7 +756,7 @@ html, body {
   padding: 14px 30px;
   border: none;
   border-radius: 8px;
-  font-family: var(--font-chalk);
+  font-family: var(--font-ui);
   font-size: 18px;
   cursor: pointer;
   transition: all 0.2s;
@@ -782,7 +768,7 @@ html, body {
 .retry-btn:hover { background: #27a057; transform: translateY(-2px); }
 .menu-btn2 {
   background: rgba(255,255,255,0.08);
-  color: var(--chalk-white);
+  color: var(--white);
   border: 1px solid rgba(255,255,255,0.2);
 }
 .menu-btn2:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); }
@@ -804,4 +790,31 @@ html, body {
   .home-content { padding: 16px 20px; }
   .teacher-panel { width: 110px; }
   .results-stats { flex-wrap: wrap; justify-content: center; }
+}
+
+/* ===== EXCEL-STYLE SELECTION HINT ===== */
+.select-hint {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: rgba(200,210,235,0.4);
+  letter-spacing: 0.3px;
+  padding-top: 2px;
+}
+.select-hint kbd {
+  display: inline-block;
+  padding: 1px 5px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(200,210,235,0.6);
+  margin: 0 2px;
+}
+
+/* Range preview highlight during shift-hover */
+.func-chip.range-preview {
+  border-color: rgba(91,141,238,0.5);
+  background: rgba(91,141,238,0.08);
+  color: rgba(200,210,235,0.8);
 }

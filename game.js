@@ -4,11 +4,23 @@
 
 // ===== TEACHER MOODS =====
 const MOODS = {
-  'very-bad':  { emoji: '😤', label: 'Katastrofa!',  score: 0 },
-  'bad':       { emoji: '😟', label: 'Slabé...',     score: 1 },
-  'medium':    { emoji: '😐', label: 'Ujde to.',     score: 2 },
-  'good':      { emoji: '😊', label: 'Dobře!',       score: 3 },
-  'very-good': { emoji: '🤩', label: 'Výborně!!',    score: 4 },
+  'very-bad':  { label: 'Katastrofa!',  score: 0 },
+  'bad':       { label: 'Slabé...',     score: 1 },
+  'medium':    { label: 'Ujde to.',     score: 2 },
+  'good':      { label: 'Dobře!',       score: 3 },
+  'very-good': { label: 'Výborně!!',    score: 4 },
+};
+
+// ===== TEACHER IMAGES =====
+// To use your own PNG photos, replace the SVG files in the teacher/ folder with:
+//   very-bad.png  bad.png  medium.png  good.png  very-good.png
+// Then change the extension below from .svg to .png
+const MOOD_IMAGES = {
+  'very-bad':  'teacher/very-bad.png',
+  'bad':       'teacher/bad.png',
+  'medium':    'teacher/medium.png',
+  'good':      'teacher/good.png',
+  'very-good': 'teacher/very-good.png',
 };
 
 // ===== ALL AVAILABLE FUNCTIONS =====
@@ -372,10 +384,22 @@ function normalizeFormula(raw) {
 function setTeacherMood(elId, moodKey) {
   const el = document.getElementById(elId);
   if (!el) return;
-  // remove all mood classes
+  // swap mood border/glow class
   el.classList.remove(...Object.keys(MOODS).map(k => `mood-${k}`));
   el.classList.add(`mood-${moodKey}`);
-  el.setAttribute('data-emoji', MOODS[moodKey].emoji);
+  // swap image with fade
+  let img = el.querySelector('img');
+  if (!img) {
+    img = document.createElement('img');
+    img.alt = moodKey;
+    img.style.transition = 'opacity 0.15s';
+    el.appendChild(img);
+  }
+  img.style.opacity = '0';
+  setTimeout(() => {
+    img.src = MOOD_IMAGES[moodKey];
+    img.style.opacity = '1';
+  }, 150);
   // bounce animation
   el.classList.remove('teacher-bounce');
   void el.offsetWidth;
@@ -408,15 +432,68 @@ const DIFF_CONFIG = {
 };
 
 // ===== INIT HOME =====
+// Track last clicked index for Shift-range selection
+let lastClickedIndex = -1;
+
 function initHome() {
   const grid = document.getElementById('function-selector');
   grid.innerHTML = '';
-  ALL_FUNCTIONS.forEach(fn => {
+
+  ALL_FUNCTIONS.forEach((fn, idx) => {
     const chip = document.createElement('button');
     chip.className = 'func-chip' + (state.selectedFuncs.includes(fn.id) ? ' selected' : '');
     chip.textContent = fn.label;
     chip.dataset.id = fn.id;
-    chip.addEventListener('click', () => toggleFunc(fn.id, chip));
+    chip.dataset.idx = idx;
+
+    // Shift+hover: preview the range that would be selected
+    chip.addEventListener('mouseenter', (e) => {
+      if (!e.shiftKey || lastClickedIndex === -1) return;
+      const chips = [...document.querySelectorAll('.func-chip')];
+      const from = Math.min(lastClickedIndex, idx);
+      const to   = Math.max(lastClickedIndex, idx);
+      chips.forEach((c, i) => {
+        c.classList.toggle('range-preview', i >= from && i <= to && !c.classList.contains('selected'));
+      });
+    });
+    chip.addEventListener('mouseleave', () => {
+      document.querySelectorAll('.func-chip.range-preview')
+        .forEach(c => c.classList.remove('range-preview'));
+    });
+
+    chip.addEventListener('click', (e) => {
+      e.preventDefault();
+      const chips = [...document.querySelectorAll('.func-chip')];
+      const clickedIdx = parseInt(chip.dataset.idx);
+
+      if (e.shiftKey && lastClickedIndex !== -1) {
+        // === SHIFT: select range from last clicked to this ===
+        const from = Math.min(lastClickedIndex, clickedIdx);
+        const to   = Math.max(lastClickedIndex, clickedIdx);
+        chips.forEach((c, i) => {
+          if (i >= from && i <= to) {
+            const fid = ALL_FUNCTIONS[i].id;
+            if (!state.selectedFuncs.includes(fid)) {
+              state.selectedFuncs.push(fid);
+            }
+            c.classList.add('selected');
+            c.classList.remove('range-preview');
+          }
+        });
+        // don't update lastClickedIndex on shift (Excel behaviour)
+      } else if (e.ctrlKey || e.metaKey) {
+        // === CTRL: toggle individual item ===
+        toggleFuncById(fn.id, chip);
+        lastClickedIndex = clickedIdx;
+      } else {
+        // === Normal click: toggle individual (no modifier) ===
+        toggleFuncById(fn.id, chip);
+        lastClickedIndex = clickedIdx;
+      }
+
+      updateSpeechBubble();
+    });
+
     grid.appendChild(chip);
   });
 
@@ -430,9 +507,10 @@ function initHome() {
 
   document.getElementById('start-btn').addEventListener('click', startGame);
   setTeacherMood('home-teacher', 'medium');
+  updateSpeechBubble();
 }
 
-function toggleFunc(id, chip) {
+function toggleFuncById(id, chip) {
   const idx = state.selectedFuncs.indexOf(id);
   if (idx === -1) {
     state.selectedFuncs.push(id);
@@ -440,6 +518,19 @@ function toggleFunc(id, chip) {
   } else {
     state.selectedFuncs.splice(idx, 1);
     chip.classList.remove('selected');
+  }
+}
+
+function updateSpeechBubble() {
+  const bubble = document.querySelector('.speech-bubble');
+  if (!bubble) return;
+  const n = state.selectedFuncs.length;
+  if (n === 0) {
+    bubble.textContent = 'Vyberte si funkce, které chcete procvičit, a pojďme na to!';
+  } else if (n === 1) {
+    bubble.textContent = `Vybrána 1 funkce. Připravuji příklady…`;
+  } else {
+    bubble.textContent = `Vybráno ${n} funkcí. Šikovný výběr – jdeme na to!`;
   }
 }
 
@@ -766,11 +857,6 @@ function showScreen(id) {
 
 // ===== BOOTSTRAP =====
 document.addEventListener('DOMContentLoaded', () => {
-  // Set initial teacher emojis
-  document.querySelectorAll('.teacher-face').forEach(el => {
-    el.setAttribute('data-emoji', MOODS['medium'].emoji);
-  });
-
   initHome();
 
   // Difficulty buttons re-init (since initHome sets listeners)
