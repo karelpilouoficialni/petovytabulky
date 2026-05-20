@@ -2662,6 +2662,7 @@ let state = {
   consecutiveCorrect: 0,
   startTime: null,
   currentMood: 'medium',
+  selectedCell: null,
 };
 
 const DIFF_CONFIG = {
@@ -2687,10 +2688,11 @@ function initHome() {
 
     // Shift+hover: preview the range that would be selected
     chip.addEventListener('mouseenter', (e) => {
-      if (!e.shiftKey || lastClickedIndex === -1) return;
+      if (!e.shiftKey) return;
+      const anchor = lastClickedIndex === -1 ? 0 : lastClickedIndex;
       const chips = [...document.querySelectorAll('.func-chip')];
-      const from = Math.min(lastClickedIndex, idx);
-      const to   = Math.max(lastClickedIndex, idx);
+      const from = Math.min(anchor, idx);
+      const to   = Math.max(anchor, idx);
       chips.forEach((c, i) => {
         c.classList.toggle('range-preview', i >= from && i <= to && !c.classList.contains('selected'));
       });
@@ -2705,10 +2707,11 @@ function initHome() {
       const chips = [...document.querySelectorAll('.func-chip')];
       const clickedIdx = parseInt(chip.dataset.idx);
 
-      if (e.shiftKey && lastClickedIndex !== -1) {
-        // === SHIFT: select range from last clicked to this ===
-        const from = Math.min(lastClickedIndex, clickedIdx);
-        const to   = Math.max(lastClickedIndex, clickedIdx);
+      if (e.shiftKey) {
+        // === SHIFT: select range from anchor to this ===
+        const anchor = lastClickedIndex === -1 ? 0 : lastClickedIndex;
+        const from = Math.min(anchor, clickedIdx);
+        const to   = Math.max(anchor, clickedIdx);
         chips.forEach((c, i) => {
           if (i >= from && i <= to) {
             const fid = ALL_FUNCTIONS[i].id;
@@ -2775,15 +2778,16 @@ function updateSpeechBubble() {
 
 // ===== START GAME =====
 function startGame() {
+  if (state.selectedFuncs.length === 0) {
+    alert('Nejprve vyber alespoň jednu funkci kliknutím na ni!');
+    return;
+  }
+
   const cfg = DIFF_CONFIG[state.difficulty];
-  
-  // Filter questions by selected functions
-  let pool = state.selectedFuncs.length > 0
-    ? ALL_QUESTIONS.filter(q => state.selectedFuncs.includes(q.funcId))
-    : [...ALL_QUESTIONS];
+  let pool = ALL_QUESTIONS.filter(q => state.selectedFuncs.includes(q.funcId));
 
   if (pool.length === 0) {
-    alert('Vyber alespoň jednu funkci nebo ponech výběr prázdný pro všechny!');
+    alert('Pro vybrané funkce nejsou žádné příklady.');
     return;
   }
 
@@ -2844,6 +2848,8 @@ function setupGameListeners() {
 function loadQuestion() {
   const q = state.questions[state.currentQ];
   state.answered = false;
+  state.selectedCell = null;
+  lastCellRef = null;
 
   document.getElementById('task-desc').textContent = q.desc;
   document.getElementById('task-badge').textContent = `ÚKOL ${state.currentQ + 1}`;
@@ -2875,20 +2881,30 @@ function renderTable(q) {
   });
   html += '</tr></thead><tbody>';
 
-  rows.forEach(row => {
+  rows.forEach((row, rowIdx) => {
     html += '<tr>';
-    row.forEach((cell, i) => {
-      if (i === 0) {
+    row.forEach((cell, colIdx) => {
+      if (colIdx === 0) {
         html += `<td class="row-num">${cell}</td>`;
-      } else if (cell === '❓') {
-        html += `<td class="answer-cell" title="${q.answerCell}">${q.answerCell}</td>`;
       } else {
-        const isHeader = row[i-1] !== undefined && i === 1 && rows.indexOf(row) === 0;
-        const isNum = !isNaN(cell.replace(/\s/g,'')) && cell !== '';
-        let cls = '';
-        if (rows.indexOf(row) === 0) cls = 'header-cell';
-        else if (isNum) cls = 'num-cell';
-        html += `<td class="${cls}">${cell}</td>`;
+        const colLetter = headers[colIdx];
+        const rowNum = row[0];
+        const cellRef = colLetter + rowNum;
+
+        if (cell === '❓') {
+          html += `<td class="answer-cell" data-cell="${cellRef}" title="${cellRef}">${cellRef}</td>`;
+        } else {
+          const isFirstRow = rowIdx === 0;
+          const isNum = !isNaN(cell.replace(/\s/g,'')) && cell !== '';
+          let cls = '';
+          if (isFirstRow) cls = 'header-cell';
+          else if (isNum) cls = 'num-cell';
+          if (colLetter) {
+            html += `<td class="${cls}" data-cell="${cellRef}">${cell}</td>`;
+          } else {
+            html += `<td class="${cls}">${cell}</td>`;
+          }
+        }
       }
     });
     html += '</tr>';
@@ -2896,6 +2912,55 @@ function renderTable(q) {
 
   html += '</tbody></table>';
   container.innerHTML = html;
+
+  // Add cell click handlers
+  container.querySelectorAll('td[data-cell]').forEach(td => {
+    td.addEventListener('click', (e) => selectCell(td.dataset.cell, td, e));
+  });
+}
+
+let lastCellRef = null;
+
+function colToIndex(col) {
+  let idx = 0;
+  for (let i = 0; i < col.length; i++) idx = idx * 26 + (col.charCodeAt(i) - 64);
+  return idx;
+}
+
+function isInRange(ref, fromRef, toRef) {
+  const m1 = ref.match(/^([A-Z]+)(\d+)$/);
+  const m2 = fromRef.match(/^([A-Z]+)(\d+)$/);
+  const m3 = toRef.match(/^([A-Z]+)(\d+)$/);
+  if (!m1 || !m2 || !m3) return false;
+  const c = colToIndex(m1[1]), r = parseInt(m1[2]);
+  const minC = Math.min(colToIndex(m2[1]), colToIndex(m3[1]));
+  const maxC = Math.max(colToIndex(m2[1]), colToIndex(m3[1]));
+  const minR = Math.min(parseInt(m2[2]), parseInt(m3[2]));
+  const maxR = Math.max(parseInt(m2[2]), parseInt(m3[2]));
+  return c >= minC && c <= maxC && r >= minR && r <= maxR;
+}
+
+function selectCell(cellRef, td, event) {
+  if (event.shiftKey && lastCellRef) {
+    document.querySelectorAll('.excel-table td[data-cell]').forEach(el => {
+      el.classList.toggle('selected', isInRange(el.dataset.cell, lastCellRef, cellRef));
+    });
+    state.selectedCell = cellRef;
+    document.getElementById('cell-ref').textContent = cellRef;
+  } else if (event.ctrlKey || event.metaKey) {
+    td.classList.toggle('selected');
+    if (td.classList.contains('selected')) {
+      state.selectedCell = cellRef;
+      document.getElementById('cell-ref').textContent = cellRef;
+    }
+    lastCellRef = cellRef;
+  } else {
+    document.querySelectorAll('.excel-table td.selected').forEach(el => el.classList.remove('selected'));
+    state.selectedCell = cellRef;
+    td.classList.add('selected');
+    document.getElementById('cell-ref').textContent = cellRef;
+    lastCellRef = cellRef;
+  }
 }
 
 // ===== TIMER =====
@@ -2951,10 +3016,19 @@ function checkAnswer() {
   const val = input.value.trim();
   if (!val) return;
 
+  const q = state.questions[state.currentQ];
+
+  if (state.selectedCell !== q.answerCell) {
+    input.classList.add('wrong');
+    document.getElementById('hint-text').textContent = '💡 Nejprve klikni na buňku ' + q.answerCell + ' v tabulce!';
+    document.getElementById('hint-area').style.display = 'block';
+    setTimeout(() => input.className = 'formula-input', 400);
+    return;
+  }
+
   state.answered = true;
   stopTimer();
 
-  const q = state.questions[state.currentQ];
   const isCorrect = q.checkFn(val);
 
   if (isCorrect) {
