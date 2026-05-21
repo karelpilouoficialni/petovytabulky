@@ -536,15 +536,19 @@ function updateSpeechBubble() {
 
 // ===== START GAME =====
 function startGame() {
+  // Musí být vybrána alespoň jedna funkce
+  if (state.selectedFuncs.length === 0) {
+    shakeStartBtn();
+    return;
+  }
+
   const cfg = DIFF_CONFIG[state.difficulty];
-  
+
   // Filter questions by selected functions
-  let pool = state.selectedFuncs.length > 0
-    ? ALL_QUESTIONS.filter(q => state.selectedFuncs.includes(q.funcId))
-    : [...ALL_QUESTIONS];
+  let pool = ALL_QUESTIONS.filter(q => state.selectedFuncs.includes(q.funcId));
 
   if (pool.length === 0) {
-    alert('Vyber alespoň jednu funkci nebo ponech výběr prázdný pro všechny!');
+    shakeStartBtn();
     return;
   }
 
@@ -585,7 +589,17 @@ function setupGameListeners() {
 
   document.getElementById('check-btn').addEventListener('click', checkAnswer);
   document.getElementById('formula-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') checkAnswer();
+    if (e.key !== 'Enter') return;
+    e.preventDefault();
+    const overlay = document.getElementById('result-overlay');
+    const overlayVisible = overlay && overlay.style.display !== 'none';
+    if (overlayVisible) {
+      // Overlay je otevřený → Enter = pokračovat
+      nextQuestion();
+    } else {
+      // Overlay zavřený → Enter = odevzdat vzorec
+      checkAnswer();
+    }
   });
   document.getElementById('next-btn').addEventListener('click', nextQuestion);
   document.getElementById('home-btn').addEventListener('click', () => {
@@ -1059,6 +1073,21 @@ function showScreen(id) {
 }
 
 // ===== BOOTSTRAP =====
+function shakeStartBtn() {
+  const btn = document.getElementById('start-btn');
+  const hint = document.getElementById('no-func-hint');
+  // Shake animation
+  btn.classList.remove('btn-shake');
+  void btn.offsetWidth;
+  btn.classList.add('btn-shake');
+  // Show inline hint
+  if (hint) {
+    hint.style.opacity = '1';
+    clearTimeout(hint._hideTimer);
+    hint._hideTimer = setTimeout(() => { hint.style.opacity = '0'; }, 2800);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initHome();
 
