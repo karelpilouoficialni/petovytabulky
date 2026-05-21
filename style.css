@@ -349,14 +349,14 @@ html, body {
 .timer-bg { fill: none; stroke: rgba(255,255,255,0.1); stroke-width: 6; }
 .timer-arc {
   fill: none;
-  stroke: var(--chalk-green);
+  stroke: var(--accent-green);
   stroke-width: 6;
   stroke-linecap: round;
   stroke-dasharray: 213.6;
   stroke-dashoffset: 0;
   transition: stroke-dashoffset 1s linear, stroke 0.5s;
 }
-.timer-arc.warning { stroke: var(--chalk-yellow); }
+.timer-arc.warning { stroke: var(--accent-yellow); }
 .timer-arc.danger  { stroke: #ff4444; }
 
 .timer-text {
@@ -368,9 +368,28 @@ html, body {
 }
 
 .progress-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
   font-family: var(--font-ui);
   font-size: 15px;
   color: rgba(255,255,255,0.5);
+}
+.progress-bar-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent-green);
+  border-radius: 3px;
+  transition: width 0.4s ease;
 }
 
 .home-btn {
@@ -634,7 +653,7 @@ html, body {
 
 .result-card {
   background: linear-gradient(135deg, #1a2e1a, #0f1f0f);
-  border: 3px solid var(--chalk-green);
+  border: 3px solid var(--accent-green);
   border-radius: 16px;
   padding: 36px 48px;
   text-align: center;

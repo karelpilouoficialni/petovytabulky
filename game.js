@@ -1913,6 +1913,8 @@ function loadQuestion() {
   const cellRefEl = document.getElementById('cell-ref');
   cellRefEl.textContent = q.answerCell;
   cellRefEl.classList.remove('has-range');
+  const progressPct = ((state.currentQ + 1) / state.questions.length) * 100;
+  document.getElementById('progress-fill').style.width = `${progressPct}%`;
   document.getElementById('progress-text').textContent = `${state.currentQ + 1} / ${state.questions.length}`;
   document.getElementById('score-value').textContent = state.score;
 
@@ -2321,6 +2323,7 @@ function nextQuestion() {
 
 // ===== SHOW RESULTS =====
 function showResults() {
+  document.getElementById('progress-fill').style.width = '100%';
   const elapsed = Math.round((Date.now() - state.startTime) / 1000);
   const total = state.questions.length;
   const ratio = state.correct / total;
