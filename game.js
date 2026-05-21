@@ -1808,10 +1808,8 @@ function toggleFuncById(id, chip) {
 const SPEECH_ZERO = [
   'Vyberte si funkce, které chcete procvičit, a pojďme na to!',
   'Tak co, na co se dneska vrhneme?',
-  'Učitel čeká, funkce čekají…',
   'Bez funkce to nepůjde. Vyber jednu nebo víc!',
   'Neboj, žádná funkce není moc složitá.',
-  'Pojďme porazit tabulky!',
   'Excel čeká na svého mistra.',
   'Kuboo sakra ale to máš umět!!',
   'Děcka musíte se více hlásit..',
@@ -2378,10 +2376,10 @@ function showResults() {
     comment = 'Základ zvládáš, ale ještě je co zlepšovat.';
   } else if (ratio >= 0.3) {
     moodKey = 'bad'; grade = 'Dostatečný 😟';
-    comment = 'Potřebuješ ještě hodně procvičovat!';
+    comment = 'Ne každej může být chytrej jako já...';
   } else {
     moodKey = 'very-bad'; grade = 'Nedostatečný 😤';
-    comment = 'Nevzdávej se! Zkus to ještě jednou od začátku.';
+    comment = 'COPT čeká...';
   }
 
   showScreen('screen-results');
