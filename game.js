@@ -1805,17 +1805,55 @@ function toggleFuncById(id, chip) {
   }
 }
 
+const SPEECH_ZERO = [
+  'Vyberte si funkce, které chcete procvičit, a pojďme na to!',
+  'Tak co, na co se dneska vrhneme?',
+  'Učitel čeká, funkce čekají…',
+  'Bez funkce to nepůjde. Vyber jednu nebo víc!',
+  'Neboj, žádná funkce není moc složitá.',
+  'Pojďme porazit tabulky!',
+  'Excel čeká na svého mistra.',
+  'Kuboo sakra ale to máš umět!!',
+  'Děcka musíte se více hlásit..',
+  'Gigabitový internet do každé domácnosti',
+  'Já si koupím ostrov a budu tam mít vlastní Excelový ráj',
+  'Pokud nebudeš umět funkce, tak tě pošlu si sednout ven za narkomanama na lavičku!!',
+];
+
+const SPEECH_ONE = [
+  'Vybrána 1 funkce. Dobrá volba!',
+  'Jedna funkce – pěkná výzva. Zvládneš to!',
+  'Soustředíš se na jednu funkci. Dobrý plán!',
+  'Jedna funkce k procvičení, pořádně do hloubky.',
+  'Začínáme s jednou funkcí. Ideální na rozjezd!',
+];
+
+const SPEECH_MANY = [
+  'Vybráno ${n} funkcí. Šikovný výběr – jdeme na to!',
+  'Paráda, ${n} funkcí v jednom kole!',
+  '${n} funkcí? To bude jízda!',
+  'Hodně odvážný výběr – ${n} funkcí!',
+  '${n} funkcí najednou. Líbí se mi tvůj styl!',
+];
+
 function updateSpeechBubble() {
   const bubble = document.querySelector('.speech-bubble');
   if (!bubble) return;
   const n = state.selectedFuncs.length;
+  let msgs;
   if (n === 0) {
-    bubble.textContent = 'Vyberte si funkce, které chcete procvičit, a pojďme na to!';
+    msgs = SPEECH_ZERO;
   } else if (n === 1) {
-    bubble.textContent = `Vybrána 1 funkce. Připravuji příklady…`;
+    msgs = SPEECH_ONE;
   } else {
-    bubble.textContent = `Vybráno ${n} funkcí. Šikovný výběr – jdeme na to!`;
+    msgs = SPEECH_MANY.map(s => s.replace(/\$\{n\}/g, n));
   }
+  // Pick a random message, but different from current one
+  let pick;
+  do {
+    pick = msgs[Math.floor(Math.random() * msgs.length)];
+  } while (pick === bubble.textContent && msgs.length > 1);
+  bubble.textContent = pick;
 }
 
 // ===== START GAME =====
