@@ -853,3 +853,30 @@ html, body {
   color: #1a56db;
   font-weight: 600;
 }
+
+/* ===== START BUTTON VALIDATION ===== */
+.no-func-hint {
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--accent-red);
+  background: rgba(248,113,113,0.1);
+  border: 1px solid rgba(248,113,113,0.3);
+  border-radius: 6px;
+  padding: 8px 14px;
+  opacity: 0;
+  transition: opacity 0.25s;
+  pointer-events: none;
+}
+
+@keyframes btn-shake {
+  0%,100% { transform: translateX(0); }
+  15%      { transform: translateX(-7px); }
+  35%      { transform: translateX(7px); }
+  55%      { transform: translateX(-5px); }
+  75%      { transform: translateX(5px); }
+  90%      { transform: translateX(-2px); }
+}
+.start-btn.btn-shake {
+  animation: btn-shake 0.45s ease;
+}
