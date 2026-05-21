@@ -86,187 +86,6 @@ const ALL_QUESTIONS = [
     correctFormula: '=SUM(C2:C7)',
     expectedResult: '17 200 Kč',
   },
-  {
-    funcId: 'SUM',
-    desc: 'V buňce B6 spočítej celkovou kvartální tržbu – sečti hodnoty v B2:B5.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Měsíc',  'Tržba (Kč)'],
-        ['2', 'Leden',  '34000'],
-        ['3', 'Únor',   '28500'],
-        ['4', 'Březen', '39700'],
-        ['5', 'Duben',  '31200'],
-        ['6', 'CELKEM', '❓'],
-      ],
-    },
-    answerCell: 'B6',
-    hint: 'Sečti celý sloupec: =SUM(B2:B5)',
-    checkFn: (f) => normalizeFormula(f) === 'SUM(B2:B5)',
-    correctFormula: '=SUM(B2:B5)',
-    expectedResult: '133 400 Kč',
-  },
-  {
-    funcId: 'SUM',
-    desc: 'Vypočítej celkový počet odpracovaných hodin za týden (B2:B6) do buňky B7.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Den',    'Hodiny'],
-        ['2', 'Pondělí','8.5'],
-        ['3', 'Úterý',  '7.75'],
-        ['4', 'Středa', '9'],
-        ['5', 'Čtvrtek','8'],
-        ['6', 'Pátek',  '6.5'],
-        ['7', 'CELKEM', '❓'],
-      ],
-    },
-    answerCell: 'B7',
-    hint: 'Součet hodin =SUM(B2:B6)',
-    checkFn: (f) => normalizeFormula(f) === 'SUM(B2:B6)',
-    correctFormula: '=SUM(B2:B6)',
-    expectedResult: '39,75 h',
-  },
-  {
-    funcId: 'SUM',
-    desc: 'Sečti měsíční tržby za celý rok (B2:B13). Výsledek vlož do B14.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Měsíc', 'Tržba (Kč)'],
-        ['2', 'Leden', '42000'],
-        ['3', 'Únor',  '38500'],
-        ['4', 'Březen','47100'],
-        ['5', 'Duben', '43900'],
-        ['6', 'Květen','51200'],
-        ['7', 'Červen','49800'],
-        ['8', 'Červenec','52300'],
-        ['9', 'Srpen',  '54700'],
-        ['10','Září',   '46100'],
-        ['11','Říjen',  '43400'],
-        ['12','Listopad','39800'],
-        ['13','Prosinec','57200'],
-        ['14','CELKEM', '❓'],
-      ],
-    },
-    answerCell: 'B14',
-    hint: '=SUM(B2:B13) – roční tržby',
-    checkFn: (f) => normalizeFormula(f) === 'SUM(B2:B13)',
-    correctFormula: '=SUM(B2:B13)',
-    expectedResult: '566 000 Kč',
-  },
-  {
-    funcId: 'SUM',
-    desc: 'Vypočítej celkovou ujetou vzdálenost (B2:B7). Výsledek do B8.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Den',  'km'],
-        ['2', 'Po',   '85'],
-        ['3', 'Út',   '120'],
-        ['4', 'St',   '95'],
-        ['5', 'Čt',   '110'],
-        ['6', 'Pá',   '75'],
-        ['7', 'So',   '145'],
-        ['8', 'CELKEM','❓'],
-      ],
-    },
-    answerCell: 'B8',
-    hint: '=SUM(B2:B7) – celková vzdálenost',
-    checkFn: (f) => normalizeFormula(f) === 'SUM(B2:B7)',
-    correctFormula: '=SUM(B2:B7)',
-    expectedResult: '630 km',
-  },
-  {
-    funcId: 'SUM',
-    desc: 'Sečti celkový počet odpracovaných hodin na projektu (B2:B9). Výsledek do B10.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Zaměstnanec', 'Hodiny'],
-        ['2', 'Novák',       '152'],
-        ['3', 'Černá',       '168'],
-        ['4', 'Procházka',   '145'],
-        ['5', 'Svobodová',   '172'],
-        ['6', 'Dvořák',      '138'],
-        ['7', 'Beneš',       '155'],
-        ['8', 'Kovář',       '149'],
-        ['9', 'Marek',       '163'],
-        ['10','CELKEM',      '❓'],
-      ],
-    },
-    answerCell: 'B10',
-    hint: '=SUM(B2:B9) – celkový počet hodin',
-    checkFn: (f) => normalizeFormula(f) === 'SUM(B2:B9)',
-    correctFormula: '=SUM(B2:B9)',
-    expectedResult: '1 242 h',
-  },
-  {
-    funcId: 'SUM',
-    desc: 'Vypočítej celkový kalorický příjem za den (B2:B7). Výsledek do B8.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Jídlo',     'Kalorie'],
-        ['2', 'Snídaně',   '650'],
-        ['3', 'Svačina',   '220'],
-        ['4', 'Oběd',      '850'],
-        ['5', 'Svačina',   '180'],
-        ['6', 'Večeře',    '720'],
-        ['7', 'Druhá večeře','310'],
-        ['8', 'CELKEM',    '❓'],
-      ],
-    },
-    answerCell: 'B8',
-    hint: '=SUM(B2:B7) – celkové kalorie',
-    checkFn: (f) => normalizeFormula(f) === 'SUM(B2:B7)',
-    correctFormula: '=SUM(B2:B7)',
-    expectedResult: '2 930 kcal',
-  },
-  {
-    funcId: 'SUM',
-    desc: 'Sečti celkový počet hlasů ve volbách (B2:B7). Výsledek do B8.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Kandidát', 'Hlasy'],
-        ['2', 'Novák',    '15200'],
-        ['3', 'Černá',    '23100'],
-        ['4', 'Procházka','18400'],
-        ['5', 'Svobodová','9700'],
-        ['6', 'Dvořák',   '12800'],
-        ['7', 'Beneš',    '5600'],
-        ['8', 'CELKEM',   '❓'],
-      ],
-    },
-    answerCell: 'B8',
-    hint: '=SUM(B2:B7) – celkový počet hlasů',
-    checkFn: (f) => normalizeFormula(f) === 'SUM(B2:B7)',
-    correctFormula: '=SUM(B2:B7)',
-    expectedResult: '84 800',
-  },
-  {
-    funcId: 'SUM',
-    desc: 'Vypočítej celkové náklady na kancelářské potřeby (C2:C7). Výsledek do C8.',
-    table: {
-      headers: ['', 'B', 'C'],
-      rows: [
-        ['1', 'Položka',    'Cena (Kč)'],
-        ['2', 'Papír A4',   '850'],
-        ['3', 'Tonery',     '3200'],
-        ['4', 'Sešívačky',  '450'],
-        ['5', 'Propisky',   '620'],
-        ['6', 'Lepicí pásky','280'],
-        ['7', 'Desky',      '540'],
-        ['8', 'CELKEM',     '❓'],
-      ],
-    },
-    answerCell: 'C8',
-    hint: '=SUM(C2:C7) – celkové náklady',
-    checkFn: (f) => normalizeFormula(f) === 'SUM(C2:C7)',
-    correctFormula: '=SUM(C2:C7)',
-    expectedResult: '5 940 Kč',
-  },
 
   // --- AVERAGE ---
   {
@@ -313,183 +132,6 @@ const ALL_QUESTIONS = [
     correctFormula: '=AVERAGE(D2:D6)',
     expectedResult: '2,40',
   },
-  {
-    funcId: 'AVERAGE',
-    desc: 'Vypočítej průměrné měsíční srážky ze sloupce B. Výsledek vlož do B8.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Měsíc', 'Srážky (mm)'],
-        ['2', 'Leden', '45'],
-        ['3', 'Únor',  '38'],
-        ['4', 'Březen','52'],
-        ['5', 'Duben', '41'],
-        ['6', 'Květen','63'],
-        ['7', 'Červen','57'],
-        ['8', 'Průměr','❓'],
-      ],
-    },
-    answerCell: 'B8',
-    hint: '=AVERAGE(B2:B7) spočítá průměr',
-    checkFn: (f) => normalizeFormula(f) === 'AVERAGE(B2:B7)',
-    correctFormula: '=AVERAGE(B2:B7)',
-    expectedResult: '49,33 mm',
-  },
-  {
-    funcId: 'AVERAGE',
-    desc: 'Spočítej průměrnou cenu prodaných vstupenek (C2:C6). Výsledek do C7.',
-    table: {
-      headers: ['', 'B', 'C'],
-      rows: [
-        ['1', 'Sektor',  'Cena (Kč)'],
-        ['2', 'Stání',   '250'],
-        ['3', 'Tribuna', '480'],
-        ['4', 'VIP',     '1200'],
-        ['5', 'Lóže',    '2500'],
-        ['6', 'Dětský',  '150'],
-        ['7', 'Průměr',  '❓'],
-      ],
-    },
-    answerCell: 'C7',
-    hint: '=AVERAGE(C2:C6) – průměrná cena vstupenky',
-    checkFn: (f) => normalizeFormula(f) === 'AVERAGE(C2:C6)',
-    correctFormula: '=AVERAGE(C2:C6)',
-    expectedResult: '916 Kč',
-  },
-  {
-    funcId: 'AVERAGE',
-    desc: 'Vypočítej průměrnou výšku hráčů basketbalu (B2:B7). Výsledek do B8.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Hráč',  'Výška (cm)'],
-        ['2', 'Jan',   '195'],
-        ['3', 'Petr',  '202'],
-        ['4', 'Tomáš', '188'],
-        ['5', 'Lukáš', '210'],
-        ['6', 'David', '196'],
-        ['7', 'Ondřej','204'],
-        ['8', 'Průměr','❓'],
-      ],
-    },
-    answerCell: 'B8',
-    hint: '=AVERAGE(B2:B7) – průměrná výška',
-    checkFn: (f) => normalizeFormula(f) === 'AVERAGE(B2:B7)',
-    correctFormula: '=AVERAGE(B2:B7)',
-    expectedResult: '199,17 cm',
-  },
-  {
-    funcId: 'AVERAGE',
-    desc: 'Spočítej průměrnou měsíční spotřebu elektřiny (B2:B8). Výsledek do B9.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Měsíc', 'Spotřeba (kWh)'],
-        ['2', 'Leden', '320'],
-        ['3', 'Únor',  '280'],
-        ['4', 'Březen','260'],
-        ['5', 'Duben', '210'],
-        ['6', 'Květen','190'],
-        ['7', 'Červen','180'],
-        ['8', 'Červenec','200'],
-        ['9', 'Průměr','❓'],
-      ],
-    },
-    answerCell: 'B9',
-    hint: '=AVERAGE(B2:B8) – průměrná spotřeba',
-    checkFn: (f) => normalizeFormula(f) === 'AVERAGE(B2:B8)',
-    correctFormula: '=AVERAGE(B2:B8)',
-    expectedResult: '234,29 kWh',
-  },
-  {
-    funcId: 'AVERAGE',
-    desc: 'Vypočítej průměrnou rychlost jízdy (B2:B6). Výsledek do B7.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Úsek',     'Rychlost (km/h)'],
-        ['2', 'D1 km 0-50','68'],
-        ['3', 'D1 km 50-100','72'],
-        ['4', 'D1 km 100-150','65'],
-        ['5', 'D1 km 150-200','71'],
-        ['6', 'D1 km 200-250','69'],
-        ['7', 'Průměr',   '❓'],
-      ],
-    },
-    answerCell: 'B7',
-    hint: '=AVERAGE(B2:B6) – průměrná rychlost',
-    checkFn: (f) => normalizeFormula(f) === 'AVERAGE(B2:B6)',
-    correctFormula: '=AVERAGE(B2:B6)',
-    expectedResult: '69 km/h',
-  },
-  {
-    funcId: 'AVERAGE',
-    desc: 'Spočítej průměrnou hodnotu nákupního košíku (C2:C7). Výsledek do C8.',
-    table: {
-      headers: ['', 'B', 'C'],
-      rows: [
-        ['1', 'Zákazník', 'Nákup (Kč)'],
-        ['2', 'Jan',      '850'],
-        ['3', 'Eva',      '1240'],
-        ['4', 'Petr',     '520'],
-        ['5', 'Lucie',    '1980'],
-        ['6', 'Tomáš',    '760'],
-        ['7', 'Klára',    '1430'],
-        ['8', 'Průměr',   '❓'],
-      ],
-    },
-    answerCell: 'C8',
-    hint: '=AVERAGE(C2:C7) – průměrný nákup',
-    checkFn: (f) => normalizeFormula(f) === 'AVERAGE(C2:C7)',
-    correctFormula: '=AVERAGE(C2:C7)',
-    expectedResult: '1 130 Kč',
-  },
-  {
-    funcId: 'AVERAGE',
-    desc: 'Vypočítej průměrnou mzdu zaměstnanců (B2:B8). Výsledek do B9.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Zaměstnanec', 'Mzda (Kč)'],
-        ['2', 'Novák',       '45000'],
-        ['3', 'Černá',       '52000'],
-        ['4', 'Procházka',   '38000'],
-        ['5', 'Svobodová',   '47000'],
-        ['6', 'Dvořák',      '55000'],
-        ['7', 'Beneš',       '41000'],
-        ['8', 'Kovář',       '49000'],
-        ['9', 'Průměr',      '❓'],
-      ],
-    },
-    answerCell: 'B9',
-    hint: '=AVERAGE(B2:B8) – průměrná mzda',
-    checkFn: (f) => normalizeFormula(f) === 'AVERAGE(B2:B8)',
-    correctFormula: '=AVERAGE(B2:B8)',
-    expectedResult: '46 714 Kč',
-  },
-  {
-    funcId: 'AVERAGE',
-    desc: 'Spočítej průměrnou denní návštěvnost (B2:B8). Výsledek do B9.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Den',  'Návštěvníci'],
-        ['2', 'Po',   '245'],
-        ['3', 'Út',   '198'],
-        ['4', 'St',   '312'],
-        ['5', 'Čt',   '287'],
-        ['6', 'Pá',   '423'],
-        ['7', 'So',   '568'],
-        ['8', 'Ne',   '489'],
-        ['9', 'Průměr','❓'],
-      ],
-    },
-    answerCell: 'B9',
-    hint: '=AVERAGE(B2:B8) – průměrná návštěvnost',
-    checkFn: (f) => normalizeFormula(f) === 'AVERAGE(B2:B8)',
-    correctFormula: '=AVERAGE(B2:B8)',
-    expectedResult: '360,29',
-  },
 
   // --- MIN ---
   {
@@ -512,212 +154,6 @@ const ALL_QUESTIONS = [
     checkFn: (f) => normalizeFormula(f) === 'MIN(B2:B6)',
     correctFormula: '=MIN(B2:B6)',
     expectedResult: '89 Kč',
-  },
-  {
-    funcId: 'MIN',
-    desc: 'Najdi nejkratší dobu dodání (ve dnech) ve sloupci C. Výsledek vlož do C9.',
-    table: {
-      headers: ['', 'B', 'C'],
-      rows: [
-        ['1', 'Objednávka', 'Dodání (dny)'],
-        ['2', '#1001',      '3'],
-        ['3', '#1002',      '5'],
-        ['4', '#1003',      '2'],
-        ['5', '#1004',      '7'],
-        ['6', '#1005',      '4'],
-        ['7', '#1006',      '3'],
-        ['8', '#1007',      '6'],
-        ['9', 'Minimum',    '❓'],
-      ],
-    },
-    answerCell: 'C9',
-    hint: '=MIN(C2:C8) najde nejmenší číslo',
-    checkFn: (f) => normalizeFormula(f) === 'MIN(C2:C8)',
-    correctFormula: '=MIN(C2:C8)',
-    expectedResult: '2 dny',
-  },
-  {
-    funcId: 'MIN',
-    desc: 'Zjisti nejnižší naměřenou teplotu v týdnu (B2:B8). Výsledek do B9.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Den', 'Teplota (°C)'],
-        ['2', 'Po',  '-2'],
-        ['3', 'Út',  '0'],
-        ['4', 'St',  '3'],
-        ['5', 'Čt',  '-1'],
-        ['6', 'Pá',  '-5'],
-        ['7', 'So',  '1'],
-        ['8', 'Ne',  '4'],
-        ['9', 'Minimum', '❓'],
-      ],
-    },
-    answerCell: 'B9',
-    hint: '=MIN(B2:B8) – nejnižší teplota',
-    checkFn: (f) => normalizeFormula(f) === 'MIN(B2:B8)',
-    correctFormula: '=MIN(B2:B8)',
-    expectedResult: '-5 °C',
-  },
-  {
-    funcId: 'MIN',
-    desc: 'Najdi nejrychlejší čas v závodě (C2:C8, nejnižší číslo = nejrychlejší). Výsledek do C9.',
-    table: {
-      headers: ['', 'B', 'C'],
-      rows: [
-        ['1', 'Závodník', 'Čas (s)'],
-        ['2', 'Tomáš',    '12.5'],
-        ['3', 'Petr',     '11.8'],
-        ['4', 'Lucie',    '13.2'],
-        ['5', 'Eva',      '12.1'],
-        ['6', 'Jan',      '14.0'],
-        ['7', 'Klára',    '11.5'],
-        ['8', 'Martin',   '12.8'],
-        ['9', 'Minimum',  '❓'],
-      ],
-    },
-    answerCell: 'C9',
-    hint: '=MIN(C2:C8) – nejnižší čas (nejrychlejší)',
-    checkFn: (f) => normalizeFormula(f) === 'MIN(C2:C8)',
-    correctFormula: '=MIN(C2:C8)',
-    expectedResult: '11,5 s',
-  },
-  {
-    funcId: 'MIN',
-    desc: 'Zjisti nejnižší skóre v testu (B2:B8). Výsledek do B9.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Student', 'Skóre'],
-        ['2', 'Adam',    '85'],
-        ['3', 'Bára',    '42'],
-        ['4', 'Cyril',   '73'],
-        ['5', 'Dana',    '38'],
-        ['6', 'Eva',     '91'],
-        ['7', 'Filip',   '55'],
-        ['8', 'Gábina',  '68'],
-        ['9', 'Minimum', '❓'],
-      ],
-    },
-    answerCell: 'B9',
-    hint: '=MIN(B2:B8) – nejnižší skóre',
-    checkFn: (f) => normalizeFormula(f) === 'MIN(B2:B8)',
-    correctFormula: '=MIN(B2:B8)',
-    expectedResult: '38',
-  },
-  {
-    funcId: 'MIN',
-    desc: 'Najdi nejmenší velikost souboru v MB (B2:B7). Výsledek do B8.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Soubor',    'Velikost (MB)'],
-        ['2', 'foto.jpg',  '4.2'],
-        ['3', 'video.mp4', '850'],
-        ['4', 'doc.pdf',   '2.1'],
-        ['5', 'audio.mp3', '8.5'],
-        ['6', 'data.xlsx', '0.8'],
-        ['7', 'preze.pptx','15.3'],
-        ['8', 'Minimum',   '❓'],
-      ],
-    },
-    answerCell: 'B8',
-    hint: '=MIN(B2:B7) – nejmenší soubor',
-    checkFn: (f) => normalizeFormula(f) === 'MIN(B2:B7)',
-    correctFormula: '=MIN(B2:B7)',
-    expectedResult: '0,8 MB',
-  },
-  {
-    funcId: 'MIN',
-    desc: 'Najdi nejnižší cenu v katalogu produktů (B2:B9). Výsledek do B10.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Produkt',    'Cena (Kč)'],
-        ['2', 'Notebook',   '15990'],
-        ['3', 'Myš',        '449'],
-        ['4', 'Monitor',    '5290'],
-        ['5', 'Klávesnice', '1090'],
-        ['6', 'Sluchátka',  '1590'],
-        ['7', 'Podložka',   '199'],
-        ['8', 'Kabel USB',  '89'],
-        ['9', 'Reproduktor','2190'],
-        ['10','Minimum',    '❓'],
-      ],
-    },
-    answerCell: 'B10',
-    hint: '=MIN(B2:B9) – nejlevnější produkt',
-    checkFn: (f) => normalizeFormula(f) === 'MIN(B2:B9)',
-    correctFormula: '=MIN(B2:B9)',
-    expectedResult: '89 Kč',
-  },
-  {
-    funcId: 'MIN',
-    desc: 'Zjisti minimální věk účastníka kurzu (B2:B8). Výsledek do B9.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Účastník', 'Věk'],
-        ['2', 'Jan',      '25'],
-        ['3', 'Eva',      '22'],
-        ['4', 'Petr',     '31'],
-        ['5', 'Lucie',    '19'],
-        ['6', 'Tomáš',    '28'],
-        ['7', 'Klára',    '24'],
-        ['8', 'Martin',   '35'],
-        ['9', 'Minimum',  '❓'],
-      ],
-    },
-    answerCell: 'B9',
-    hint: '=MIN(B2:B8) – nejnižší věk',
-    checkFn: (f) => normalizeFormula(f) === 'MIN(B2:B8)',
-    correctFormula: '=MIN(B2:B8)',
-    expectedResult: '19',
-  },
-  {
-    funcId: 'MIN',
-    desc: 'Najdi nejmenší objednané množství (B2:B8). Výsledek do B9.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Položka',  'Množství'],
-        ['2', 'Notebook', '5'],
-        ['3', 'Myš',      '25'],
-        ['4', 'Monitor',  '3'],
-        ['5', 'Klávesnice','15'],
-        ['6', 'Tablet',   '8'],
-        ['7', 'Tiskárna', '2'],
-        ['8', 'Router',   '12'],
-        ['9', 'Minimum',  '❓'],
-      ],
-    },
-    answerCell: 'B9',
-    hint: '=MIN(B2:B8) – nejmenší množství',
-    checkFn: (f) => normalizeFormula(f) === 'MIN(B2:B8)',
-    correctFormula: '=MIN(B2:B8)',
-    expectedResult: '2',
-  },
-  {
-    funcId: 'MIN',
-    desc: 'Zjisti minimální rozpočet projektu (C2:C7). Výsledek do C8.',
-    table: {
-      headers: ['', 'B', 'C'],
-      rows: [
-        ['1', 'Projekt', 'Rozpočet (Kč)'],
-        ['2', 'Alfa',    '150000'],
-        ['3', 'Beta',    '250000'],
-        ['4', 'Gama',    '80000'],
-        ['5', 'Delta',   '320000'],
-        ['6', 'Epsilon', '95000'],
-        ['7', 'Zeta',    '210000'],
-        ['8', 'Minimum', '❓'],
-      ],
-    },
-    answerCell: 'C8',
-    hint: '=MIN(C2:C7) – nejnižší rozpočet',
-    checkFn: (f) => normalizeFormula(f) === 'MIN(C2:C7)',
-    correctFormula: '=MIN(C2:C7)',
-    expectedResult: '80 000 Kč',
   },
 
   // --- MAX ---
@@ -743,208 +179,6 @@ const ALL_QUESTIONS = [
     correctFormula: '=MAX(C2:C7)',
     expectedResult: '6 100',
   },
-  {
-    funcId: 'MAX',
-    desc: 'Najdi nejvyšší prodejní cenu produktu ve sloupci B. Výsledek vlož do B9.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Produkt',    'Cena (Kč)'],
-        ['2', 'Notebook',   '25990'],
-        ['3', 'Tablet',     '8990'],
-        ['4', 'Mobil',      '15990'],
-        ['5', 'Sluchátka',  '3290'],
-        ['6', 'Reproduktor','2190'],
-        ['7', 'Myš',        '890'],
-        ['8', 'Klávesnice', '1490'],
-        ['9', 'Maximum',    '❓'],
-      ],
-    },
-    answerCell: 'B9',
-    hint: '=MAX(B2:B8) – nejdražší produkt',
-    checkFn: (f) => normalizeFormula(f) === 'MAX(B2:B8)',
-    correctFormula: '=MAX(B2:B8)',
-    expectedResult: '25 990 Kč',
-  },
-  {
-    funcId: 'MAX',
-    desc: 'Zjisti maximální počet diváků na zápase (C2:C7). Výsledek do C8.',
-    table: {
-      headers: ['', 'B', 'C'],
-      rows: [
-        ['1', 'Zápas',      'Diváci'],
-        ['2', 'Česko–Slovensko','18450'],
-        ['3', 'Česko–Polsko','21200'],
-        ['4', 'Česko–Německo','19580'],
-        ['5', 'Česko–Rakousko','12340'],
-        ['6', 'Česko–Maďarsko','16780'],
-        ['7', 'Česko–Švédsko','20100'],
-        ['8', 'Maximum',    '❓'],
-      ],
-    },
-    answerCell: 'C8',
-    hint: '=MAX(C2:C7) – nejvyšší návštěva',
-    checkFn: (f) => normalizeFormula(f) === 'MAX(C2:C7)',
-    correctFormula: '=MAX(C2:C7)',
-    expectedResult: '21 200',
-  },
-  {
-    funcId: 'MAX',
-    desc: 'Zjisti nejvyšší teplotu naměřenou v týdnu (B2:B8). Výsledek vlož do B9.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Den', 'Teplota (°C)'],
-        ['2', 'Po',  '28'],
-        ['3', 'Út',  '31'],
-        ['4', 'St',  '29'],
-        ['5', 'Čt',  '33'],
-        ['6', 'Pá',  '30'],
-        ['7', 'So',  '27'],
-        ['8', 'Ne',  '32'],
-        ['9', 'Maximum', '❓'],
-      ],
-    },
-    answerCell: 'B9',
-    hint: '=MAX(B2:B8) – nejvyšší teplota',
-    checkFn: (f) => normalizeFormula(f) === 'MAX(B2:B8)',
-    correctFormula: '=MAX(B2:B8)',
-    expectedResult: '33 °C',
-  },
-  {
-    funcId: 'MAX',
-    desc: 'Najdi nejdelší řeku v tabulce podle délky (B2:B7). Výsledek do B8.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Řeka',    'Délka (km)'],
-        ['2', 'Vltava',  '430'],
-        ['3', 'Labe',    '1154'],
-        ['4', 'Morava',  '353'],
-        ['5', 'Odra',    '855'],
-        ['6', 'Berounka','139'],
-        ['7', 'Sázava',  '225'],
-        ['8', 'Maximum', '❓'],
-      ],
-    },
-    answerCell: 'B8',
-    hint: '=MAX(B2:B7) – nejdelší řeka',
-    checkFn: (f) => normalizeFormula(f) === 'MAX(B2:B7)',
-    correctFormula: '=MAX(B2:B7)',
-    expectedResult: '1 154 km',
-  },
-  {
-    funcId: 'MAX',
-    desc: 'Zjisti nejvyšší tepovou frekvenci během cvičení (C2:C8). Výsledek do C9.',
-    table: {
-      headers: ['', 'B', 'C'],
-      rows: [
-        ['1', 'Minuta', 'Tep (bpm)'],
-        ['2', '1',      '72'],
-        ['3', '5',      '118'],
-        ['4', '10',     '145'],
-        ['5', '15',     '162'],
-        ['6', '20',     '158'],
-        ['7', '25',     '170'],
-        ['8', '30',     '165'],
-        ['9', 'Maximum','❓'],
-      ],
-    },
-    answerCell: 'C9',
-    hint: '=MAX(C2:C8) – max. tepová frekvence',
-    checkFn: (f) => normalizeFormula(f) === 'MAX(C2:C8)',
-    correctFormula: '=MAX(C2:C8)',
-    expectedResult: '170 bpm',
-  },
-  {
-    funcId: 'MAX',
-    desc: 'Najdi nejvyšší horu podle nadmořské výšky (B2:B7). Výsledek do B8.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Hora',     'Výška (m n.m.)'],
-        ['2', 'Sněžka',   '1603'],
-        ['3', 'Luční hora','1555'],
-        ['4', 'Praděd',   '1491'],
-        ['5', 'Kralický Sněžník','1424'],
-        ['6', 'Klínovec', '1244'],
-        ['7', 'Radhošť', '1129'],
-        ['8', 'Maximum',  '❓'],
-      ],
-    },
-    answerCell: 'B8',
-    hint: '=MAX(B2:B7) – nejvyšší hora',
-    checkFn: (f) => normalizeFormula(f) === 'MAX(B2:B7)',
-    correctFormula: '=MAX(B2:B7)',
-    expectedResult: '1 603 m',
-  },
-  {
-    funcId: 'MAX',
-    desc: 'Zjisti největší rozpočet projektu (C2:C7). Výsledek do C8.',
-    table: {
-      headers: ['', 'B', 'C'],
-      rows: [
-        ['1', 'Projekt', 'Rozpočet (Kč)'],
-        ['2', 'Alfa',    '150000'],
-        ['3', 'Beta',    '250000'],
-        ['4', 'Gama',    '180000'],
-        ['5', 'Delta',   '320000'],
-        ['6', 'Epsilon', '95000'],
-        ['7', 'Zeta',    '210000'],
-        ['8', 'Maximum', '❓'],
-      ],
-    },
-    answerCell: 'C8',
-    hint: '=MAX(C2:C7) – nejvyšší rozpočet',
-    checkFn: (f) => normalizeFormula(f) === 'MAX(C2:C7)',
-    correctFormula: '=MAX(C2:C7)',
-    expectedResult: '320 000 Kč',
-  },
-  {
-    funcId: 'MAX',
-    desc: 'Najdi nejrychlejší kolo závodu (C2:C8). Výsledek do C9.',
-    table: {
-      headers: ['', 'B', 'C'],
-      rows: [
-        ['1', 'Jezdec',  'Čas kola (s)'],
-        ['2', 'Verstappen','72.4'],
-        ['3', 'Hamilton',  '71.8'],
-        ['4', 'Leclerc',   '73.1'],
-        ['5', 'Norris',    '72.9'],
-        ['6', 'Sainz',     '72.6'],
-        ['7', 'Russell',   '73.4'],
-        ['8', 'Pérez',     '72.1'],
-        ['9', 'Maximum',   '❓'],
-      ],
-    },
-    answerCell: 'C9',
-    hint: '=MAX(C2:C8) – nejrychlejší kolo (nejvyšší už je pomalejší, tady hledáme max číslo)',
-    checkFn: (f) => normalizeFormula(f) === 'MAX(C2:C8)',
-    correctFormula: '=MAX(C2:C8)',
-    expectedResult: '73,4 s',
-  },
-  {
-    funcId: 'MAX',
-    desc: 'Zjisti kolik maximálně lidí se vešlo na koncert (C2:C7). Výsledek do C8.',
-    table: {
-      headers: ['', 'B', 'C'],
-      rows: [
-        ['1', 'Koncert',    'Návštěvnost'],
-        ['2', 'Praha',      '18500'],
-        ['3', 'Brno',       '12500'],
-        ['4', 'Ostrava',    '9800'],
-        ['5', 'Plzeň',      '7200'],
-        ['6', 'Liberec',    '5400'],
-        ['7', 'Č. Budějovice','6100'],
-        ['8', 'Maximum',    '❓'],
-      ],
-    },
-    answerCell: 'C8',
-    hint: '=MAX(C2:C7) – max. návštěvnost',
-    checkFn: (f) => normalizeFormula(f) === 'MAX(C2:C7)',
-    correctFormula: '=MAX(C2:C7)',
-    expectedResult: '18 500',
-  },
 
   // --- COUNT ---
   {
@@ -968,223 +202,6 @@ const ALL_QUESTIONS = [
     checkFn: (f) => normalizeFormula(f) === 'COUNT(B2:B7)',
     correctFormula: '=COUNT(B2:B7)',
     expectedResult: '4',
-  },
-  {
-    funcId: 'COUNT',
-    desc: 'Spočítej kolik účastníků odevzdalo test (číselné skóre v C2:C10). Výsledek do C11.',
-    table: {
-      headers: ['', 'B', 'C'],
-      rows: [
-        ['1', 'Účastník','Skóre'],
-        ['2', 'Jan',     '85'],
-        ['3', 'Eva',     '92'],
-        ['4', 'Petr',    '–'],
-        ['5', 'Lucie',   '78'],
-        ['6', 'Tomáš',   '–'],
-        ['7', 'Klára',   '95'],
-        ['8', 'Marek',   '–'],
-        ['9', 'Ivana',   '88'],
-        ['10','Radek',   '74'],
-        ['11','Počet',   '❓'],
-      ],
-    },
-    answerCell: 'C11',
-    hint: '=COUNT(C2:C10) počítá jen číselné buňky',
-    checkFn: (f) => normalizeFormula(f) === 'COUNT(C2:C10)',
-    correctFormula: '=COUNT(C2:C10)',
-    expectedResult: '6',
-  },
-  {
-    funcId: 'COUNT',
-    desc: 'Spočítej kolik zakázek má přiřazenou cenu (číselné hodnoty v D2:D9). Výsledek do D10.',
-    table: {
-      headers: ['', 'C', 'D'],
-      rows: [
-        ['1', 'Zakázka',  'Cena (Kč)'],
-        ['2', 'Z-001',    '15000'],
-        ['3', 'Z-002',    ''],
-        ['4', 'Z-003',    '8200'],
-        ['5', 'Z-004',    ''],
-        ['6', 'Z-005',    '23500'],
-        ['7', 'Z-006',    '4100'],
-        ['8', 'Z-007',    ''],
-        ['9', 'Z-008',    '9700'],
-        ['10','Počet',    '❓'],
-      ],
-    },
-    answerCell: 'D10',
-    hint: '=COUNT(D2:D9) – pouze buňky s číslem',
-    checkFn: (f) => normalizeFormula(f) === 'COUNT(D2:D9)',
-    correctFormula: '=COUNT(D2:D9)',
-    expectedResult: '5',
-  },
-  {
-    funcId: 'COUNT',
-    desc: 'Spočítej kolik studentů odevzdalo domácí úkol (A2:A9, číselné hodnocení). Výsledek do B1.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Student', '❓'],
-        ['2', '85',      ''],
-        ['3', '92',      ''],
-        ['4', '–',       ''],
-        ['5', '78',      ''],
-        ['6', '–',       ''],
-        ['7', '95',      ''],
-        ['8', '88',      ''],
-        ['9', '74',      ''],
-      ],
-    },
-    answerCell: 'B1',
-    hint: '=COUNT(A2:A9) – počítá pouze čísla',
-    checkFn: (f) => normalizeFormula(f) === 'COUNT(A2:A9)',
-    correctFormula: '=COUNT(A2:A9)',
-    expectedResult: '6',
-  },
-  {
-    funcId: 'COUNT',
-    desc: 'Spočítej kolik objednávek má vyplněné množství (číselné hodnoty v B2:B10). Výsledek do B11.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Objednávka', 'Množství'],
-        ['2', 'OBJ-001',    '5'],
-        ['3', 'OBJ-002',    ''],
-        ['4', 'OBJ-003',    '12'],
-        ['5', 'OBJ-004',    '3'],
-        ['6', 'OBJ-005',    ''],
-        ['7', 'OBJ-006',    '8'],
-        ['8', 'OBJ-007',    ''],
-        ['9', 'OBJ-008',    '15'],
-        ['10','OBJ-009',    '7'],
-        ['11','Počet',      '❓'],
-      ],
-    },
-    answerCell: 'B11',
-    hint: '=COUNT(B2:B10) – objednávky s číslem',
-    checkFn: (f) => normalizeFormula(f) === 'COUNT(B2:B10)',
-    correctFormula: '=COUNT(B2:B10)',
-    expectedResult: '6',
-  },
-  {
-    funcId: 'COUNT',
-    desc: 'Spočítej kolik závodníků má změřený čas (C2:C9, číselné hodnoty). Výsledek do C10.',
-    table: {
-      headers: ['', 'B', 'C'],
-      rows: [
-        ['1', 'Závodník', 'Čas (min)'],
-        ['2', 'Tomáš',    '15.2'],
-        ['3', 'Eva',      '18.7'],
-        ['4', 'Petr',     '–'],
-        ['5', 'Lucie',    '16.4'],
-        ['6', 'Martin',   '–'],
-        ['7', 'Klára',    '19.1'],
-        ['8', 'Jan',      '14.8'],
-        ['9', 'Hana',     '17.5'],
-        ['10','Počet',    '❓'],
-      ],
-    },
-    answerCell: 'C10',
-    hint: '=COUNT(C2:C9) – jen změřené časy',
-    checkFn: (f) => normalizeFormula(f) === 'COUNT(C2:C9)',
-    correctFormula: '=COUNT(C2:C9)',
-    expectedResult: '6',
-  },
-  {
-    funcId: 'COUNT',
-    desc: 'Spočítej kolik výrobků má evidovanou hmotnost (číselné hodnoty v D2:D9). Výsledek do D10.',
-    table: {
-      headers: ['', 'C', 'D'],
-      rows: [
-        ['1', 'Výrobek', 'Hmotnost (g)'],
-        ['2', 'V-001',   '250'],
-        ['3', 'V-002',   ''],
-        ['4', 'V-003',   '180'],
-        ['5', 'V-004',   ''],
-        ['6', 'V-005',   '320'],
-        ['7', 'V-006',   '450'],
-        ['8', 'V-007',   ''],
-        ['9', 'V-008',   '150'],
-        ['10','Počet',   '❓'],
-      ],
-    },
-    answerCell: 'D10',
-    hint: '=COUNT(D2:D9) – výrobky s hmotností',
-    checkFn: (f) => normalizeFormula(f) === 'COUNT(D2:D9)',
-    correctFormula: '=COUNT(D2:D9)',
-    expectedResult: '5',
-  },
-  {
-    funcId: 'COUNT',
-    desc: 'Spočítej kolik zaměstnanců má vyplněný plat (B2:B9, číselné hodnoty). Výsledek do B10.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Zaměstnanec', 'Plat (Kč)'],
-        ['2', 'Novák',       '45000'],
-        ['3', 'Černá',       ''],
-        ['4', 'Procházka',   '52000'],
-        ['5', 'Dvořák',      '38000'],
-        ['6', 'Svobodová',   ''],
-        ['7', 'Beneš',       '47000'],
-        ['8', 'Kovář',       ''],
-        ['9', 'Marek',       '41000'],
-        ['10','Počet',       '❓'],
-      ],
-    },
-    answerCell: 'B10',
-    hint: '=COUNT(B2:B9) – zaměstnanci s platem',
-    checkFn: (f) => normalizeFormula(f) === 'COUNT(B2:B9)',
-    correctFormula: '=COUNT(B2:B9)',
-    expectedResult: '5',
-  },
-  {
-    funcId: 'COUNT',
-    desc: 'Spočítej kolik vozidel má najeté kilometry (číselné hodnoty v C2:C9). Výsledek do C10.',
-    table: {
-      headers: ['', 'B', 'C'],
-      rows: [
-        ['1', 'Vozidlo', 'Najeto (km)'],
-        ['2', '1H5 1234','85200'],
-        ['3', '2A7 5678',''],
-        ['4', '3B9 9012','124500'],
-        ['5', '4C1 3456','65300'],
-        ['6', '5D3 7890',''],
-        ['7', '6E5 1234','98700'],
-        ['8', '7F7 5678',''],
-        ['9', '8G9 9012','71200'],
-        ['10','Počet',   '❓'],
-      ],
-    },
-    answerCell: 'C10',
-    hint: '=COUNT(C2:C9) – vozidla s kilometry',
-    checkFn: (f) => normalizeFormula(f) === 'COUNT(C2:C9)',
-    correctFormula: '=COUNT(C2:C9)',
-    expectedResult: '5',
-  },
-  {
-    funcId: 'COUNT',
-    desc: 'Spočítej kolik faktur má zapsanou částku (číselné hodnoty v B2:B9). Výsledek do B10.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Faktura', 'Částka (Kč)'],
-        ['2', 'FV-001',  '12500'],
-        ['3', 'FV-002',  ''],
-        ['4', 'FV-003',  '8900'],
-        ['5', 'FV-004',  '15600'],
-        ['6', 'FV-005',  ''],
-        ['7', 'FV-006',  '7200'],
-        ['8', 'FV-007',  '23200'],
-        ['9', 'FV-008',  ''],
-        ['10','Počet',   '❓'],
-      ],
-    },
-    answerCell: 'B10',
-    hint: '=COUNT(B2:B9) – faktury s částkou',
-    checkFn: (f) => normalizeFormula(f) === 'COUNT(B2:B9)',
-    correctFormula: '=COUNT(B2:B9)',
-    expectedResult: '5',
   },
 
   // --- IF ---
@@ -1225,158 +242,6 @@ const ALL_QUESTIONS = [
     correctFormula: '=IF(C2>3,"Opakovat","Postoupit")',
     expectedResult: '"Opakovat"',
   },
-  {
-    funcId: 'IF',
-    desc: 'V buňce C2 napiš vzorec: Pokud je prodej v B2 alespoň 10000, napiš "Splněno", jinak "Nesplněno".',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Prodejce', 'Prodej (Kč)', 'Status'],
-        ['2', 'A. K.',    '12500',       '❓'],
-        ['3', 'B. N.',    '8700',        ''],
-        ['4', 'C. P.',    '11200',       ''],
-        ['5', 'D. S.',    '9400',        ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=IF(B2>=10000,"Splněno","Nesplněno")',
-    checkFn: (f) => normalizeFormula(f) === 'IF(B2>=10000,"SPLNĚNO","NESPLNĚNO")',
-    correctFormula: '=IF(B2>=10000,"Splněno","Nesplněno")',
-    expectedResult: '"Splněno"',
-  },
-  {
-    funcId: 'IF',
-    desc: 'V buňce D2 rozhodni: Pokud je věk v C2 alespoň 18, napiš "Dospělý", jinak "Dítě".',
-    table: {
-      headers: ['', 'B', 'C', 'D'],
-      rows: [
-        ['1', 'Jméno', 'Věk', 'Kategorie'],
-        ['2', 'Petr',  '22',  '❓'],
-        ['3', 'Anna',  '16',  ''],
-        ['4', 'Martin','19',  ''],
-        ['5', 'Eva',   '14',  ''],
-      ],
-    },
-    answerCell: 'D2',
-    hint: '=IF(C2>=18,"Dospělý","Dítě")',
-    checkFn: (f) => normalizeFormula(f) === 'IF(C2>=18,"DOSPĚLÝ","DÍTĚ")',
-    correctFormula: '=IF(C2>=18,"Dospělý","Dítě")',
-    expectedResult: '"Dospělý"',
-  },
-  {
-    funcId: 'IF',
-    desc: 'V buňce C2 napiš: Pokud je teplota v B2 větší než 30, napiš "Horko", jinak "Normál".',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Město', 'Teplota (°C)', 'Stav'],
-        ['2', 'Praha', '32',           '❓'],
-        ['3', 'Brno',  '28',           ''],
-        ['4', 'Plzeň', '35',           ''],
-        ['5', 'Ostrava','25',          ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=IF(B2>30,"Horko","Normál")',
-    checkFn: (f) => normalizeFormula(f) === 'IF(B2>30,"HORKO","NORMÁL")',
-    correctFormula: '=IF(B2>30,"Horko","Normál")',
-    expectedResult: '"Horko"',
-  },
-  {
-    funcId: 'IF',
-    desc: 'V buňce C2 rozhodni: Pokud váha v B2 >= 100, napiš "Těžká", jinak "Lehká".',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Zásilka', 'Váha (kg)', 'Kategorie'],
-        ['2', 'Z-001',   '120',       '❓'],
-        ['3', 'Z-002',   '45',        ''],
-        ['4', 'Z-003',   '98',        ''],
-        ['5', 'Z-004',   '150',       ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=IF(B2>=100,"Těžká","Lehká")',
-    checkFn: (f) => normalizeFormula(f) === 'IF(B2>=100,"TĚŽKÁ","LEHKÁ")',
-    correctFormula: '=IF(B2>=100,"Těžká","Lehká")',
-    expectedResult: '"Těžká"',
-  },
-  {
-    funcId: 'IF',
-    desc: 'V buňce C2 napiš: Pokud je rychlost v B2 větší než 130, napiš "Pokuta", jinak "V pořádku".',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Jméno',  'Rychlost (km/h)', 'Výsledek'],
-        ['2', 'Petr',   '145',             '❓'],
-        ['3', 'Eva',    '118',             ''],
-        ['4', 'Tomáš',  '96',              ''],
-        ['5', 'Klára',  '132',             ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=IF(B2>130,"Pokuta","V pořádku")',
-    checkFn: (f) => normalizeFormula(f) === 'IF(B2>130,"POKUTA","V POŘÁDKU")',
-    correctFormula: '=IF(B2>130,"Pokuta","V pořádku")',
-    expectedResult: '"Pokuta"',
-  },
-  {
-    funcId: 'IF',
-    desc: 'V buňce C2 napiš: Pokud je skóre v B2 >= 70, napiš "Prospěl", jinak "Neprospěl".',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Student', 'Skóre', 'Výsledek'],
-        ['2', 'Adam',    '85',    '❓'],
-        ['3', 'Bára',    '62',    ''],
-        ['4', 'Cyril',   '45',    ''],
-        ['5', 'Dana',    '91',    ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=IF(B2>=70,"Prospěl","Neprospěl")',
-    checkFn: (f) => normalizeFormula(f) === 'IF(B2>=70,"PROSPĚL","NEPROSPĚL")',
-    correctFormula: '=IF(B2>=70,"Prospěl","Neprospěl")',
-    expectedResult: '"Prospěl"',
-  },
-  {
-    funcId: 'IF',
-    desc: 'V buňce C2 napiš: Pokud je známka v B2 = 1, napiš "Výborný", jinak "Nevýborný".',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Student', 'Známka', 'Hodnocení'],
-        ['2', 'Jan',     '1',      '❓'],
-        ['3', 'Eva',     '3',      ''],
-        ['4', 'Petr',    '1',      ''],
-        ['5', 'Lucie',   '2',      ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=IF(B2=1,"Výborný","Nevýborný")',
-    checkFn: (f) => normalizeFormula(f) === 'IF(B2=1,"VÝBORNÝ","NEVÝBORNÝ")',
-    correctFormula: '=IF(B2=1,"Výborný","Nevýborný")',
-    expectedResult: '"Výborný"',
-  },
-  {
-    funcId: 'IF',
-    desc: 'V buňce C2 napiš: Pokud je prodej v B2 >= 50000, napiš "Bonus", jinak "Bez bonusu".',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Prodejce', 'Tržba (Kč)', 'Výsledek'],
-        ['2', 'Kovář',    '65000',      '❓'],
-        ['3', 'Beneš',    '32000',      ''],
-        ['4', 'Černá',    '48000',      ''],
-        ['5', 'Novák',    '72000',      ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=IF(B2>=50000,"Bonus","Bez bonusu")',
-    checkFn: (f) => normalizeFormula(f) === 'IF(B2>=50000,"BONUS","BEZ BONUSU")',
-    correctFormula: '=IF(B2>=50000,"Bonus","Bez bonusu")',
-    expectedResult: '"Bonus"',
-  },
 
   // --- VLOOKUP ---
   {
@@ -1397,185 +262,6 @@ const ALL_QUESTIONS = [
     checkFn: (f) => normalizeFormula(f) === 'VLOOKUP(G1,A2:B5,2,0)' || normalizeFormula(f) === 'VLOOKUP(G1,A1:B5,2,0)',
     correctFormula: '=VLOOKUP(G1,A2:B5,2,0)',
     expectedResult: '890',
-  },
-  {
-    funcId: 'VLOOKUP',
-    desc: 'V buňce G2 najdi telefonní číslo zaměstnance "Černá" (F2) v tabulce A2:C6. Telefon je ve 3. sloupci, přesná shoda.',
-    table: {
-      headers: ['', 'A', 'B', 'C', '', 'F', 'G'],
-      rows: [
-        ['1', 'Příjmení', 'Oddělení', 'Telefon',  '', 'Hledám:',  'Černá'],
-        ['2', 'Novák',    'IT',       '774 123',  '', 'Telefon:',  '❓'],
-        ['3', 'Černá',    'HR',       '775 456',  '', '',          ''],
-        ['4', 'Procházka','IT',       '776 789',  '', '',          ''],
-        ['5', 'Svobodová','Marketing','777 012',  '', '',          ''],
-        ['6', 'Dvořák',   'HR',       '778 345',  '', '',          ''],
-      ],
-    },
-    answerCell: 'G2',
-    hint: '=VLOOKUP(F2,A2:C6,3,0) – hledej ve 3. sloupci tabulky',
-    checkFn: (f) => normalizeFormula(f) === 'VLOOKUP(F2,A2:C6,3,0)' || normalizeFormula(f) === 'VLOOKUP(F2,A1:C6,3,0)',
-    correctFormula: '=VLOOKUP(F2,A2:C6,3,0)',
-    expectedResult: '775 456',
-  },
-  {
-    funcId: 'VLOOKUP',
-    desc: 'V buňce G2 najdi známku studenta "Novotný" (F2) v tabulce A2:B6. Známka je ve 2. sloupci, přesná shoda.',
-    table: {
-      headers: ['', 'A', 'B', '', 'F', 'G'],
-      rows: [
-        ['1', 'Student',   'Známka', '', 'Hledám:', 'Novotný'],
-        ['2', 'Novák',     '2',      '', 'Známka:', '❓'],
-        ['3', 'Svobodová', '1',      '', '',        ''],
-        ['4', 'Novotný',   '3',      '', '',        ''],
-        ['5', 'Procházka', '2',      '', '',        ''],
-        ['6', 'Černá',     '1',      '', '',        ''],
-      ],
-    },
-    answerCell: 'G2',
-    hint: '=VLOOKUP(F2,A2:B6,2,0) – přesná shoda',
-    checkFn: (f) => normalizeFormula(f) === 'VLOOKUP(F2,A2:B6,2,0)' || normalizeFormula(f) === 'VLOOKUP(F2,A1:B6,2,0)',
-    correctFormula: '=VLOOKUP(F2,A2:B6,2,0)',
-    expectedResult: '3',
-  },
-  {
-    funcId: 'VLOOKUP',
-    desc: 'V buňce G2 najdi oddělení zaměstnance "Procházka" (F2) v tabulce A2:B7. Oddělení je ve 2. sloupci, přesná shoda.',
-    table: {
-      headers: ['', 'A', 'B', '', 'F', 'G'],
-      rows: [
-        ['1', 'Příjmení', 'Oddělení', '', 'Hledám:', 'Procházka'],
-        ['2', 'Novák',    'IT',       '', 'Odděl.:', '❓'],
-        ['3', 'Černá',    'HR',       '', '',         ''],
-        ['4', 'Dvořák',   'Finance',  '', '',         ''],
-        ['5', 'Procházka','Marketing','', '',         ''],
-        ['6', 'Svoboda',  'IT',       '', '',         ''],
-        ['7', 'Beneš',    'HR',       '', '',         ''],
-      ],
-    },
-    answerCell: 'G2',
-    hint: '=VLOOKUP(F2,A2:B7,2,0)',
-    checkFn: (f) => normalizeFormula(f) === 'VLOOKUP(F2,A2:B7,2,0)' || normalizeFormula(f) === 'VLOOKUP(F2,A1:B7,2,0)',
-    correctFormula: '=VLOOKUP(F2,A2:B7,2,0)',
-    expectedResult: 'Marketing',
-  },
-  {
-    funcId: 'VLOOKUP',
-    desc: 'V buňce G2 najdi cenu knihy "Nemesis" (F2) v tabulce A2:B6. Cena je ve 2. sloupci, přesná shoda.',
-    table: {
-      headers: ['', 'A', 'B', '', 'F', 'G'],
-      rows: [
-        ['1', 'Název',         'Cena', '', 'Hledám:', 'Nemesis'],
-        ['2', 'Pyramida',      '349',  '', 'Cena:',   '❓'],
-        ['3', 'Nemesis',       '279',  '', '',         ''],
-        ['4', 'Ztracený symbol','399', '', '',         ''],
-        ['5', 'Pravda',        '329',  '', '',         ''],
-        ['6', 'Andělé a démoni','299', '', '',         ''],
-      ],
-    },
-    answerCell: 'G2',
-    hint: '=VLOOKUP(F2,A2:B6,2,0)',
-    checkFn: (f) => normalizeFormula(f) === 'VLOOKUP(F2,A2:B6,2,0)' || normalizeFormula(f) === 'VLOOKUP(F2,A1:B6,2,0)',
-    correctFormula: '=VLOOKUP(F2,A2:B6,2,0)',
-    expectedResult: '279 Kč',
-  },
-  {
-    funcId: 'VLOOKUP',
-    desc: 'V buňce G2 najdi manažera pro region "Východ" (F2) v tabulce A2:B5. Manažer je ve 2. sloupci.',
-    table: {
-      headers: ['', 'A', 'B', '', 'F', 'G'],
-      rows: [
-        ['1', 'Region',  'Manažer',  '', 'Hledám:',  'Východ'],
-        ['2', 'Sever',   'Kovář',    '', 'Manažer:', '❓'],
-        ['3', 'Jih',     'Beneš',    '', '',          ''],
-        ['4', 'Východ',  'Nováková', '', '',          ''],
-        ['5', 'Západ',   'Černý',    '', '',          ''],
-      ],
-    },
-    answerCell: 'G2',
-    hint: '=VLOOKUP(F2,A2:B5,2,0)',
-    checkFn: (f) => normalizeFormula(f) === 'VLOOKUP(F2,A2:B5,2,0)' || normalizeFormula(f) === 'VLOOKUP(F2,A1:B5,2,0)',
-    correctFormula: '=VLOOKUP(F2,A2:B5,2,0)',
-    expectedResult: 'Nováková',
-  },
-  {
-    funcId: 'VLOOKUP',
-    desc: 'V buňce G2 najdi skóre hráče "Martin" (F2) v tabulce A2:B7. Skóre je ve 2. sloupci.',
-    table: {
-      headers: ['', 'A', 'B', '', 'F', 'G'],
-      rows: [
-        ['1', 'Hráč',  'Skóre', '', 'Hledám:','Martin'],
-        ['2', 'Tomáš', '4200',  '', 'Skóre:', '❓'],
-        ['3', 'Petra', '5800',  '', '',        ''],
-        ['4', 'Ondřej','3900',  '', '',        ''],
-        ['5', 'Lucie', '6100',  '', '',        ''],
-        ['6', 'Martin','5500',  '', '',        ''],
-        ['7', 'Eva',   '4750',  '', '',        ''],
-      ],
-    },
-    answerCell: 'G2',
-    hint: '=VLOOKUP(F2,A2:B7,2,0)',
-    checkFn: (f) => normalizeFormula(f) === 'VLOOKUP(F2,A2:B7,2,0)' || normalizeFormula(f) === 'VLOOKUP(F2,A1:B7,2,0)',
-    correctFormula: '=VLOOKUP(F2,A2:B7,2,0)',
-    expectedResult: '5 500',
-  },
-  {
-    funcId: 'VLOOKUP',
-    desc: 'V buňce G2 najdi dodavatele materiálu "OC-022" (F2) v tabulce A2:B5. Dodavatel je ve 2. sloupci.',
-    table: {
-      headers: ['', 'A', 'B', '', 'F', 'G'],
-      rows: [
-        ['1', 'Kód mat.', 'Dodavatel', '', 'Hledám:', 'OC-022'],
-        ['2', 'OC-001',   'Ferona',    '', 'Dodav.:', '❓'],
-        ['3', 'OC-022',   'Ferona',    '', '',         ''],
-        ['4', 'PL-005',   'Plastcomp', '', '',         ''],
-        ['5', 'RU-100',   'Rubberco',  '', '',         ''],
-      ],
-    },
-    answerCell: 'G2',
-    hint: '=VLOOKUP(F2,A2:B5,2,0)',
-    checkFn: (f) => normalizeFormula(f) === 'VLOOKUP(F2,A2:B5,2,0)' || normalizeFormula(f) === 'VLOOKUP(F2,A1:B5,2,0)',
-    correctFormula: '=VLOOKUP(F2,A2:B5,2,0)',
-    expectedResult: 'Ferona',
-  },
-  {
-    funcId: 'VLOOKUP',
-    desc: 'V buňce G2 najdi počet obyvatel města "Brno" (F2) v tabulce A2:B5. Počet je ve 2. sloupci.',
-    table: {
-      headers: ['', 'A', 'B', '', 'F', 'G'],
-      rows: [
-        ['1', 'Město',  'Obyvatel', '', 'Hledám:', 'Brno'],
-        ['2', 'Praha',  '1300000',  '', 'Počet:',  '❓'],
-        ['3', 'Brno',   '380000',   '', '',         ''],
-        ['4', 'Ostrava','280000',   '', '',         ''],
-        ['5', 'Plzeň',  '170000',   '', '',         ''],
-      ],
-    },
-    answerCell: 'G2',
-    hint: '=VLOOKUP(F2,A2:B5,2,0)',
-    checkFn: (f) => normalizeFormula(f) === 'VLOOKUP(F2,A2:B5,2,0)' || normalizeFormula(f) === 'VLOOKUP(F2,A1:B5,2,0)',
-    correctFormula: '=VLOOKUP(F2,A2:B5,2,0)',
-    expectedResult: '380 000',
-  },
-  {
-    funcId: 'VLOOKUP',
-    desc: 'V buňce G2 najdi skladové množství produktu "M-03" (F2) v tabulce A2:B6. Množství je ve 2. sloupci.',
-    table: {
-      headers: ['', 'A', 'B', '', 'F', 'G'],
-      rows: [
-        ['1', 'Kód',  'Skladem', '', 'Hledám:','M-03'],
-        ['2', 'N-01', '15',      '', 'Ks:',    '❓'],
-        ['3', 'T-02', '8',       '', '',        ''],
-        ['4', 'M-03', '42',      '', '',        ''],
-        ['5', 'K-04', '25',      '', '',        ''],
-        ['6', 'D-05', '3',       '', '',        ''],
-      ],
-    },
-    answerCell: 'G2',
-    hint: '=VLOOKUP(F2,A2:B6,2,0)',
-    checkFn: (f) => normalizeFormula(f) === 'VLOOKUP(F2,A2:B6,2,0)' || normalizeFormula(f) === 'VLOOKUP(F2,A1:B6,2,0)',
-    correctFormula: '=VLOOKUP(F2,A2:B6,2,0)',
-    expectedResult: '42',
   },
 
   // --- COUNTA ---
@@ -1599,218 +285,6 @@ const ALL_QUESTIONS = [
     hint: '=COUNTA(A2:A8) počítá neprázdné buňky (text i čísla)',
     checkFn: (f) => normalizeFormula(f) === 'COUNTA(A2:A8)',
     correctFormula: '=COUNTA(A2:A8)',
-    expectedResult: '5',
-  },
-  {
-    funcId: 'COUNTA',
-    desc: 'Spočítej kolik produktů je skladem (má název ve sloupci A2:A9). Výsledek do B1.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Produkt',    '❓'],
-        ['2', 'Notebook',   ''],
-        ['3', '',           ''],
-        ['4', 'Tablet',     ''],
-        ['5', 'Myš',        ''],
-        ['6', '',           ''],
-        ['7', 'Klávesnice', ''],
-        ['8', 'Monitor',    ''],
-        ['9', 'Reproduktor',''],
-      ],
-    },
-    answerCell: 'B1',
-    hint: '=COUNTA(A2:A9) – počet vyplněných buněk',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTA(A2:A9)',
-    correctFormula: '=COUNTA(A2:A9)',
-    expectedResult: '6',
-  },
-  {
-    funcId: 'COUNTA',
-    desc: 'Zjisti kolik hostů potvrdilo účast (jméno ve sloupci A2:A11). Výsledek do B1.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Host',     '❓'],
-        ['2', 'Petr K.',  ''],
-        ['3', 'Jana S.',  ''],
-        ['4', '',         ''],
-        ['5', 'Tomáš M.', ''],
-        ['6', 'Eva N.',   ''],
-        ['7', '',         ''],
-        ['8', '',         ''],
-        ['9', 'Klára P.', ''],
-        ['10','Lukáš R.', ''],
-        ['11','Martina D.',''],
-      ],
-    },
-    answerCell: 'B1',
-    hint: '=COUNTA(A2:A11) – neprázdné buňky',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTA(A2:A11)',
-    correctFormula: '=COUNTA(A2:A11)',
-    expectedResult: '7',
-  },
-  {
-    funcId: 'COUNTA',
-    desc: 'Spočítej kolik e-mailových adres je zadáno v seznamu (A2:A9). Výsledek do B1.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'E-mail',            '❓'],
-        ['2', 'novak@firma.cz',    ''],
-        ['3', '',                  ''],
-        ['4', 'cerna@firma.cz',    ''],
-        ['5', 'prochazka@firma.cz',''],
-        ['6', '',                  ''],
-        ['7', 'dvorak@firma.cz',   ''],
-        ['8', '',                  ''],
-        ['9', 'svoboda@firma.cz',  ''],
-      ],
-    },
-    answerCell: 'B1',
-    hint: '=COUNTA(A2:A9) – počet vyplněných e-mailů',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTA(A2:A9)',
-    correctFormula: '=COUNTA(A2:A9)',
-    expectedResult: '5',
-  },
-  {
-    funcId: 'COUNTA',
-    desc: 'Zjisti kolik členů klubu vyplnilo přihlášku (text v A2:A10). Výsledek do B1.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Člen',    '❓'],
-        ['2', 'Jan N.',  ''],
-        ['3', 'Eva Č.',  ''],
-        ['4', '',        ''],
-        ['5', 'Petr P.', ''],
-        ['6', 'Lucie S.',''],
-        ['7', '',        ''],
-        ['8', 'Tomáš K.', ''],
-        ['9', '',        ''],
-        ['10','Klára M.',''],
-      ],
-    },
-    answerCell: 'B1',
-    hint: '=COUNTA(A2:A10) – počet přihlášených členů',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTA(A2:A10)',
-    correctFormula: '=COUNTA(A2:A10)',
-    expectedResult: '6',
-  },
-  {
-    funcId: 'COUNTA',
-    desc: 'Spočítej kolik položek je na skladě (A2:A10, vyplněný název). Výsledek do B1.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Položka',    '❓'],
-        ['2', 'Papír A4',   ''],
-        ['3', 'Tonery',     ''],
-        ['4', 'Sešívačky',  ''],
-        ['5', '',           ''],
-        ['6', 'Lepicí pásky',''],
-        ['7', 'Kancelářský nůž', ''],
-        ['8', '',           ''],
-        ['9', 'Nůžky',      ''],
-        ['10','Razítka',    ''],
-      ],
-    },
-    answerCell: 'B1',
-    hint: '=COUNTA(A2:A10) – skladové položky s názvem',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTA(A2:A10)',
-    correctFormula: '=COUNTA(A2:A10)',
-    expectedResult: '7',
-  },
-  {
-    funcId: 'COUNTA',
-    desc: 'Spočítej kolik respondentů vyplnilo anketu (text ve sloupci A2:A9). Výsledek do B1.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Respondent', '❓'],
-        ['2', 'Ano',        ''],
-        ['3', 'Ano',        ''],
-        ['4', '',           ''],
-        ['5', 'Ano',        ''],
-        ['6', '',           ''],
-        ['7', 'Ne',         ''],
-        ['8', 'Ano',        ''],
-        ['9', '',           ''],
-      ],
-    },
-    answerCell: 'B1',
-    hint: '=COUNTA(A2:A9) – počet odpovědí v anketě',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTA(A2:A9)',
-    correctFormula: '=COUNTA(A2:A9)',
-    expectedResult: '5',
-  },
-  {
-    funcId: 'COUNTA',
-    desc: 'Zjisti kolik knih je zapsáno v knihovním katalogu (A2:A10). Výsledek do B1.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Název knihy',      '❓'],
-        ['2', 'Pyramida',          ''],
-        ['3', 'Nemesis',           ''],
-        ['4', '',                  ''],
-        ['5', 'Ztracený symbol',   ''],
-        ['6', 'Ďáblova čísla',     ''],
-        ['7', '',                  ''],
-        ['8', 'Pravda',            ''],
-        ['9', '',                  ''],
-        ['10','Andělé a démoni',   ''],
-      ],
-    },
-    answerCell: 'B1',
-    hint: '=COUNTA(A2:A10) – knihy v katalogu',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTA(A2:A10)',
-    correctFormula: '=COUNTA(A2:A10)',
-    expectedResult: '6',
-  },
-  {
-    funcId: 'COUNTA',
-    desc: 'Spočítej kolik studentů se zúčastnilo exkurze (jméno v A2:A9). Výsledek do B1.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Student',  '❓'],
-        ['2', 'Adam',     ''],
-        ['3', 'Bára',     ''],
-        ['4', 'Cyril',    ''],
-        ['5', '',         ''],
-        ['6', 'Eva',      ''],
-        ['7', '',         ''],
-        ['8', 'Gustav',   ''],
-        ['9', 'Hana',     ''],
-      ],
-    },
-    answerCell: 'B1',
-    hint: '=COUNTA(A2:A9) – účastníci exkurze',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTA(A2:A9)',
-    correctFormula: '=COUNTA(A2:A9)',
-    expectedResult: '6',
-  },
-  {
-    funcId: 'COUNTA',
-    desc: 'Zjisti kolik aktivních uživatelů je v databázi (login v A2:A9). Výsledek do B1.',
-    table: {
-      headers: ['', 'A', 'B'],
-      rows: [
-        ['1', 'Login',  '❓'],
-        ['2', 'jann',   ''],
-        ['3', 'evac',   ''],
-        ['4', '',       ''],
-        ['5', 'petrp',  ''],
-        ['6', 'lucies', ''],
-        ['7', '',       ''],
-        ['8', 'tomas',  ''],
-        ['9', '',       ''],
-      ],
-    },
-    answerCell: 'B1',
-    hint: '=COUNTA(A2:A9) – aktivní uživatelé',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTA(A2:A9)',
-    correctFormula: '=COUNTA(A2:A9)',
     expectedResult: '5',
   },
 
@@ -1837,204 +311,6 @@ const ALL_QUESTIONS = [
     correctFormula: '=COUNTIF(B2:B8,"Výborný")',
     expectedResult: '4',
   },
-  {
-    funcId: 'COUNTIF',
-    desc: 'V buňce D2 spočítej kolik studentů mělo skóre alespoň 60 bodů (B2:B8).',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D'],
-      rows: [
-        ['1', 'Student', 'Skóre', 'Podmínka:', '>=60'],
-        ['2', 'A. K.',   '85',    'Počet:',    '❓'],
-        ['3', 'B. N.',   '42',    '',           ''],
-        ['4', 'C. P.',   '73',    '',           ''],
-        ['5', 'D. S.',   '38',    '',           ''],
-        ['6', 'E. M.',   '91',    '',           ''],
-        ['7', 'F. H.',   '55',    '',           ''],
-        ['8', 'G. V.',   '68',    '',           ''],
-      ],
-    },
-    answerCell: 'D2',
-    hint: '=COUNTIF(B2:B8,">=60") nebo =COUNTIF(B2:B8,D1)',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8,">=60")' || normalizeFormula(f) === 'COUNTIF(B2:B8,D1)',
-    correctFormula: '=COUNTIF(B2:B8,">=60")',
-    expectedResult: '4',
-  },
-  {
-    funcId: 'COUNTIF',
-    desc: 'V buňce D2 spočítej kolik objednávek je ve stavu "Hotovo" (B2:B8).',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D'],
-      rows: [
-        ['1', 'Zakázka', 'Stav',    'Hledám:', 'Hotovo'],
-        ['2', 'Z-001',   'Hotovo',  'Počet:',  '❓'],
-        ['3', 'Z-002',   'Výroba',  '',         ''],
-        ['4', 'Z-003',   'Hotovo',  '',         ''],
-        ['5', 'Z-004',   'Čeká',    '',         ''],
-        ['6', 'Z-005',   'Hotovo',  '',         ''],
-        ['7', 'Z-006',   'Výroba',  '',         ''],
-        ['8', 'Z-007',   'Hotovo',  '',         ''],
-      ],
-    },
-    answerCell: 'D2',
-    hint: '=COUNTIF(B2:B8,"Hotovo") nebo =COUNTIF(B2:B8,D1)',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8,"HOTOVO")' || normalizeFormula(f) === 'COUNTIF(B2:B8,D1)',
-    correctFormula: '=COUNTIF(B2:B8,"Hotovo")',
-    expectedResult: '4',
-  },
-  {
-    funcId: 'COUNTIF',
-    desc: 'V buňce D2 spočítej kolik mužů je v seznamu (B2:B8, hodnota="Muž").',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D'],
-      rows: [
-        ['1', 'Jméno',  'Pohlaví', 'Hledám:', 'Muž'],
-        ['2', 'Jan',    'Muž',     'Počet:',  '❓'],
-        ['3', 'Eva',    'Žena',    '',         ''],
-        ['4', 'Petr',   'Muž',     '',         ''],
-        ['5', 'Lucie',  'Žena',    '',         ''],
-        ['6', 'Tomáš',  'Muž',     '',         ''],
-        ['7', 'Klára',  'Žena',    '',         ''],
-        ['8', 'Martin', 'Muž',     '',         ''],
-      ],
-    },
-    answerCell: 'D2',
-    hint: '=COUNTIF(B2:B8,"Muž") nebo =COUNTIF(B2:B8,D1)',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8,"MUŽ")' || normalizeFormula(f) === 'COUNTIF(B2:B8,D1)',
-    correctFormula: '=COUNTIF(B2:B8,"Muž")',
-    expectedResult: '4',
-  },
-  {
-    funcId: 'COUNTIF',
-    desc: 'V buňce D2 spočítej kolik produktů stojí přes 1000 Kč (B2:B8).',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D'],
-      rows: [
-        ['1', 'Produkt',  'Cena (Kč)','Podmínka:', '>1000'],
-        ['2', 'Notebook', '25990',    'Počet:',    '❓'],
-        ['3', 'Myš',      '890',      '',           ''],
-        ['4', 'Monitor',  '5990',     '',           ''],
-        ['5', 'Tričko',   '450',      '',           ''],
-        ['6', 'Tablet',   '8990',     '',           ''],
-        ['7', 'Čepice',   '149',      '',           ''],
-        ['8', 'Klávesnice','1490',    '',           ''],
-      ],
-    },
-    answerCell: 'D2',
-    hint: '=COUNTIF(B2:B8,">1000") nebo =COUNTIF(B2:B8,D1)',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8,">1000")' || normalizeFormula(f) === 'COUNTIF(B2:B8,D1)',
-    correctFormula: '=COUNTIF(B2:B8,">1000")',
-    expectedResult: '4',
-  },
-  {
-    funcId: 'COUNTIF',
-    desc: 'V buňce D2 spočítej kolik studentů bydlí v "Praha" (B2:B8).',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D'],
-      rows: [
-        ['1', 'Student', 'Město',  'Hledám:', 'Praha'],
-        ['2', 'Jan N.',  'Praha',  'Počet:',  '❓'],
-        ['3', 'Eva Č.',  'Brno',   '',         ''],
-        ['4', 'Petr P.', 'Praha',  '',         ''],
-        ['5', 'Lucie S.','Plzeň',  '',         ''],
-        ['6', 'Tomáš K.','Praha',  '',         ''],
-        ['7', 'Klára M.','Brno',   '',         ''],
-        ['8', 'Martin D.','Praha', '',         ''],
-      ],
-    },
-    answerCell: 'D2',
-    hint: '=COUNTIF(B2:B8,"Praha") nebo =COUNTIF(B2:B8,D1)',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8,"PRAHA")' || normalizeFormula(f) === 'COUNTIF(B2:B8,D1)',
-    correctFormula: '=COUNTIF(B2:B8,"Praha")',
-    expectedResult: '4',
-  },
-  {
-    funcId: 'COUNTIF',
-    desc: 'V buňce D2 spočítej kolik projektů má status "Dokončeno" (B2:B8).',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D'],
-      rows: [
-        ['1', 'Projekt', 'Status',      'Hledám:', 'Dokončeno'],
-        ['2', 'Proj A',  'Dokončeno',   'Počet:',  '❓'],
-        ['3', 'Proj B',  'Probíhá',     '',         ''],
-        ['4', 'Proj C',  'Dokončeno',   '',         ''],
-        ['5', 'Proj D',  'Zrušeno',     '',         ''],
-        ['6', 'Proj E',  'Dokončeno',   '',         ''],
-        ['7', 'Proj F',  'Probíhá',     '',         ''],
-        ['8', 'Proj G',  'Dokončeno',   '',         ''],
-      ],
-    },
-    answerCell: 'D2',
-    hint: '=COUNTIF(B2:B8,"Dokončeno") nebo =COUNTIF(B2:B8,D1)',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8,"DOKONČENO")' || normalizeFormula(f) === 'COUNTIF(B2:B8,D1)',
-    correctFormula: '=COUNTIF(B2:B8,"Dokončeno")',
-    expectedResult: '4',
-  },
-  {
-    funcId: 'COUNTIF',
-    desc: 'V buňce D2 spočítej kolik studentů mělo skóre méně než 50 (B2:B8).',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D'],
-      rows: [
-        ['1', 'Student', 'Skóre', 'Podmínka:','<50'],
-        ['2', 'Adam',    '85',    'Počet:',   '❓'],
-        ['3', 'Bára',    '42',    '',          ''],
-        ['4', 'Cyril',   '73',    '',          ''],
-        ['5', 'Dana',    '38',    '',          ''],
-        ['6', 'Eva',     '91',    '',          ''],
-        ['7', 'Filip',   '55',    '',          ''],
-        ['8', 'Gábina',  '28',    '',          ''],
-      ],
-    },
-    answerCell: 'D2',
-    hint: '=COUNTIF(B2:B8,"<50") nebo =COUNTIF(B2:B8,D1)',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8,"<50")' || normalizeFormula(f) === 'COUNTIF(B2:B8,D1)',
-    correctFormula: '=COUNTIF(B2:B8,"<50")',
-    expectedResult: '3',
-  },
-  {
-    funcId: 'COUNTIF',
-    desc: 'V buňce D2 spočítej kolik zaměstnanců je z oddělení "IT" (B2:B8).',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D'],
-      rows: [
-        ['1', 'Jméno',  'Oddělení', 'Hledám:', 'IT'],
-        ['2', 'Novák',  'IT',       'Počet:',  '❓'],
-        ['3', 'Černá',  'HR',       '',         ''],
-        ['4', 'Procházka','IT',     '',         ''],
-        ['5', 'Dvořák', 'Finance',  '',         ''],
-        ['6', 'Svoboda','IT',       '',         ''],
-        ['7', 'Beneš',  'HR',       '',         ''],
-        ['8', 'Kovář',  'IT',       '',         ''],
-      ],
-    },
-    answerCell: 'D2',
-    hint: '=COUNTIF(B2:B8,"IT") nebo =COUNTIF(B2:B8,D1)',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8,"IT")' || normalizeFormula(f) === 'COUNTIF(B2:B8,D1)',
-    correctFormula: '=COUNTIF(B2:B8,"IT")',
-    expectedResult: '4',
-  },
-  {
-    funcId: 'COUNTIF',
-    desc: 'V buňce D2 spočítej kolik výrobků má hodnocení "A" (B2:B8).',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D'],
-      rows: [
-        ['1', 'Výrobek', 'Třída', 'Hledám:','A'],
-        ['2', 'V-001',   'A',     'Počet:', '❓'],
-        ['3', 'V-002',   'B',     '',        ''],
-        ['4', 'V-003',   'A',     '',        ''],
-        ['5', 'V-004',   'C',     '',        ''],
-        ['6', 'V-005',   'A',     '',        ''],
-        ['7', 'V-006',   'B',     '',        ''],
-        ['8', 'V-007',   'A',     '',        ''],
-      ],
-    },
-    answerCell: 'D2',
-    hint: '=COUNTIF(B2:B8,"A") nebo =COUNTIF(B2:B8,D1)',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8,"A")' || normalizeFormula(f) === 'COUNTIF(B2:B8,D1)',
-    correctFormula: '=COUNTIF(B2:B8,"A")',
-    expectedResult: '4',
-  },
 
   // --- SUMIF ---
   {
@@ -2058,197 +334,6 @@ const ALL_QUESTIONS = [
     correctFormula: '=SUMIF(A2:A7,"Sever",C2:C7)',
     expectedResult: '134 000 Kč',
   },
-  {
-    funcId: 'SUMIF',
-    desc: 'V buňce E2 spočítej celkové tržby za kategorii "Elektronika" (A2:A8) z tržeb v C2:C8.',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D', 'E'],
-      rows: [
-        ['1', 'Kategorie',  'Produkt',    'Tržba', 'Hledám:',   'Elektronika'],
-        ['2', 'Elektronika','Notebook',   '45000', 'Součet:',   '❓'],
-        ['3', 'Potraviny',  'Chléb',      '3200',  '',           ''],
-        ['4', 'Elektronika','Mobil',      '22000', '',           ''],
-        ['5', 'Oblečení',   'Tričko',     '4500',  '',           ''],
-        ['6', 'Elektronika','Tablet',     '18000', '',           ''],
-        ['7', 'Potraviny',  'Mléko',      '2800',  '',           ''],
-        ['8', 'Elektronika','Sluchátka',  '5600',  '',           ''],
-      ],
-    },
-    answerCell: 'E2',
-    hint: '=SUMIF(A2:A8,"Elektronika",C2:C8) nebo =SUMIF(A2:A8,E1,C2:C8)',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(A2:A8,"ELEKTRONIKA",C2:C8)' || normalizeFormula(f) === 'SUMIF(A2:A8,E1,C2:C8)',
-    correctFormula: '=SUMIF(A2:A8,"Elektronika",C2:C8)',
-    expectedResult: '90 600 Kč',
-  },
-  {
-    funcId: 'SUMIF',
-    desc: 'V buňce E2 spočítej celkový počet dnů dovolené pro oddělení "IT" (A2:A7) ze sloupce C2:C7.',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D', 'E'],
-      rows: [
-        ['1', 'Oddělení', 'Zaměstnanec', 'Dny',     'Hledám:', 'IT'],
-        ['2', 'IT',       'Novák',       '5',       'Součet:', '❓'],
-        ['3', 'HR',       'Černá',       '3',       '',        ''],
-        ['4', 'IT',       'Procházka',   '4',       '',        ''],
-        ['5', 'Marketing', 'Svobodová',  '2',       '',        ''],
-        ['6', 'IT',       'Dvořák',      '5',       '',        ''],
-        ['7', 'HR',       'Beneš',       '4',       '',        ''],
-      ],
-    },
-    answerCell: 'E2',
-    hint: '=SUMIF(A2:A7,"IT",C2:C7) nebo =SUMIF(A2:A7,E1,C2:C7)',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(A2:A7,"IT",C2:C7)' || normalizeFormula(f) === 'SUMIF(A2:A7,E1,C2:C7)',
-    correctFormula: '=SUMIF(A2:A7,"IT",C2:C7)',
-    expectedResult: '14 dnů',
-  },
-  {
-    funcId: 'SUMIF',
-    desc: 'V buňce E2 spočítej celkový objem objednávek pro prodejce "Kovář" (A2:A7) z D2:D7.',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D', 'E'],
-      rows: [
-        ['1', 'Prodejce', 'Zákazník', 'Město',  'Objem', 'Hledám:', 'Kovář'],
-        ['2', 'Kovář',    'ABC s.r.o.','Praha',  '15000', 'Součet:', '❓'],
-        ['3', 'Beneš',    'XYZ a.s.',  'Brno',   '22000', '',        ''],
-        ['4', 'Kovář',    'LMN v.o.s.','Ostrava','18000', '',        ''],
-        ['5', 'Nováková', 'DEF s.r.o.','Plzeň',  '12000', '',        ''],
-        ['6', 'Kovář',    'GHI a.s.',  'Praha',  '25000', '',        ''],
-        ['7', 'Beneš',    'JKL s.r.o.','Liberec','9000',  '',        ''],
-      ],
-    },
-    answerCell: 'E2',
-    hint: '=SUMIF(A2:A7,E1,D2:D7) – součet objemů pro "Kovář"',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(A2:A7,E1,D2:D7)' || normalizeFormula(f) === 'SUMIF(A2:A7,"KOVÁŘ",D2:D7)',
-    correctFormula: '=SUMIF(A2:A7,E1,D2:D7)',
-    expectedResult: '58 000',
-  },
-  {
-    funcId: 'SUMIF',
-    desc: 'V buňce E2 spočítej celkové tržby pouze pro město "Praha" (A2:A7) z C2:C7.',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D', 'E'],
-      rows: [
-        ['1', 'Město',  'Pobočka', 'Tržba', 'Hledám:', 'Praha'],
-        ['2', 'Praha',  'Centrum',  '340000','Součet:', '❓'],
-        ['3', 'Brno',   'Střed',   '220000','',        ''],
-        ['4', 'Praha',  'Sever',   '180000','',        ''],
-        ['5', 'Ostrava','Jih',     '150000','',        ''],
-        ['6', 'Praha',  'Jih',     '290000','',        ''],
-        ['7', 'Plzeň',  'Centrum', '110000','',        ''],
-      ],
-    },
-    answerCell: 'E2',
-    hint: '=SUMIF(A2:A7,"Praha",C2:C7) nebo =SUMIF(A2:A7,E1,C2:C7)',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(A2:A7,"PRAHA",C2:C7)' || normalizeFormula(f) === 'SUMIF(A2:A7,E1,C2:C7)',
-    correctFormula: '=SUMIF(A2:A7,"Praha",C2:C7)',
-    expectedResult: '810 000 Kč',
-  },
-  {
-    funcId: 'SUMIF',
-    desc: 'V buňce E2 spočítej celkové tržby za kategorii "Nápoje" (A2:A8) z C2:C8.',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D', 'E'],
-      rows: [
-        ['1', 'Kategorie', 'Produkt',  'Tržba', 'Hledám:', 'Nápoje'],
-        ['2', 'Nápoje',   'Kola',     '12500', 'Součet:', '❓'],
-        ['3', 'Potraviny', 'Chléb',   '8800',  '',        ''],
-        ['4', 'Nápoje',   'Džus',     '9500',  '',        ''],
-        ['5', 'Ostatní',  'Párek',    '4200',  '',        ''],
-        ['6', 'Nápoje',   'Voda',     '7200',  '',        ''],
-        ['7', 'Potraviny', 'Sýr',     '6300',  '',        ''],
-        ['8', 'Nápoje',   'Čaj',      '5100',  '',        ''],
-      ],
-    },
-    answerCell: 'E2',
-    hint: '=SUMIF(A2:A8,"Nápoje",C2:C8) nebo =SUMIF(A2:A8,E1,C2:C8)',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(A2:A8,"NÁPOJE",C2:C8)' || normalizeFormula(f) === 'SUMIF(A2:A8,E1,C2:C8)',
-    correctFormula: '=SUMIF(A2:A8,"Nápoje",C2:C8)',
-    expectedResult: '34 300 Kč',
-  },
-  {
-    funcId: 'SUMIF',
-    desc: 'V buňce E2 spočítej celkové tržby za 1. čtvrtletí (A2:A7="Q1") z B2:B7.',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D', 'E'],
-      rows: [
-        ['1', 'Kvartál', 'Tržba',  'Hledám:','Q1'],
-        ['2', 'Q1',      '45000',  'Součet:','❓'],
-        ['3', 'Q2',      '52000',  '',       ''],
-        ['4', 'Q1',      '38000',  '',       ''],
-        ['5', 'Q3',      '47000',  '',       ''],
-        ['6', 'Q1',      '51000',  '',       ''],
-        ['7', 'Q4',      '49000',  '',       ''],
-      ],
-    },
-    answerCell: 'E2',
-    hint: '=SUMIF(A2:A7,"Q1",B2:B7)',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(A2:A7,"Q1",B2:B7)' || normalizeFormula(f) === 'SUMIF(A2:A7,E1,B2:B7)',
-    correctFormula: '=SUMIF(A2:A7,"Q1",B2:B7)',
-    expectedResult: '134 000 Kč',
-  },
-  {
-    funcId: 'SUMIF',
-    desc: 'V buňce E2 spočítej celkové body pro hodnocení "A" (A2:A7) ze sloupce C2:C7.',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D', 'E'],
-      rows: [
-        ['1', 'Hodnocení', 'Popis',   'Body', 'Hledám:','A'],
-        ['2', 'A',         'Výborný', '95',   'Součet:','❓'],
-        ['3', 'B',         'Dobrý',   '78',   '',       ''],
-        ['4', 'A',         'Výborný', '92',   '',       ''],
-        ['5', 'C',         'Dostač.','65',    '',       ''],
-        ['6', 'A',         'Výborný', '88',   '',       ''],
-        ['7', 'B',         'Dobrý',   '82',   '',       ''],
-      ],
-    },
-    answerCell: 'E2',
-    hint: '=SUMIF(A2:A7,"A",C2:C7) nebo =SUMIF(A2:A7,E1,C2:C7)',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(A2:A7,"A",C2:C7)' || normalizeFormula(f) === 'SUMIF(A2:A7,E1,C2:C7)',
-    correctFormula: '=SUMIF(A2:A7,"A",C2:C7)',
-    expectedResult: '275',
-  },
-  {
-    funcId: 'SUMIF',
-    desc: 'V buňce E2 spočítej celkové náklady na projekt "Alfa" (A2:A7) z D2:D7.',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D', 'E'],
-      rows: [
-        ['1', 'Projekt', 'Měsíc', 'Typ',     'Náklad', 'Hledám:','Alfa'],
-        ['2', 'Alfa',    'Led',   'Materiál','45000',  'Součet:','❓'],
-        ['3', 'Beta',    'Led',   'Mzdy',    '62000',  '',       ''],
-        ['4', 'Alfa',    'Úno',   'Mzdy',    '55000',  '',       ''],
-        ['5', 'Gama',    'Led',   'Materiál','28000',  '',       ''],
-        ['6', 'Alfa',    'Bře',   'Služby',  '38000',  '',       ''],
-        ['7', 'Beta',    'Úno',   'Materiál','31000',  '',       ''],
-      ],
-    },
-    answerCell: 'E2',
-    hint: '=SUMIF(A2:A7,"Alfa",D2:D7) nebo =SUMIF(A2:A7,E1,D2:D7)',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(A2:A7,"ALFA",D2:D7)' || normalizeFormula(f) === 'SUMIF(A2:A7,E1,D2:D7)',
-    correctFormula: '=SUMIF(A2:A7,"Alfa",D2:D7)',
-    expectedResult: '138 000 Kč',
-  },
-  {
-    funcId: 'SUMIF',
-    desc: 'V buňce E2 spočítej celkový počet přesčasových hodin pro oddělení "Výroba" (A2:A7) z C2:C7.',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D', 'E'],
-      rows: [
-        ['1', 'Oddělení', 'Zaměstnanec', 'Přesčasy','Hledám:','Výroba'],
-        ['2', 'Výroba',   'Kříž',        '12',      'Součet:','❓'],
-        ['3', 'Admin',    'Nová',        '5',       '',       ''],
-        ['4', 'Výroba',   'Svoboda',     '8',       '',       ''],
-        ['5', 'Logistika','Bartoš',      '3',       '',       ''],
-        ['6', 'Výroba',   'Marek',       '15',      '',       ''],
-        ['7', 'Admin',    'Černá',       '2',       '',       ''],
-      ],
-    },
-    answerCell: 'E2',
-    hint: '=SUMIF(A2:A7,"Výroba",C2:C7) nebo =SUMIF(A2:A7,E1,C2:C7)',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(A2:A7,"VÝROBA",C2:C7)' || normalizeFormula(f) === 'SUMIF(A2:A7,E1,C2:C7)',
-    correctFormula: '=SUMIF(A2:A7,"Výroba",C2:C7)',
-    expectedResult: '35 h',
-  },
 
   // --- ROUND ---
   {
@@ -2269,168 +354,6 @@ const ALL_QUESTIONS = [
     correctFormula: '=ROUND(B2,2)',
     expectedResult: '3,75',
   },
-  {
-    funcId: 'ROUND',
-    desc: 'Zaokrouhli hodnotu DPH z B2 (0.9357) na celé číslo (0 desetinných míst). Výsledek vlož do C2.',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Položka',  'Hodnota', 'Zaokrouhleno'],
-        ['2', 'DPH koef.','0.9357',  '❓'],
-        ['3', 'Sazba',    '0.2153',  ''],
-        ['4', 'Přepočet', '1.0825',  ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=ROUND(B2,0) zaokrouhlí na celé číslo',
-    checkFn: (f) => normalizeFormula(f) === 'ROUND(B2,0)',
-    correctFormula: '=ROUND(B2,0)',
-    expectedResult: '1',
-  },
-  {
-    funcId: 'ROUND',
-    desc: 'Zaokrouhli číslo pí z B2 (3.14159) na 3 desetinná místa. Výsledek do C2.',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Konstanta', 'Hodnota', 'Zaokrouhleno'],
-        ['2', 'Pí (π)',   '3.14159', '❓'],
-        ['3', 'e',        '2.71828', ''],
-        ['4', '√2',       '1.41421', ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=ROUND(B2,3) zaokrouhlí na 3 des. místa',
-    checkFn: (f) => normalizeFormula(f) === 'ROUND(B2,3)',
-    correctFormula: '=ROUND(B2,3)',
-    expectedResult: '3,142',
-  },
-  {
-    funcId: 'ROUND',
-    desc: 'Zaokrouhli průměrnou známku 2.56 z B2 na 1 desetinné místo. Výsledek do C2.',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Položka',    'Hodnota', 'Zaokrouhleno'],
-        ['2', 'Prům. známka','2.56',   '❓'],
-        ['3', 'Medián',     '3.14',    ''],
-        ['4', 'Modus',      '1.88',    ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=ROUND(B2,1) zaokrouhlí na 1 desetinné místo',
-    checkFn: (f) => normalizeFormula(f) === 'ROUND(B2,1)',
-    correctFormula: '=ROUND(B2,1)',
-    expectedResult: '2,6',
-  },
-  {
-    funcId: 'ROUND',
-    desc: 'Zaokrouhli cenu 374 Kč z B2 na desítky (na -1 místě). Výsledek do C2.',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Produkt',  'Cena (Kč)', 'Zaokrouhleno'],
-        ['2', 'Tričko',   '374',       '❓'],
-        ['3', 'Mikina',   '649',       ''],
-        ['4', 'Bunda',    '1250',      ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=ROUND(B2,-1) zaokrouhlí na desítky',
-    checkFn: (f) => normalizeFormula(f) === 'ROUND(B2,-1)',
-    correctFormula: '=ROUND(B2,-1)',
-    expectedResult: '370',
-  },
-  {
-    funcId: 'ROUND',
-    desc: 'Zaokrouhli roční obrat 57380 Kč z B2 na stovky (na -2). Výsledek do C2.',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Rok',    'Obrat (Kč)', 'Zaokrouhleno'],
-        ['2', '2023',   '57380',      '❓'],
-        ['3', '2024',   '81240',      ''],
-        ['4', '2025',   '64790',      ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=ROUND(B2,-2) zaokrouhlí na stovky',
-    checkFn: (f) => normalizeFormula(f) === 'ROUND(B2,-2)',
-    correctFormula: '=ROUND(B2,-2)',
-    expectedResult: '57 400',
-  },
-  {
-    funcId: 'ROUND',
-    desc: 'Zaokrouhli koeficient 0.9167 z B2 na 4 desetinná místa. Výsledek do C2.',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Položka',  'Hodnota', 'Zaokrouhleno'],
-        ['2', 'DPH koef.','0.9167',  '❓'],
-        ['3', 'Sazba',    '0.2153',  ''],
-        ['4', 'Přepočet', '1.0825',  ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=ROUND(B2,4) – čtyři desetinná místa',
-    checkFn: (f) => normalizeFormula(f) === 'ROUND(B2,4)',
-    correctFormula: '=ROUND(B2,4)',
-    expectedResult: '0,9167',
-  },
-  {
-    funcId: 'ROUND',
-    desc: 'Zaokrouhli kurz eura 24.8567 z B2 na 2 des. místa (běžné zaokrouhlení měny). Výsledek do C2.',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Měna', 'Kurz',   'Zaokrouhleno'],
-        ['2', 'EUR',  '24.8567','❓'],
-        ['3', 'USD',  '22.4319',''],
-        ['4', 'GBP',  '28.6542',''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=ROUND(B2,2) – zaokrouhlení měny na 2 des. místa',
-    checkFn: (f) => normalizeFormula(f) === 'ROUND(B2,2)',
-    correctFormula: '=ROUND(B2,2)',
-    expectedResult: '24,86',
-  },
-  {
-    funcId: 'ROUND',
-    desc: 'Zaokrouhli celkovou váhu 85.7 kg z B2 na celé číslo. Výsledek do C2.',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Položka',    'Hodnota', 'Zaokrouhleno'],
-        ['2', 'Váha (kg)',  '85.7',    '❓'],
-        ['3', 'Výška (cm)', '182.4',   ''],
-        ['4', 'Objem (l)',  '12.3',    ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=ROUND(B2,0) zaokrouhlí na celé číslo',
-    checkFn: (f) => normalizeFormula(f) === 'ROUND(B2,0)',
-    correctFormula: '=ROUND(B2,0)',
-    expectedResult: '86',
-  },
-  {
-    funcId: 'ROUND',
-    desc: 'Zaokrouhli vzdálenost 153.67 km z B2 na 1 desetinné místo. Výsledek do C2.',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Trasa',   'Vzdálenost', 'Zaokrouhleno'],
-        ['2', 'Praha–Brno','153.67',   '❓'],
-        ['3', 'Brno–Ostrava','87.43',  ''],
-        ['4', 'Praha–Plzeň','87.95',   ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=ROUND(B2,1) na 1 desetinné místo',
-    checkFn: (f) => normalizeFormula(f) === 'ROUND(B2,1)',
-    correctFormula: '=ROUND(B2,1)',
-    expectedResult: '153,7',
-  },
 
   // --- CONCATENATE ---
   {
@@ -2450,168 +373,6 @@ const ALL_QUESTIONS = [
     checkFn: (f) => normalizeFormula(f) === 'CONCATENATE(A2," ",B2)' || normalizeFormula(f) === 'A2&" "&B2',
     correctFormula: '=CONCATENATE(A2," ",B2)',
     expectedResult: '"Novák Jan"',
-  },
-  {
-    funcId: 'CONCATENATE',
-    desc: 'Spoj název města (A2) a stát (B2) s čárkou a mezerou do C2. Výsledek: "Praha, Česko".',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Město', 'Stát',  'Lokalita'],
-        ['2', 'Praha', 'Česko', '❓'],
-        ['3', 'Brno',  'Česko', ''],
-        ['4', 'Liberec','Česko',''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=CONCATENATE(A2,", ",B2) nebo =A2&", "&B2',
-    checkFn: (f) => normalizeFormula(f) === 'CONCATENATE(A2,", ",B2)' || normalizeFormula(f) === 'A2&", "&B2',
-    correctFormula: '=CONCATENATE(A2,", ",B2)',
-    expectedResult: '"Praha, Česko"',
-  },
-  {
-    funcId: 'CONCATENATE',
-    desc: 'Spoj kód produktu (A2), pomlčku a barvu (B2) do C2. Výsledek: "NB-01-Černá".',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Kód',    'Barva',  'Celkem'],
-        ['2', 'NB-01',  'Černá',  '❓'],
-        ['3', 'TB-02',  'Bílá',   ''],
-        ['4', 'MB-03',  'Modrá',  ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=CONCATENATE(A2,"-",B2) nebo =A2&"-"&B2',
-    checkFn: (f) => normalizeFormula(f) === 'CONCATENATE(A2,"-",B2)' || normalizeFormula(f) === 'A2&"-"&B2',
-    correctFormula: '=CONCATENATE(A2,"-",B2)',
-    expectedResult: '"NB-01-Černá"',
-  },
-  {
-    funcId: 'CONCATENATE',
-    desc: 'Spoj titul (A2), jméno (B2) a příjmení (C2) s mezerami do D2. Výsledek: "Ing. Jan Novák".',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D'],
-      rows: [
-        ['1', 'Titul', 'Jméno', 'Příjmení', 'Celé jméno'],
-        ['2', 'Ing.',  'Jan',   'Novák',    '❓'],
-        ['3', 'Mgr.',  'Eva',   'Černá',    ''],
-        ['4', 'Bc.',   'Tomáš', 'Procházka',''],
-      ],
-    },
-    answerCell: 'D2',
-    hint: '=CONCATENATE(A2," ",B2," ",C2)',
-    checkFn: (f) => normalizeFormula(f) === 'CONCATENATE(A2," ",B2," ",C2)',
-    correctFormula: '=CONCATENATE(A2," ",B2," ",C2)',
-    expectedResult: '"Ing. Jan Novák"',
-  },
-  {
-    funcId: 'CONCATENATE',
-    desc: 'Spoj ulici (A2), číslo (B2) a město (C2) do D2. Výsledek: "Hlavní 123, Praha".',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D'],
-      rows: [
-        ['1', 'Ulice',  'Č. p.', 'Město', 'Adresa'],
-        ['2', 'Hlavní', '123',   'Praha', '❓'],
-        ['3', 'Dlouhá', '45',    'Brno',  ''],
-        ['4', 'Krátká', '7',     'Plzeň', ''],
-      ],
-    },
-    answerCell: 'D2',
-    hint: '=CONCATENATE(A2," ",B2,", ",C2)',
-    checkFn: (f) => normalizeFormula(f) === 'CONCATENATE(A2," ",B2,", ",C2)',
-    correctFormula: '=CONCATENATE(A2," ",B2,", ",C2)',
-    expectedResult: '"Hlavní 123, Praha"',
-  },
-  {
-    funcId: 'CONCATENATE',
-    desc: 'Spoj den (A2), měsíc (B2) a rok (C2) s tečkami do D2. Výsledek: "15.1.2024".',
-    table: {
-      headers: ['', 'A', 'B', 'C', 'D'],
-      rows: [
-        ['1', 'Den', 'Měsíc', 'Rok',  'Datum'],
-        ['2', '15',  '1',     '2024', '❓'],
-        ['3', '3',   '6',     '2024', ''],
-        ['4', '24',  '12',    '2023', ''],
-      ],
-    },
-    answerCell: 'D2',
-    hint: '=CONCATENATE(A2,".",B2,".",C2)',
-    checkFn: (f) => normalizeFormula(f) === 'CONCATENATE(A2,".",B2,".",C2)',
-    correctFormula: '=CONCATENATE(A2,".",B2,".",C2)',
-    expectedResult: '"15.1.2024"',
-  },
-  {
-    funcId: 'CONCATENATE',
-    desc: 'Spoj název (A2) a množství (B2) s pomlčkou do C2 pro skladový kód. Výsledek: "Notebook-5ks".',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Produkt',  'Množství', 'Skladový kód'],
-        ['2', 'Notebook', '5',        '❓'],
-        ['3', 'Mobil',    '12',       ''],
-        ['4', 'Myš',      '25',       ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=CONCATENATE(A2,"-",B2,"ks") nebo =A2&"-"&B2&"ks"',
-    checkFn: (f) => normalizeFormula(f) === 'CONCATENATE(A2,"-",B2,"KS")' || normalizeFormula(f) === 'A2&"-"&B2&"KS"',
-    correctFormula: '=CONCATENATE(A2,"-",B2,"ks")',
-    expectedResult: '"Notebook-5ks"',
-  },
-  {
-    funcId: 'CONCATENATE',
-    desc: 'Spoj předvolbu (A2) a telefon (B2) do C2. Výsledek: "+420 777 123 456".',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Předvolba', 'Telefon',      'Celý tel.'],
-        ['2', '+420',      '777 123 456',  '❓'],
-        ['3', '+421',      '905 987 654',  ''],
-        ['4', '+420',      '602 456 789',  ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=CONCATENATE(A2," ",B2)',
-    checkFn: (f) => normalizeFormula(f) === 'CONCATENATE(A2," ",B2)' || normalizeFormula(f) === 'A2&" "&B2',
-    correctFormula: '=CONCATENATE(A2," ",B2)',
-    expectedResult: '"+420 777 123 456"',
-  },
-  {
-    funcId: 'CONCATENATE',
-    desc: 'Spoj označení (A2) a číslo faktury (B2) do C2. Výsledek: "FV-2024/00123".',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Označení', 'Číslo',   'Faktura'],
-        ['2', 'FV-2024',  '00123',   '❓'],
-        ['3', 'FV-2024',  '00124',   ''],
-        ['4', 'FV-2024',  '00125',   ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=CONCATENATE(A2,"/",B2)',
-    checkFn: (f) => normalizeFormula(f) === 'CONCATENATE(A2,"/",B2)' || normalizeFormula(f) === 'A2&"/"&B2',
-    correctFormula: '=CONCATENATE(A2,"/",B2)',
-    expectedResult: '"FV-2024/00123"',
-  },
-  {
-    funcId: 'CONCATENATE',
-    desc: 'Spoj kategorii (A2), dvojtečku a název (B2) do C2. Výsledek: "Elektronika: Notebook".',
-    table: {
-      headers: ['', 'A', 'B', 'C'],
-      rows: [
-        ['1', 'Kategorie',  'Název',     'Položka'],
-        ['2', 'Elektronika','Notebook',   '❓'],
-        ['3', 'Oblečení',  'Tričko',     ''],
-        ['4', 'Potraviny', 'Chléb',      ''],
-      ],
-    },
-    answerCell: 'C2',
-    hint: '=CONCATENATE(A2,": ",B2)',
-    checkFn: (f) => normalizeFormula(f) === 'CONCATENATE(A2,": ",B2)' || normalizeFormula(f) === 'A2&": "&B2',
-    correctFormula: '=CONCATENATE(A2,": ",B2)',
-    expectedResult: '"Elektronika: Notebook"',
   },
 ];
 
@@ -2662,7 +423,6 @@ let state = {
   consecutiveCorrect: 0,
   startTime: null,
   currentMood: 'medium',
-  selectedCell: null,
 };
 
 const DIFF_CONFIG = {
@@ -2688,11 +448,10 @@ function initHome() {
 
     // Shift+hover: preview the range that would be selected
     chip.addEventListener('mouseenter', (e) => {
-      if (!e.shiftKey) return;
-      const anchor = lastClickedIndex === -1 ? 0 : lastClickedIndex;
+      if (!e.shiftKey || lastClickedIndex === -1) return;
       const chips = [...document.querySelectorAll('.func-chip')];
-      const from = Math.min(anchor, idx);
-      const to   = Math.max(anchor, idx);
+      const from = Math.min(lastClickedIndex, idx);
+      const to   = Math.max(lastClickedIndex, idx);
       chips.forEach((c, i) => {
         c.classList.toggle('range-preview', i >= from && i <= to && !c.classList.contains('selected'));
       });
@@ -2707,11 +466,10 @@ function initHome() {
       const chips = [...document.querySelectorAll('.func-chip')];
       const clickedIdx = parseInt(chip.dataset.idx);
 
-      if (e.shiftKey) {
-        // === SHIFT: select range from anchor to this ===
-        const anchor = lastClickedIndex === -1 ? 0 : lastClickedIndex;
-        const from = Math.min(anchor, clickedIdx);
-        const to   = Math.max(anchor, clickedIdx);
+      if (e.shiftKey && lastClickedIndex !== -1) {
+        // === SHIFT: select range from last clicked to this ===
+        const from = Math.min(lastClickedIndex, clickedIdx);
+        const to   = Math.max(lastClickedIndex, clickedIdx);
         chips.forEach((c, i) => {
           if (i >= from && i <= to) {
             const fid = ALL_FUNCTIONS[i].id;
@@ -2778,16 +536,15 @@ function updateSpeechBubble() {
 
 // ===== START GAME =====
 function startGame() {
-  if (state.selectedFuncs.length === 0) {
-    alert('Nejprve vyber alespoň jednu funkci kliknutím na ni!');
-    return;
-  }
-
   const cfg = DIFF_CONFIG[state.difficulty];
-  let pool = ALL_QUESTIONS.filter(q => state.selectedFuncs.includes(q.funcId));
+  
+  // Filter questions by selected functions
+  let pool = state.selectedFuncs.length > 0
+    ? ALL_QUESTIONS.filter(q => state.selectedFuncs.includes(q.funcId))
+    : [...ALL_QUESTIONS];
 
   if (pool.length === 0) {
-    alert('Pro vybrané funkce nejsou žádné příklady.');
+    alert('Vyber alespoň jednu funkci nebo ponech výběr prázdný pro všechny!');
     return;
   }
 
@@ -2848,12 +605,12 @@ function setupGameListeners() {
 function loadQuestion() {
   const q = state.questions[state.currentQ];
   state.answered = false;
-  state.selectedCell = null;
-  lastCellRef = null;
 
   document.getElementById('task-desc').textContent = q.desc;
   document.getElementById('task-badge').textContent = `ÚKOL ${state.currentQ + 1}`;
-  document.getElementById('cell-ref').textContent = q.answerCell;
+  const cellRefEl = document.getElementById('cell-ref');
+  cellRefEl.textContent = q.answerCell;
+  cellRefEl.classList.remove('has-range');
   document.getElementById('progress-text').textContent = `${state.currentQ + 1} / ${state.questions.length}`;
   document.getElementById('score-value').textContent = state.score;
 
@@ -2869,43 +626,52 @@ function loadQuestion() {
   startTimer();
 }
 
-// ===== RENDER EXCEL TABLE =====
+// ===== CELL SELECTION STATE =====
+const cellSel = {
+  anchor: null,      // { col, row } – first clicked cell
+  active: null,      // last hovered/clicked cell
+  isSelecting: false,
+  mode: null,        // 'range' | 'multi'
+};
+
+// Map col letter to index and back
+function colLetterToIdx(letter) {
+  return letter.toUpperCase().charCodeAt(0) - 64; // A=1, B=2 …
+}
+function idxToColLetter(idx, headers) {
+  // headers[0] is row-num col, headers[1..] are column letters
+  return headers[idx]; // idx is 1-based data column index
+}
+
 function renderTable(q) {
   const container = document.getElementById('excel-container');
   const { headers, rows } = q.table;
+  // column letters (skip first empty header)
+  const colLetters = headers.slice(1); // e.g. ['A','B'] or ['B','C']
 
-  let html = '<table class="excel-table"><thead><tr>';
-  headers.forEach((h, i) => {
-    if (i === 0) html += `<th class="row-header">&nbsp;</th>`;
-    else html += `<th>${h}</th>`;
-  });
+  let html = '<table class="excel-table" id="game-table"><thead><tr>';
+  html += `<th class="row-header">&nbsp;</th>`;
+  colLetters.forEach(h => { html += `<th data-col="${h}">${h}</th>`; });
   html += '</tr></thead><tbody>';
 
   rows.forEach((row, rowIdx) => {
+    const rowNum = row[0]; // '1','2'…
     html += '<tr>';
-    row.forEach((cell, colIdx) => {
-      if (colIdx === 0) {
-        html += `<td class="row-num">${cell}</td>`;
-      } else {
-        const colLetter = headers[colIdx];
-        const rowNum = row[0];
-        const cellRef = colLetter + rowNum;
+    html += `<td class="row-num">${rowNum}</td>`;
+    row.slice(1).forEach((cell, colIdx) => {
+      const colLetter = colLetters[colIdx];
+      const cellAddr  = `${colLetter}${rowNum}`;
+      const isAnswer  = cell === '❓';
+      const isHeaderRow = rowIdx === 0;
+      const isNum = !isNaN(cell.replace(/\s/g,'')) && cell !== '' && !isAnswer;
 
-        if (cell === '❓') {
-          html += `<td class="answer-cell" data-cell="${cellRef}" title="${cellRef}">${cellRef}</td>`;
-        } else {
-          const isFirstRow = rowIdx === 0;
-          const isNum = !isNaN(cell.replace(/\s/g,'')) && cell !== '';
-          let cls = '';
-          if (isFirstRow) cls = 'header-cell';
-          else if (isNum) cls = 'num-cell';
-          if (colLetter) {
-            html += `<td class="${cls}" data-cell="${cellRef}">${cell}</td>`;
-          } else {
-            html += `<td class="${cls}">${cell}</td>`;
-          }
-        }
-      }
+      let cls = 'selectable';
+      if (isAnswer)    cls += ' answer-cell';
+      else if (isHeaderRow) cls += ' header-cell';
+      else if (isNum)  cls += ' num-cell';
+
+      const displayVal = isAnswer ? q.answerCell : cell;
+      html += `<td class="${cls}" data-addr="${cellAddr}" data-col="${colLetter}" data-row="${rowNum}">${displayVal}</td>`;
     });
     html += '</tr>';
   });
@@ -2913,56 +679,189 @@ function renderTable(q) {
   html += '</tbody></table>';
   container.innerHTML = html;
 
-  // Add cell click handlers
-  container.querySelectorAll('td[data-cell]').forEach(td => {
-    td.addEventListener('click', (e) => selectCell(td.dataset.cell, td, e));
+  // Wire up selection events
+  initCellSelection(q);
+}
+
+function initCellSelection(q) {
+  const table = document.getElementById('game-table');
+  if (!table) return;
+
+  // Reset selection state
+  cellSel.anchor = null;
+  cellSel.active = null;
+  cellSel.isSelecting = false;
+  cellSel.mode = null;
+
+  // Prevent text selection while dragging
+  table.addEventListener('selectstart', e => { if (cellSel.isSelecting) e.preventDefault(); });
+
+  table.addEventListener('mousedown', e => {
+    const td = e.target.closest('td.selectable');
+    if (!td) return;
+    e.preventDefault();
+
+    const addr = td.dataset.addr;
+    if (!addr) return;
+
+    if (e.shiftKey && cellSel.anchor) {
+      // Shift+click: extend range from anchor
+      cellSel.mode = 'range';
+      cellSel.active = parseAddr(addr);
+      updateSelection(q);
+      writeRangeToFormula(q);
+    } else if (e.ctrlKey || e.metaKey) {
+      // Ctrl+click: toggle single cell into multi-selection
+      cellSel.mode = 'multi';
+      toggleCellInMulti(td, addr, q);
+    } else {
+      // Plain click: start fresh range drag
+      cellSel.mode = 'range';
+      cellSel.anchor = parseAddr(addr);
+      cellSel.active = parseAddr(addr);
+      cellSel.isSelecting = true;
+      clearAllSelected(table);
+      td.classList.add('cell-selected');
+      writeRangeToFormula(q);
+    }
+  });
+
+  table.addEventListener('mousemove', e => {
+    if (!cellSel.isSelecting || cellSel.mode !== 'range') return;
+    const td = e.target.closest('td.selectable');
+    if (!td || !td.dataset.addr) return;
+    const p = parseAddr(td.dataset.addr);
+    if (!cellSel.active || p.col !== cellSel.active.col || p.row !== cellSel.active.row) {
+      cellSel.active = p;
+      updateSelection(q);
+      writeRangeToFormula(q);
+    }
+  });
+
+  document.addEventListener('mouseup', () => {
+    cellSel.isSelecting = false;
+  }, { once: false });
+}
+
+function parseAddr(addr) {
+  // e.g. "B3" -> { col: "B", row: 3, colIdx: 2 }
+  const col = addr.match(/[A-Z]+/)[0];
+  const row = parseInt(addr.match(/\d+/)[0]);
+  return { col, row, colIdx: col.charCodeAt(0) - 64 };
+}
+
+function clearAllSelected(table) {
+  table.querySelectorAll('.cell-selected, .cell-anchor').forEach(td => {
+    td.classList.remove('cell-selected', 'cell-anchor');
   });
 }
 
-let lastCellRef = null;
+function updateSelection(q) {
+  const table = document.getElementById('game-table');
+  if (!table || !cellSel.anchor || !cellSel.active) return;
 
-function colToIndex(col) {
-  let idx = 0;
-  for (let i = 0; i < col.length; i++) idx = idx * 26 + (col.charCodeAt(i) - 64);
-  return idx;
-}
+  clearAllSelected(table);
 
-function isInRange(ref, fromRef, toRef) {
-  const m1 = ref.match(/^([A-Z]+)(\d+)$/);
-  const m2 = fromRef.match(/^([A-Z]+)(\d+)$/);
-  const m3 = toRef.match(/^([A-Z]+)(\d+)$/);
-  if (!m1 || !m2 || !m3) return false;
-  const c = colToIndex(m1[1]), r = parseInt(m1[2]);
-  const minC = Math.min(colToIndex(m2[1]), colToIndex(m3[1]));
-  const maxC = Math.max(colToIndex(m2[1]), colToIndex(m3[1]));
-  const minR = Math.min(parseInt(m2[2]), parseInt(m3[2]));
-  const maxR = Math.max(parseInt(m2[2]), parseInt(m3[2]));
-  return c >= minC && c <= maxC && r >= minR && r <= maxR;
-}
+  const minCol = Math.min(cellSel.anchor.colIdx, cellSel.active.colIdx);
+  const maxCol = Math.max(cellSel.anchor.colIdx, cellSel.active.colIdx);
+  const minRow = Math.min(cellSel.anchor.row,    cellSel.active.row);
+  const maxRow = Math.max(cellSel.anchor.row,    cellSel.active.row);
 
-function selectCell(cellRef, td, event) {
-  if (event.shiftKey && lastCellRef) {
-    document.querySelectorAll('.excel-table td[data-cell]').forEach(el => {
-      el.classList.toggle('selected', isInRange(el.dataset.cell, lastCellRef, cellRef));
-    });
-    state.selectedCell = cellRef;
-    document.getElementById('cell-ref').textContent = cellRef;
-  } else if (event.ctrlKey || event.metaKey) {
-    td.classList.toggle('selected');
-    if (td.classList.contains('selected')) {
-      state.selectedCell = cellRef;
-      document.getElementById('cell-ref').textContent = cellRef;
+  table.querySelectorAll('td.selectable[data-addr]').forEach(td => {
+    const p = parseAddr(td.dataset.addr);
+    if (p.colIdx >= minCol && p.colIdx <= maxCol && p.row >= minRow && p.row <= maxRow) {
+      td.classList.add('cell-selected');
+      if (p.col === cellSel.anchor.col && p.row === cellSel.anchor.row) {
+        td.classList.add('cell-anchor');
+      }
     }
-    lastCellRef = cellRef;
-  } else {
-    document.querySelectorAll('.excel-table td.selected').forEach(el => el.classList.remove('selected'));
-    state.selectedCell = cellRef;
-    td.classList.add('selected');
-    document.getElementById('cell-ref').textContent = cellRef;
-    lastCellRef = cellRef;
-  }
+  });
 }
 
+// Returns "B2:B5" or "B2" from current selection
+function getRangeString() {
+  if (!cellSel.anchor || !cellSel.active) return '';
+  const a = cellSel.anchor;
+  const b = cellSel.active;
+  if (a.col === b.col && a.row === b.row) return `${a.col}${a.row}`;
+
+  const minCol = String.fromCharCode(64 + Math.min(a.colIdx, b.colIdx));
+  const maxCol = String.fromCharCode(64 + Math.max(a.colIdx, b.colIdx));
+  const minRow = Math.min(a.row, b.row);
+  const maxRow = Math.max(a.row, b.row);
+  if (minCol === maxCol) return `${minCol}${minRow}:${maxCol}${maxRow}`;
+  return `${minCol}${minRow}:${maxCol}${maxRow}`;
+}
+
+// Multi-selection state (Ctrl)
+const multiSelected = new Set();
+
+function toggleCellInMulti(td, addr, q) {
+  if (multiSelected.has(addr)) {
+    multiSelected.delete(addr);
+    td.classList.remove('cell-selected', 'cell-anchor');
+  } else {
+    multiSelected.add(addr);
+    td.classList.add('cell-selected');
+  }
+  writeMultiToFormula(q);
+}
+
+function updateCellRef(text) {
+  const ref = document.getElementById('cell-ref');
+  if (!ref) return;
+  ref.textContent = text;
+  ref.classList.toggle('has-range', text.includes(':') || (text.length > 2));
+}
+
+function writeRangeToFormula(q) {
+  multiSelected.clear();
+  const range = getRangeString();
+  if (!range) return;
+
+  // Update the cell-ref box
+  updateCellRef(range);
+
+  const input = document.getElementById('formula-input');
+  const cur   = input.value;
+
+  // If formula already has opening paren – replace the argument inside
+  const parenOpen = cur.indexOf('(');
+  if (parenOpen !== -1) {
+    const before = cur.slice(0, parenOpen + 1);
+    const after  = cur.includes(')') ? cur.slice(cur.lastIndexOf(')')) : ')';
+    input.value  = before + range + after;
+  } else if (cur === '' || cur === '=') {
+    input.value = cur + range;
+  } else {
+    // Replace a trailing cell reference / range if present
+    input.value = cur.replace(/[A-Z]+\d+(:[A-Z]+\d+)?$/, '') + range;
+  }
+  // Highlight the range text inside the input
+  const start = input.value.lastIndexOf(range);
+  input.focus();
+  if (start !== -1) input.setSelectionRange(start, start + range.length);
+}
+
+function writeMultiToFormula(q) {
+  if (multiSelected.size === 0) return;
+  const addrs = [...multiSelected].join(';');
+  updateCellRef(addrs);
+
+  const input  = document.getElementById('formula-input');
+  const cur    = input.value;
+  const parenOpen = cur.indexOf('(');
+  if (parenOpen !== -1) {
+    const before = cur.slice(0, parenOpen + 1);
+    const after  = cur.includes(')') ? cur.slice(cur.lastIndexOf(')')) : ')';
+    input.value  = before + addrs + after;
+  } else {
+    input.value = (cur || '') + addrs;
+  }
+  const start = input.value.lastIndexOf(addrs);
+  input.focus();
+  if (start !== -1) input.setSelectionRange(start, start + addrs.length);
+}
 // ===== TIMER =====
 function startTimer() {
   stopTimer();
@@ -3016,19 +915,10 @@ function checkAnswer() {
   const val = input.value.trim();
   if (!val) return;
 
-  const q = state.questions[state.currentQ];
-
-  if (state.selectedCell !== q.answerCell) {
-    input.classList.add('wrong');
-    document.getElementById('hint-text').textContent = '💡 Nejprve klikni na buňku ' + q.answerCell + ' v tabulce!';
-    document.getElementById('hint-area').style.display = 'block';
-    setTimeout(() => input.className = 'formula-input', 400);
-    return;
-  }
-
   state.answered = true;
   stopTimer();
 
+  const q = state.questions[state.currentQ];
   const isCorrect = q.checkFn(val);
 
   if (isCorrect) {
