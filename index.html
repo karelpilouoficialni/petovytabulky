@@ -1,172 +1,189 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cs">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Excel Výzva – Nauč se funkce!</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Excel Výzva – Nauč se funkce!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- SCREEN 1: HOME -->
+    <div id="screen-home" class="screen active">
+      <div class="chalkboard-bg">
+        <div class="chalk-dust"></div>
+        <div class="home-content">
+          <div class="title-block">
+            <div class="chalk-title">Petrovy</div>
+            <div class="chalk-subtitle">Tabulky</div>
+            <div class="chalk-tagline">
+              Zvládni funkce jako magistr Petr Novotný!
+            </div>
+          </div>
 
-<!-- SCREEN 1: HOME -->
-<div id="screen-home" class="screen active">
-  <div class="chalkboard-bg">
-    <div class="chalk-dust"></div>
-    <div class="home-content">
-      <div class="title-block">
-        <div class="chalk-title">Petrovy</div>
-        <div class="chalk-subtitle">Tabulky</div>
-        <div class="chalk-tagline">Zvládni funkce jako magistr Petr Novotný!</div>
-      </div>
+          <div class="teacher-intro">
+            <div class="teacher-face" id="home-teacher"></div>
+            <div class="speech-bubble chalk-text">
+              Vyberte si funkce, které chcete procvičit, a pojďme na to!
+            </div>
+          </div>
 
-      <div class="teacher-intro">
-        <div class="teacher-face" id="home-teacher"></div>
-        <div class="speech-bubble chalk-text">Vyberte si funkce, které chcete procvičit, a pojďme na to!</div>
-      </div>
+          <div class="section-label">① VYBER FUNKCE</div>
+          <div class="function-grid" id="function-selector">
+            <!-- JS fills this -->
+          </div>
+          <div class="select-hint">
+            <kbd>Ctrl</kbd> klikni pro jednotlivý výběr &nbsp;·&nbsp;
+            <kbd>Shift</kbd> klikni pro výběr rozsahu &nbsp;·&nbsp; prázdný
+            výběr = všechny funkce
+          </div>
 
-      <div class="section-label">① VYBER FUNKCE</div>
-      <div class="function-grid" id="function-selector">
-        <!-- JS fills this -->
-      </div>
-      <div class="select-hint">
-        <kbd>Ctrl</kbd> klikni pro jednotlivý výběr &nbsp;·&nbsp; <kbd>Shift</kbd> klikni pro výběr rozsahu &nbsp;·&nbsp; prázdný výběr = všechny funkce
-      </div>
+          <div class="section-label">② OBTÍŽNOST</div>
+          <div class="difficulty-row">
+            <button class="diff-btn active" data-diff="easy">
+              <span class="diff-icon">🟢</span>
+              <span class="diff-name">Snadná</span>
+              <span class="diff-count">5 příkladů</span>
+            </button>
+            <button class="diff-btn" data-diff="medium">
+              <span class="diff-icon">🟡</span>
+              <span class="diff-name">Střední</span>
+              <span class="diff-count">10 příkladů</span>
+            </button>
+            <button class="diff-btn" data-diff="hard">
+              <span class="diff-icon">🔴</span>
+              <span class="diff-name">Těžká</span>
+              <span class="diff-count">20 příkladů</span>
+            </button>
+          </div>
 
-      <div class="section-label">② OBTÍŽNOST</div>
-      <div class="difficulty-row">
-        <button class="diff-btn active" data-diff="easy">
-          <span class="diff-icon">🟢</span>
-          <span class="diff-name">Snadná</span>
-          <span class="diff-count">5 příkladů</span>
-        </button>
-        <button class="diff-btn" data-diff="medium">
-          <span class="diff-icon">🟡</span>
-          <span class="diff-name">Střední</span>
-          <span class="diff-count">10 příkladů</span>
-        </button>
-        <button class="diff-btn" data-diff="hard">
-          <span class="diff-icon">🔴</span>
-          <span class="diff-name">Těžká</span>
-          <span class="diff-count">20 příkladů</span>
-        </button>
-      </div>
-
-      <div class="no-func-hint" id="no-func-hint">⚠️ Nejdřív vyber alespoň jednu funkci!</div>
-      <button class="start-btn" id="start-btn">
-        ▶ ZAČÍT HRU
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- SCREEN 2: GAME -->
-<div id="screen-game" class="screen">
-  <div class="game-layout">
-
-    <!-- LEFT: Teacher panel -->
-    <div class="teacher-panel">
-      <div class="teacher-face" id="game-teacher"></div>
-      <div class="mood-label" id="mood-label">Připraven!</div>
-      <div class="score-display">
-        <div class="score-label">Skóre</div>
-        <div class="score-value" id="score-value">0</div>
-      </div>
-      <div class="timer-ring">
-        <svg viewBox="0 0 80 80">
-          <circle cx="40" cy="40" r="34" class="timer-bg"/>
-          <circle cx="40" cy="40" r="34" class="timer-arc" id="timer-arc"/>
-        </svg>
-        <div class="timer-text" id="timer-text">30</div>
-      </div>
-      <div class="progress-info">
-        <span id="progress-text">1 / 3</span>
-        <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
-      </div>
-      <button class="home-btn" id="home-btn">⬅ Menu</button>
-    </div>
-
-    <!-- CENTER: Task -->
-    <div class="task-area">
-      <div class="task-header">
-        <div class="task-badge" id="task-badge">ÚKOL</div>
-        <div class="task-desc" id="task-desc">Spočítej součet sloupce B</div>
-      </div>
-
-      <!-- Excel table -->
-      <div class="excel-wrap">
-        <div class="excel-toolbar">
-          <div class="excel-tab active">List1</div>
-          <div class="excel-tab">List2</div>
-        </div>
-        <div class="excel-container" id="excel-container">
-          <!-- JS renders table -->
-        </div>
-      </div>
-
-      <!-- Formula bar -->
-      <div class="formula-bar">
-        <div class="cell-ref" id="cell-ref">C6</div>
-        <div class="fx-label"><em>fx</em></div>
-        <input type="text" class="formula-input" id="formula-input" placeholder='Napiš vzorec, např. =SUM(B2:B5)' autocomplete="off" spellcheck="false">
-        <button class="check-btn" id="check-btn">✓ Zkontrolovat</button>
-      </div>
-
-      <!-- Hint -->
-      <div class="hint-area" id="hint-area" style="display:none">
-        <div class="hint-text" id="hint-text"></div>
-      </div>
-
-      <!-- Result feedback -->
-      <div class="result-overlay" id="result-overlay" style="display:none">
-        <div class="result-card" id="result-card">
-          <div class="result-icon" id="result-icon"></div>
-          <div class="result-msg" id="result-msg"></div>
-          <div class="result-answer" id="result-answer"></div>
-          <button class="next-btn" id="next-btn">Další →</button>
+          <div class="no-func-hint" id="no-func-hint">
+            ⚠️ Nejdřív vyber alespoň jednu funkci!
+          </div>
+          <button class="start-btn" id="start-btn">▶ ZAČÍT HRU</button>
         </div>
       </div>
     </div>
 
-  </div>
-</div>
+    <!-- SCREEN 2: GAME -->
+    <div id="screen-game" class="screen">
+      <div class="game-layout">
+        <!-- LEFT: Teacher panel -->
+        <div class="teacher-panel">
+          <div class="teacher-face" id="game-teacher"></div>
+          <div class="mood-label" id="mood-label">Připraven!</div>
+          <div class="score-display">
+            <div class="score-label">Skóre</div>
+            <div class="score-value" id="score-value">0</div>
+          </div>
+          <div class="timer-ring">
+            <svg viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="34" class="timer-bg" />
+              <circle cx="40" cy="40" r="34" class="timer-arc" id="timer-arc" />
+            </svg>
+            <div class="timer-text" id="timer-text">30</div>
+          </div>
+          <div class="progress-info">
+            <span id="progress-text">1 / 3</span>
+            <div class="progress-bar-track">
+              <div class="progress-bar-fill" id="progress-fill"></div>
+            </div>
+          </div>
+          <button class="home-btn" id="home-btn">⬅ Menu</button>
+        </div>
 
-<!-- SCREEN 3: RESULTS -->
-<div id="screen-results" class="screen">
-  <div class="results-bg">
-    <div class="results-content">
-      <div class="teacher-face big-teacher" id="results-teacher"></div>
-      <div class="results-title" id="results-title">Výsledky</div>
-      <div class="results-grade" id="results-grade"></div>
-      <div class="results-stats">
-        <div class="stat-box">
-          <div class="stat-num" id="stat-correct">0</div>
-          <div class="stat-lbl">Správně</div>
+        <!-- CENTER: Task -->
+        <div class="task-area">
+          <div class="task-header">
+            <div class="task-badge" id="task-badge">ÚKOL</div>
+            <div class="task-desc" id="task-desc">
+              Spočítej součet sloupce B
+            </div>
+          </div>
+
+          <!-- Excel table -->
+          <div class="excel-wrap">
+            <div class="excel-toolbar">
+              <div class="excel-tab active">List1</div>
+              <div class="excel-tab">List2</div>
+            </div>
+            <div class="excel-container" id="excel-container">
+              <!-- JS renders table -->
+            </div>
+          </div>
+
+          <!-- Formula bar -->
+          <div class="formula-bar">
+            <div class="cell-ref" id="cell-ref">C6</div>
+            <div class="fx-label"><em>fx</em></div>
+            <input
+              type="text"
+              class="formula-input"
+              id="formula-input"
+              placeholder="Napiš vzorec, např. =SUM(B2:B5)"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button class="check-btn" id="check-btn">✓ Zkontrolovat</button>
+          </div>
+
+          <!-- Hint -->
+          <div class="hint-area" id="hint-area" style="display: none">
+            <div class="hint-text" id="hint-text"></div>
+          </div>
+
+          <!-- Result feedback -->
+          <div class="result-overlay" id="result-overlay" style="display: none">
+            <div class="result-card" id="result-card">
+              <div class="result-icon" id="result-icon"></div>
+              <div class="result-msg" id="result-msg"></div>
+              <div class="result-answer" id="result-answer"></div>
+              <button class="next-btn" id="next-btn">Další →</button>
+            </div>
+          </div>
         </div>
-        <div class="stat-box">
-          <div class="stat-num" id="stat-wrong">0</div>
-          <div class="stat-lbl">Špatně</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num" id="stat-time">0s</div>
-          <div class="stat-lbl">Čas</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num" id="stat-score">0</div>
-          <div class="stat-lbl">Bodů</div>
-        </div>
-      </div>
-      <div class="results-comment" id="results-comment"></div>
-      <div class="results-btns">
-        <button class="retry-btn" id="retry-btn">🔄 Znovu</button>
-        <button class="menu-btn2" id="menu-btn2">🏠 Menu</button>
       </div>
     </div>
-  </div>
-</div>
 
-<script src="game.js"></script>
-</body>
+    <!-- SCREEN 3: RESULTS -->
+    <div id="screen-results" class="screen">
+      <div class="results-bg">
+        <div class="results-content">
+          <div class="teacher-face big-teacher" id="results-teacher"></div>
+          <div class="results-title" id="results-title">Výsledky</div>
+          <div class="results-grade" id="results-grade"></div>
+          <div class="results-stats">
+            <div class="stat-box">
+              <div class="stat-num" id="stat-correct">0</div>
+              <div class="stat-lbl">Správně</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num" id="stat-wrong">0</div>
+              <div class="stat-lbl">Špatně</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num" id="stat-time">0s</div>
+              <div class="stat-lbl">Čas</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num" id="stat-score">0</div>
+              <div class="stat-lbl">Bodů</div>
+            </div>
+          </div>
+          <div class="results-comment" id="results-comment"></div>
+          <div class="results-btns">
+            <button class="retry-btn" id="retry-btn">🔄 Znovu</button>
+            <button class="menu-btn2" id="menu-btn2">🏠 Menu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
 </html>
