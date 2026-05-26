@@ -1701,7 +1701,7 @@ let state = {
   correct: 0,
   wrong: 0,
   totalTime: 0,
-  timerSeconds: 30,
+  timerSeconds: 20,
   timerInterval: null,
   answered: false,
   consecutiveCorrect: 0,
@@ -1710,9 +1710,9 @@ let state = {
 };
 
 const DIFF_CONFIG = {
-  easy:   { count: 5,  time: 40 },
-  medium: { count: 10, time: 30 },
-  hard:   { count: 20, time: 20 },
+  easy:   { count: 5,  time: 20 },
+  medium: { count: 10, time: 15 },
+  hard:   { count: 20, time: 10 },
 };
 
 // ===== INIT HOME =====
