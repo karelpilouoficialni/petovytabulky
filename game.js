@@ -2795,9 +2795,9 @@ let state = {
 };
 
 const DIFF_CONFIG = {
-  easy:   { count: 5,  time: 20 },
-  medium: { count: 10, time: 15 },
-  hard:   { count: 20, time: 10 },
+  easy:   { count: 5,  time: 40 },
+  medium: { count: 10, time: 30 },
+  hard:   { count: 20, time: 25 },
 };
 
 // ===== INIT HOME =====
@@ -3488,7 +3488,7 @@ function showResults() {
   if (ratio >= 0.9) {
     moodKey = "very-good";
     grade = "Jednička s hvězdičkou ⭐";
-    comment = "Fantastický výkon! Jsi Excel mistr! 🏆";
+    comment = "Fantastický výkon! Jsi mistr excelových tabulek!! 🏆";
   } else if (ratio >= 0.7) {
     moodKey = "good";
     grade = "Chvalitebný 😊";
