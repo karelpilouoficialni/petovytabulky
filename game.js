@@ -1223,11 +1223,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: '=IF(podmínka, "hodnota_ano", "hodnota_ne")  →  =IF(B2>=50,"Splnil","Nesplnil")',
+    hint: '=IF(podmínka; "hodnota_ano"; "hodnota_ne")  →  =IF(B2>=50;"Splnil";"Nesplnil")',
     checkFn: (f) =>
-      normalizeFormula(f) === 'IF(B2>=50,"SPLNIL","NESPLNIL")' ||
-      normalizeFormula(f) === 'IF(B2>=50,"Splnil","Nesplnil")'.toUpperCase(),
-    correctFormula: '=IF(B2>=50,"Splnil","Nesplnil")',
+      normalizeFormula(f) === 'IF(B2>=50;"SPLNIL";"NESPLNIL")' ||
+      normalizeFormula(f) === 'IF(B2>=50;"Splnil";"Nesplnil")'.toUpperCase(),
+    correctFormula: '=IF(B2>=50;"Splnil";"Nesplnil")',
     expectedResult: '"Splnil"',
   },
   {
@@ -1243,9 +1243,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D2",
-    hint: '=IF(C2>3,"Opakovat","Postoupit")',
-    checkFn: (f) => normalizeFormula(f) === 'IF(C2>3,"OPAKOVAT","POSTOUPIT")',
-    correctFormula: '=IF(C2>3,"Opakovat","Postoupit")',
+    hint: '=IF(C2>3;"Opakovat";"Postoupit")',
+    checkFn: (f) => normalizeFormula(f) === 'IF(C2>3;"OPAKOVAT";"POSTOUPIT")',
+    correctFormula: '=IF(C2>3;"Opakovat";"Postoupit")',
     expectedResult: '"Opakovat"',
   },
   {
@@ -1261,11 +1261,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D2",
-    hint: '=IF(C2>=60,"Prospěl","Neprospěl")',
+    hint: '=IF(C2>=60;"Prospěl";"Neprospěl")',
     checkFn: (f) =>
-      normalizeFormula(f) === 'IF(C2>=60,"PROSPĚL","NEPROSPĚL")' ||
-      normalizeFormula(f) === 'IF(C2>=60,"PROSPEL","NEPROSPEL")',
-    correctFormula: '=IF(C2>=60,"Prospěl","Neprospěl")',
+      normalizeFormula(f) === 'IF(C2>=60;"PROSPĚL";"NEPROSPĚL")' ||
+      normalizeFormula(f) === 'IF(C2>=60;"PROSPEL";"NEPROSPEL")',
+    correctFormula: '=IF(C2>=60;"Prospěl";"Neprospěl")',
     expectedResult: '"Prospěl"',
   },
   {
@@ -1281,11 +1281,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: '=IF(B2>1000,"Drahý","Levný")',
+    hint: '=IF(B2>1000;"Drahý";"Levný")',
     checkFn: (f) =>
-      normalizeFormula(f) === 'IF(B2>1000,"DRAHÝ","LEVNÝ")' ||
-      normalizeFormula(f) === 'IF(B2>1000,"DRAHY","LEVNY")',
-    correctFormula: '=IF(B2>1000,"Drahý","Levný")',
+      normalizeFormula(f) === 'IF(B2>1000;"DRAHÝ";"LEVNÝ")' ||
+      normalizeFormula(f) === 'IF(B2>1000;"DRAHY";"LEVNY")',
+    correctFormula: '=IF(B2>1000;"Drahý";"Levný")',
     expectedResult: '"Drahý"',
   },
   {
@@ -1301,11 +1301,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D2",
-    hint: '=IF(C2>=90,"Pochvala","Napomenutí")',
+    hint: '=IF(C2>=90;"Pochvala";"Napomenutí")',
     checkFn: (f) =>
-      normalizeFormula(f) === 'IF(C2>=90,"POCHVALA","NAPOMENUTÍ")' ||
-      normalizeFormula(f) === 'IF(C2>=90,"POCHVALA","NAPOMENUTI")',
-    correctFormula: '=IF(C2>=90,"Pochvala","Napomenutí")',
+      normalizeFormula(f) === 'IF(C2>=90;"POCHVALA";"NAPOMENUTÍ")' ||
+      normalizeFormula(f) === 'IF(C2>=90;"POCHVALA";"NAPOMENUTI")',
+    correctFormula: '=IF(C2>=90;"Pochvala";"Napomenutí")',
     expectedResult: '"Pochvala"',
   },
   {
@@ -1321,11 +1321,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: '=IF(B2="Ano","Dostupný","Nedostupný")',
+    hint: '=IF(B2="Ano";"Dostupný";"Nedostupný")',
     checkFn: (f) =>
-      normalizeFormula(f) === 'IF(B2="ANO","DOSTUPNÝ","NEDOSTUPNÝ")' ||
-      normalizeFormula(f) === 'IF(B2="ANO","DOSTUPNY","NEDOSTUPNY")',
-    correctFormula: '=IF(B2="Ano","Dostupný","Nedostupný")',
+      normalizeFormula(f) === 'IF(B2="ANO";"DOSTUPNÝ";"NEDOSTUPNÝ")' ||
+      normalizeFormula(f) === 'IF(B2="ANO";"DOSTUPNY";"NEDOSTUPNY")',
+    correctFormula: '=IF(B2="Ano";"Dostupný";"Nedostupný")',
     expectedResult: '"Dostupný"',
   },
   {
@@ -1341,11 +1341,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D2",
-    hint: '=IF(C2>20,"Nadměrný","Standard")',
+    hint: '=IF(C2>20;"Nadměrný";"Standard")',
     checkFn: (f) =>
-      normalizeFormula(f) === 'IF(C2>20,"NADMĚRNÝ","STANDARD")' ||
-      normalizeFormula(f) === 'IF(C2>20,"NADMERNY","STANDARD")',
-    correctFormula: '=IF(C2>20,"Nadměrný","Standard")',
+      normalizeFormula(f) === 'IF(C2>20;"NADMĚRNÝ";"STANDARD")' ||
+      normalizeFormula(f) === 'IF(C2>20;"NADMERNY";"STANDARD")',
+    correctFormula: '=IF(C2>20;"Nadměrný";"Standard")',
     expectedResult: '"Standard"',
   },
   {
@@ -1361,11 +1361,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D2",
-    hint: '=IF(C2<2.5,"Výborný","Dobrý")',
+    hint: '=IF(C2<2.5;"Výborný";"Dobrý")',
     checkFn: (f) =>
-      normalizeFormula(f) === 'IF(C2<2.5,"VÝBORNÝ","DOBRÝ")' ||
-      normalizeFormula(f) === 'IF(C2<2.5,"VYBORNY","DOBRY")',
-    correctFormula: '=IF(C2<2.5,"Výborný","Dobrý")',
+      normalizeFormula(f) === 'IF(C2<2.5;"VÝBORNÝ";"DOBRÝ")' ||
+      normalizeFormula(f) === 'IF(C2<2.5;"VYBORNY";"DOBRY")',
+    correctFormula: '=IF(C2<2.5;"Výborný";"Dobrý")',
     expectedResult: '"Výborný"',
   },
   {
@@ -1381,11 +1381,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: '=IF(B2="Muž","Vážený","Vážená")',
+    hint: '=IF(B2="Muž";"Vážený";"Vážená")',
     checkFn: (f) =>
-      normalizeFormula(f) === 'IF(B2="MUŽ","VÁŽENÝ","VÁŽENÁ")' ||
-      normalizeFormula(f) === 'IF(B2="MUZ","VAZENY","VAZENA")',
-    correctFormula: '=IF(B2="Muž","Vážený","Vážená")',
+      normalizeFormula(f) === 'IF(B2="MUŽ";"VÁŽENÝ";"VÁŽENÁ")' ||
+      normalizeFormula(f) === 'IF(B2="MUZ";"VAZENY";"VAZENA")',
+    correctFormula: '=IF(B2="Muž";"Vážený";"Vážená")',
     expectedResult: '"Vážený"',
   },
   {
@@ -1401,11 +1401,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D2",
-    hint: '=IF(C2>30,"Horko","Normál")',
+    hint: '=IF(C2>30;"Horko";"Normál")',
     checkFn: (f) =>
-      normalizeFormula(f) === 'IF(C2>30,"HORKO","NORMÁL")' ||
-      normalizeFormula(f) === 'IF(C2>30,"HORKO","NORMAL")',
-    correctFormula: '=IF(C2>30,"Horko","Normál")',
+      normalizeFormula(f) === 'IF(C2>30;"HORKO";"NORMÁL")' ||
+      normalizeFormula(f) === 'IF(C2>30;"HORKO";"NORMAL")',
+    correctFormula: '=IF(C2>30;"Horko";"Normál")',
     expectedResult: '"Horko"',
   },
   {
@@ -1421,11 +1421,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D2",
-    hint: '=IF(C2>=18,"Zletilý","Nezletilý")',
+    hint: '=IF(C2>=18;"Zletilý";"Nezletilý")',
     checkFn: (f) =>
-      normalizeFormula(f) === 'IF(C2>=18,"ZLETILÝ","NEZLETILÝ")' ||
-      normalizeFormula(f) === 'IF(C2>=18,"ZLETILY","NEZLETILY")',
-    correctFormula: '=IF(C2>=18,"Zletilý","Nezletilý")',
+      normalizeFormula(f) === 'IF(C2>=18;"ZLETILÝ";"NEZLETILÝ")' ||
+      normalizeFormula(f) === 'IF(C2>=18;"ZLETILY";"NEZLETILY")',
+    correctFormula: '=IF(C2>=18;"Zletilý";"Nezletilý")',
     expectedResult: '"Zletilý"',
   },
 
@@ -1444,11 +1444,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "G2",
-    hint: "=VLOOKUP(hledaná_hodnota, tabulka, číslo_sloupce, 0)\n→ =VLOOKUP(G1,A2:B5,2,0)",
+    hint: "=VLOOKUP(hledaná_hodnota; tabulka; číslo_sloupce; 0)\n→ =VLOOKUP(G1;A2:B5;2;0)",
     checkFn: (f) =>
-      normalizeFormula(f) === "VLOOKUP(G1,A2:B5,2,0)" ||
-      normalizeFormula(f) === "VLOOKUP(G1,A1:B5,2,0)",
-    correctFormula: "=VLOOKUP(G1,A2:B5,2,0)",
+      normalizeFormula(f) === "VLOOKUP(G1;A2:B5;2;0)" ||
+      normalizeFormula(f) === "VLOOKUP(G1;A1:B5;2;0)",
+    correctFormula: "=VLOOKUP(G1;A2:B5;2;0)",
     expectedResult: "890",
   },
   {
@@ -1467,11 +1467,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "F2",
-    hint: "=VLOOKUP(F1,A3:B7,2,0)",
+    hint: "=VLOOKUP(F1;A3:B7;2;0)",
     checkFn: (f) =>
-      normalizeFormula(f) === "VLOOKUP(F1,A3:B7,2,0)" ||
-      normalizeFormula(f) === "VLOOKUP(F1,A3:B7,2,0)",
-    correctFormula: "=VLOOKUP(F1,A3:B7,2,0)",
+      normalizeFormula(f) === "VLOOKUP(F1;A3:B7;2;0)" ||
+      normalizeFormula(f) === "VLOOKUP(F1;A3:B7;2;0)",
+    correctFormula: "=VLOOKUP(F1;A3:B7;2;0)",
     expectedResult: "450",
   },
   {
@@ -1489,9 +1489,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "F2",
-    hint: "=VLOOKUP(F1,A2:B6,2,0)",
-    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(F1,A2:B6,2,0)",
-    correctFormula: "=VLOOKUP(F1,A2:B6,2,0)",
+    hint: "=VLOOKUP(F1;A2:B6;2;0)",
+    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(F1;A2:B6;2;0)",
+    correctFormula: "=VLOOKUP(F1;A2:B6;2;0)",
     expectedResult: '"777 123 456"',
   },
   {
@@ -1510,9 +1510,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "F2",
-    hint: "=VLOOKUP(F1,A2:B7,2,0)",
-    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(F1,A2:B7,2,0)",
-    correctFormula: "=VLOOKUP(F1,A2:B7,2,0)",
+    hint: "=VLOOKUP(F1;A2:B7;2;0)",
+    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(F1;A2:B7;2;0)",
+    correctFormula: "=VLOOKUP(F1;A2:B7;2;0)",
     expectedResult: "38",
   },
   {
@@ -1530,9 +1530,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "F2",
-    hint: "=VLOOKUP(F1,A2:B6,2,0)",
-    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(F1,A2:B6,2,0)",
-    correctFormula: "=VLOOKUP(F1,A2:B6,2,0)",
+    hint: "=VLOOKUP(F1;A2:B6;2;0)",
+    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(F1;A2:B6;2;0)",
+    correctFormula: "=VLOOKUP(F1;A2:B6;2;0)",
     expectedResult: "6 100",
   },
   {
@@ -1550,9 +1550,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "G2",
-    hint: "=VLOOKUP(G1,A2:C6,3,0)",
-    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(G1,A2:C6,3,0)",
-    correctFormula: "=VLOOKUP(G1,A2:C6,3,0)",
+    hint: "=VLOOKUP(G1;A2:C6;3;0)",
+    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(G1;A2:C6;3;0)",
+    correctFormula: "=VLOOKUP(G1;A2:C6;3;0)",
     expectedResult: '"HR"',
   },
   {
@@ -1571,9 +1571,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "F2",
-    hint: "=VLOOKUP(F1,A2:B7,2,0)",
-    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(F1,A2:B7,2,0)",
-    correctFormula: "=VLOOKUP(F1,A2:B7,2,0)",
+    hint: "=VLOOKUP(F1;A2:B7;2;0)",
+    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(F1;A2:B7;2;0)",
+    correctFormula: "=VLOOKUP(F1;A2:B7;2;0)",
     expectedResult: '"Sklad C"',
   },
   {
@@ -1591,9 +1591,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "G2",
-    hint: "=VLOOKUP(G1,A2:B6,2,0)",
-    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(G1,A2:B6,2,0)",
-    correctFormula: "=VLOOKUP(G1,A2:B6,2,0)",
+    hint: "=VLOOKUP(G1;A2:B6;2;0)",
+    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(G1;A2:B6;2;0)",
+    correctFormula: "=VLOOKUP(G1;A2:B6;2;0)",
     expectedResult: "399",
   },
   {
@@ -1613,9 +1613,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "F2",
-    hint: "=VLOOKUP(F1,A2:B8,2,0)",
-    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(F1,A2:B8,2,0)",
-    correctFormula: "=VLOOKUP(F1,A2:B8,2,0)",
+    hint: "=VLOOKUP(F1;A2:B8;2;0)",
+    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(F1;A2:B8;2;0)",
+    correctFormula: "=VLOOKUP(F1;A2:B8;2;0)",
     expectedResult: '"Česká republika"',
   },
   {
@@ -1633,9 +1633,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "F2",
-    hint: "=VLOOKUP(F1,A2:B6,2,0)",
-    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(F1,A2:B6,2,0)",
-    correctFormula: "=VLOOKUP(F1,A2:B6,2,0)",
+    hint: "=VLOOKUP(F1;A2:B6;2;0)",
+    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(F1;A2:B6;2;0)",
+    correctFormula: "=VLOOKUP(F1;A2:B6;2;0)",
     expectedResult: "6,8",
   },
   {
@@ -1653,9 +1653,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "F2",
-    hint: "=VLOOKUP(F1,A2:B6,2,0)",
-    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(F1,A2:B6,2,0)",
-    correctFormula: "=VLOOKUP(F1,A2:B6,2,0)",
+    hint: "=VLOOKUP(F1;A2:B6;2;0)",
+    checkFn: (f) => normalizeFormula(f) === "VLOOKUP(F1;A2:B6;2;0)",
+    correctFormula: "=VLOOKUP(F1;A2:B6;2;0)",
     expectedResult: '"Červená"',
   },
 
@@ -1919,11 +1919,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D2",
-    hint: '=COUNTIF(rozsah, kritérium) → =COUNTIF(B2:B8,"Výborný") nebo =COUNTIF(B2:B8,D1)',
+    hint: '=COUNTIF(rozsah; kritérium) → =COUNTIF(B2:B8;"Výborný") nebo =COUNTIF(B2:B8;D1)',
     checkFn: (f) =>
-      normalizeFormula(f) === 'COUNTIF(B2:B8,"VÝBORNÝ")' ||
-      normalizeFormula(f) === "COUNTIF(B2:B8,D1)",
-    correctFormula: '=COUNTIF(B2:B8,"Výborný")',
+      normalizeFormula(f) === 'COUNTIF(B2:B8;"VÝBORNÝ")' ||
+      normalizeFormula(f) === "COUNTIF(B2:B8;D1)",
+    correctFormula: '=COUNTIF(B2:B8;"Výborný")',
     expectedResult: "4",
   },
   {
@@ -1943,9 +1943,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D2",
-    hint: '=COUNTIF(B2:B8,"Dokončeno")',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8,"DOKONČENO")',
-    correctFormula: '=COUNTIF(B2:B8,"Dokončeno")',
+    hint: '=COUNTIF(B2:B8;"Dokončeno")',
+    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8;"DOKONČENO")',
+    correctFormula: '=COUNTIF(B2:B8;"Dokončeno")',
     expectedResult: "4",
   },
   {
@@ -1966,11 +1966,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C1",
-    hint: '=COUNTIF(A2:A9,1) nebo =COUNTIF(A2:A9,"1")',
+    hint: '=COUNTIF(A2:A9;1) nebo =COUNTIF(A2:A9;"1")',
     checkFn: (f) =>
-      normalizeFormula(f) === "COUNTIF(A2:A9,1)" ||
-      normalizeFormula(f) === 'COUNTIF(A2:A9,"1")',
-    correctFormula: "=COUNTIF(A2:A9,1)",
+      normalizeFormula(f) === "COUNTIF(A2:A9;1)" ||
+      normalizeFormula(f) === 'COUNTIF(A2:A9;"1")',
+    correctFormula: "=COUNTIF(A2:A9;1)",
     expectedResult: "4",
   },
   {
@@ -1989,9 +1989,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D1",
-    hint: '=COUNTIF(B2:B7,">40") počítá hodnoty větší než 40',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B7,">40")',
-    correctFormula: '=COUNTIF(B2:B7,">40")',
+    hint: '=COUNTIF(B2:B7;">40") počítá hodnoty větší než 40',
+    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B7;">40")',
+    correctFormula: '=COUNTIF(B2:B7;">40")',
     expectedResult: "3",
   },
   {
@@ -2011,9 +2011,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D1",
-    hint: '=COUNTIF(B2:B8,"<1000")',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8,"<1000")',
-    correctFormula: '=COUNTIF(B2:B8,"<1000")',
+    hint: '=COUNTIF(B2:B8;"<1000")',
+    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8;"<1000")',
+    correctFormula: '=COUNTIF(B2:B8;"<1000")',
     expectedResult: "5",
   },
   {
@@ -2034,9 +2034,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "E1",
-    hint: '=COUNTIF(C2:C9,"Rock")',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(C2:C9,"ROCK")',
-    correctFormula: '=COUNTIF(C2:C9,"Rock")',
+    hint: '=COUNTIF(C2:C9;"Rock")',
+    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(C2:C9;"ROCK")',
+    correctFormula: '=COUNTIF(C2:C9;"Rock")',
     expectedResult: "5",
   },
   {
@@ -2059,9 +2059,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D1",
-    hint: '=COUNTIF(B2:B11,">30")',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B11,">30")',
-    correctFormula: '=COUNTIF(B2:B11,">30")',
+    hint: '=COUNTIF(B2:B11;">30")',
+    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B11;">30")',
+    correctFormula: '=COUNTIF(B2:B11;">30")',
     expectedResult: "6",
   },
   {
@@ -2081,9 +2081,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D1",
-    hint: '=COUNTIF(B2:B8,"Praha")',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8,"PRAHA")',
-    correctFormula: '=COUNTIF(B2:B8,"Praha")',
+    hint: '=COUNTIF(B2:B8;"Praha")',
+    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8;"PRAHA")',
+    correctFormula: '=COUNTIF(B2:B8;"Praha")',
     expectedResult: "4",
   },
   {
@@ -2103,9 +2103,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D1",
-    hint: '=COUNTIF(B2:B8,"Ano")',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8,"ANO")',
-    correctFormula: '=COUNTIF(B2:B8,"Ano")',
+    hint: '=COUNTIF(B2:B8;"Ano")',
+    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(B2:B8;"ANO")',
+    correctFormula: '=COUNTIF(B2:B8;"Ano")',
     expectedResult: "5",
   },
   {
@@ -2125,9 +2125,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "E1",
-    hint: '=COUNTIF(C2:C8,"Po splatnosti")',
-    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(C2:C8,"PO SPLATNOSTI")',
-    correctFormula: '=COUNTIF(C2:C8,"Po splatnosti")',
+    hint: '=COUNTIF(C2:C8;"Po splatnosti")',
+    checkFn: (f) => normalizeFormula(f) === 'COUNTIF(C2:C8;"PO SPLATNOSTI")',
+    correctFormula: '=COUNTIF(C2:C8;"Po splatnosti")',
     expectedResult: "4",
   },
 
@@ -2148,11 +2148,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "E2",
-    hint: '=SUMIF(rozsah_kriterií, kriterium, rozsah_součtu)\n→ =SUMIF(A2:A7,"Sever",C2:C7)',
+    hint: '=SUMIF(rozsah_kriterií; kriterium; rozsah_součtu)\n→ =SUMIF(A2:A7;"Sever";C2:C7)',
     checkFn: (f) =>
-      normalizeFormula(f) === 'SUMIF(A2:A7,"SEVER",C2:C7)' ||
-      normalizeFormula(f) === "SUMIF(A2:A7,E1,C2:C7)",
-    correctFormula: '=SUMIF(A2:A7,"Sever",C2:C7)',
+      normalizeFormula(f) === 'SUMIF(A2:A7;"SEVER";C2:C7)' ||
+      normalizeFormula(f) === "SUMIF(A2:A7;E1;C2:C7)",
+    correctFormula: '=SUMIF(A2:A7;"Sever";C2:C7)',
     expectedResult: "134 000 Kč",
   },
   {
@@ -2171,11 +2171,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "E3",
-    hint: '=SUMIF(A2:A7,"Jih",C2:C7)',
+    hint: '=SUMIF(A2:A7;"Jih";C2:C7)',
     checkFn: (f) =>
-      normalizeFormula(f) === 'SUMIF(A2:A7,"JIH",C2:C7)' ||
-      normalizeFormula(f) === "SUMIF(A2:A7,E2,C2:C7)",
-    correctFormula: '=SUMIF(A2:A7,"Jih",C2:C7)',
+      normalizeFormula(f) === 'SUMIF(A2:A7;"JIH";C2:C7)' ||
+      normalizeFormula(f) === "SUMIF(A2:A7;E2;C2:C7)",
+    correctFormula: '=SUMIF(A2:A7;"Jih";C2:C7)',
     expectedResult: "88 000 Kč",
   },
   {
@@ -2196,9 +2196,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "F1",
-    hint: '=SUMIF(B2:B9,"IT",D2:D9)',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(B2:B9,"IT",D2:D9)',
-    correctFormula: '=SUMIF(B2:B9,"IT",D2:D9)',
+    hint: '=SUMIF(B2:B9;"IT";D2:D9)',
+    checkFn: (f) => normalizeFormula(f) === 'SUMIF(B2:B9;"IT";D2:D9)',
+    correctFormula: '=SUMIF(B2:B9;"IT";D2:D9)',
     expectedResult: "52 000 Kč",
   },
   {
@@ -2218,9 +2218,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "E1",
-    hint: '=SUMIF(C2:C8,"Hotovo",B2:B8)',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(C2:C8,"HOTOVO",B2:B8)',
-    correctFormula: '=SUMIF(C2:C8,"Hotovo",B2:B8)',
+    hint: '=SUMIF(C2:C8;"Hotovo";B2:B8)',
+    checkFn: (f) => normalizeFormula(f) === 'SUMIF(C2:C8;"HOTOVO";B2:B8)',
+    correctFormula: '=SUMIF(C2:C8;"Hotovo";B2:B8)',
     expectedResult: "26 h",
   },
   {
@@ -2238,9 +2238,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D1",
-    hint: '=SUMIF(A2:A6,"Tablet",B2:B6)',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(A2:A6,"TABLET",B2:B6)',
-    correctFormula: '=SUMIF(A2:A6,"Tablet",B2:B6)',
+    hint: '=SUMIF(A2:A6;"Tablet";B2:B6)',
+    checkFn: (f) => normalizeFormula(f) === 'SUMIF(A2:A6;"TABLET";B2:B6)',
+    correctFormula: '=SUMIF(A2:A6;"Tablet";B2:B6)',
     expectedResult: "45 000 Kč",
   },
   {
@@ -2262,12 +2262,12 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "G1",
-    hint: '=SUMIF(D2:D10,"Noční",E2:E10)',
+    hint: '=SUMIF(D2:D10;"Noční";E2:E10)',
     checkFn: (f) =>
-      normalizeFormula(f) === 'SUMIF(D2:D10,"NOČNÍ",E2:E10)' ||
+      normalizeFormula(f) === 'SUMIF(D2:D10;"NOČNÍ";E2:E10)' ||
       normalizeFormula(f.replace(/NO[CČ]NÍ/, "NOČNÍ")) ===
-        'SUMIF(D2:D10,"NOČNÍ",E2:E10)',
-    correctFormula: '=SUMIF(D2:D10,"Noční",E2:E10)',
+        'SUMIF(D2:D10;"NOČNÍ";E2:E10)',
+    correctFormula: '=SUMIF(D2:D10;"Noční";E2:E10)',
     expectedResult: "44 h",
   },
   {
@@ -2286,9 +2286,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D1",
-    hint: '=SUMIF(A2:A7,"XYZ",B2:B7)',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(A2:A7,"XYZ",B2:B7)',
-    correctFormula: '=SUMIF(A2:A7,"XYZ",B2:B7)',
+    hint: '=SUMIF(A2:A7;"XYZ";B2:B7)',
+    checkFn: (f) => normalizeFormula(f) === 'SUMIF(A2:A7;"XYZ";B2:B7)',
+    correctFormula: '=SUMIF(A2:A7;"XYZ";B2:B7)',
     expectedResult: "90 ks",
   },
   {
@@ -2314,9 +2314,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "F1",
-    hint: '=SUMIF(C2:C6,"Vysoká",D2:D6)',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(C2:C6,"VYSOKÁ",D2:D6)',
-    correctFormula: '=SUMIF(C2:C6,"Vysoká",D2:D6)',
+    hint: '=SUMIF(C2:C6;"Vysoká";D2:D6)',
+    checkFn: (f) => normalizeFormula(f) === 'SUMIF(C2:C6;"VYSOKÁ";D2:D6)',
+    correctFormula: '=SUMIF(C2:C6;"Vysoká";D2:D6)',
     expectedResult: "650 000 Kč",
   },
   {
@@ -2335,9 +2335,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "E1",
-    hint: '=SUMIF(B2:B7,"Les",C2:C7)',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(B2:B7,"LES",C2:C7)',
-    correctFormula: '=SUMIF(B2:B7,"Les",C2:C7)',
+    hint: '=SUMIF(B2:B7;"Les";C2:C7)',
+    checkFn: (f) => normalizeFormula(f) === 'SUMIF(B2:B7;"LES";C2:C7)',
+    correctFormula: '=SUMIF(B2:B7;"Les";C2:C7)',
     expectedResult: "70 ha",
   },
   {
@@ -2358,9 +2358,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D1",
-    hint: '=SUMIF(A2:A9,"A",B2:B9)',
-    checkFn: (f) => normalizeFormula(f) === 'SUMIF(A2:A9,"A",B2:B9)',
-    correctFormula: '=SUMIF(A2:A9,"A",B2:B9)',
+    hint: '=SUMIF(A2:A9;"A";B2:B9)',
+    checkFn: (f) => normalizeFormula(f) === 'SUMIF(A2:A9;"A";B2:B9)',
+    correctFormula: '=SUMIF(A2:A9;"A";B2:B9)',
     expectedResult: "348",
   },
 
@@ -2378,9 +2378,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: "=ROUND(číslo, počet_míst) → =ROUND(B2,2)",
-    checkFn: (f) => normalizeFormula(f) === "ROUND(B2,2)",
-    correctFormula: "=ROUND(B2,2)",
+    hint: "=ROUND(číslo; počet_míst) → =ROUND(B2;2)",
+    checkFn: (f) => normalizeFormula(f) === "ROUND(B2;2)",
+    correctFormula: "=ROUND(B2;2)",
     expectedResult: "3,75",
   },
   {
@@ -2396,9 +2396,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C3",
-    hint: "=ROUND(B3,1)",
-    checkFn: (f) => normalizeFormula(f) === "ROUND(B3,1)",
-    correctFormula: "=ROUND(B3,1)",
+    hint: "=ROUND(B3;1)",
+    checkFn: (f) => normalizeFormula(f) === "ROUND(B3;1)",
+    correctFormula: "=ROUND(B3;1)",
     expectedResult: "2,7",
   },
   {
@@ -2414,9 +2414,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: "=ROUND(B2,0)",
-    checkFn: (f) => normalizeFormula(f) === "ROUND(B2,0)",
-    correctFormula: "=ROUND(B2,0)",
+    hint: "=ROUND(B2;0)",
+    checkFn: (f) => normalizeFormula(f) === "ROUND(B2;0)",
+    correctFormula: "=ROUND(B2;0)",
     expectedResult: "0",
   },
   {
@@ -2432,9 +2432,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: "=ROUND(B2,3)",
-    checkFn: (f) => normalizeFormula(f) === "ROUND(B2,3)",
-    correctFormula: "=ROUND(B2,3)",
+    hint: "=ROUND(B2;3)",
+    checkFn: (f) => normalizeFormula(f) === "ROUND(B2;3)",
+    correctFormula: "=ROUND(B2;3)",
     expectedResult: "0,667",
   },
   {
@@ -2450,9 +2450,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: "=ROUND(B2,-2) zaokrouhlí na stovky",
-    checkFn: (f) => normalizeFormula(f) === "ROUND(B2,-2)",
-    correctFormula: "=ROUND(B2,-2)",
+    hint: "=ROUND(B2;-2) zaokrouhlí na stovky",
+    checkFn: (f) => normalizeFormula(f) === "ROUND(B2;-2)",
+    correctFormula: "=ROUND(B2;-2)",
     expectedResult: "1 200",
   },
   {
@@ -2468,9 +2468,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: "=ROUND(B2,0)",
-    checkFn: (f) => normalizeFormula(f) === "ROUND(B2,0)",
-    correctFormula: "=ROUND(B2,0)",
+    hint: "=ROUND(B2;0)",
+    checkFn: (f) => normalizeFormula(f) === "ROUND(B2;0)",
+    correctFormula: "=ROUND(B2;0)",
     expectedResult: "37",
   },
   {
@@ -2486,9 +2486,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: "=ROUND(B2,2)",
-    checkFn: (f) => normalizeFormula(f) === "ROUND(B2,2)",
-    correctFormula: "=ROUND(B2,2)",
+    hint: "=ROUND(B2;2)",
+    checkFn: (f) => normalizeFormula(f) === "ROUND(B2;2)",
+    correctFormula: "=ROUND(B2;2)",
     expectedResult: "25,17",
   },
   {
@@ -2504,9 +2504,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: "=ROUND(B2,-3) zaokrouhlí na tisíce",
-    checkFn: (f) => normalizeFormula(f) === "ROUND(B2,-3)",
-    correctFormula: "=ROUND(B2,-3)",
+    hint: "=ROUND(B2;-3) zaokrouhlí na tisíce",
+    checkFn: (f) => normalizeFormula(f) === "ROUND(B2;-3)",
+    correctFormula: "=ROUND(B2;-3)",
     expectedResult: "125 000",
   },
   {
@@ -2522,9 +2522,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: "=ROUND(B2,1)",
-    checkFn: (f) => normalizeFormula(f) === "ROUND(B2,1)",
-    correctFormula: "=ROUND(B2,1)",
+    hint: "=ROUND(B2;1)",
+    checkFn: (f) => normalizeFormula(f) === "ROUND(B2;1)",
+    correctFormula: "=ROUND(B2;1)",
     expectedResult: "87,5",
   },
   {
@@ -2540,9 +2540,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: "=ROUND(B2,-1) zaokrouhlí na desítky",
-    checkFn: (f) => normalizeFormula(f) === "ROUND(B2,-1)",
-    correctFormula: "=ROUND(B2,-1)",
+    hint: "=ROUND(B2;-1) zaokrouhlí na desítky",
+    checkFn: (f) => normalizeFormula(f) === "ROUND(B2;-1)",
+    correctFormula: "=ROUND(B2;-1)",
     expectedResult: "1 230",
   },
 
@@ -2560,11 +2560,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: '=CONCATENATE(A2," ",B2) nebo =A2&" "&B2',
+    hint: '=CONCATENATE(A2;" ";B2) nebo =A2&" "&B2',
     checkFn: (f) =>
-      normalizeFormula(f) === 'CONCATENATE(A2," ",B2)' ||
+      normalizeFormula(f) === 'CONCATENATE(A2;" ";B2)' ||
       normalizeFormula(f) === 'A2&" "&B2',
-    correctFormula: '=CONCATENATE(A2," ",B2)',
+    correctFormula: '=CONCATENATE(A2;" ";B2)',
     expectedResult: '"Novák Jan"',
   },
   {
@@ -2580,11 +2580,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: '=CONCATENATE(A2,", ",B2)',
+    hint: '=CONCATENATE(A2;", ";B2)',
     checkFn: (f) =>
-      normalizeFormula(f) === 'CONCATENATE(A2,", ",B2)' ||
+      normalizeFormula(f) === 'CONCATENATE(A2;", ";B2)' ||
       normalizeFormula(f) === 'A2&", "&B2',
-    correctFormula: '=CONCATENATE(A2,", ",B2)',
+    correctFormula: '=CONCATENATE(A2;", ";B2)',
     expectedResult: '"Praha, 11000"',
   },
   {
@@ -2600,11 +2600,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: '=CONCATENATE(A2,". ",B2)',
+    hint: '=CONCATENATE(A2;". ";B2)',
     checkFn: (f) =>
-      normalizeFormula(f) === 'CONCATENATE(A2,". ",B2)' ||
+      normalizeFormula(f) === 'CONCATENATE(A2;". ";B2)' ||
       normalizeFormula(f) === 'A2&". "&B2',
-    correctFormula: '=CONCATENATE(A2,". ",B2)',
+    correctFormula: '=CONCATENATE(A2;". ";B2)',
     expectedResult: '"CZ. Česká republika"',
   },
   {
@@ -2620,11 +2620,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: '=CONCATENATE(A2,"@",B2)',
+    hint: '=CONCATENATE(A2;"@";B2)',
     checkFn: (f) =>
-      normalizeFormula(f) === 'CONCATENATE(A2,"@",B2)' ||
+      normalizeFormula(f) === 'CONCATENATE(A2;"@";B2)' ||
       normalizeFormula(f) === 'A2&"@"&B2',
-    correctFormula: '=CONCATENATE(A2,"@",B2)',
+    correctFormula: '=CONCATENATE(A2;"@";B2)',
     expectedResult: '"jan.novak@firma.cz"',
   },
   {
@@ -2640,11 +2640,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: '=CONCATENATE(A2," ze dne ",B2)',
+    hint: '=CONCATENATE(A2;" ze dne ";B2)',
     checkFn: (f) =>
-      normalizeFormula(f) === 'CONCATENATE(A2," ZE DNE ",B2)' ||
+      normalizeFormula(f) === 'CONCATENATE(A2;" ZE DNE ";B2)' ||
       normalizeFormula(f) === 'A2&" ZE DNE "&B2',
-    correctFormula: '=CONCATENATE(A2," ze dne ",B2)',
+    correctFormula: '=CONCATENATE(A2;" ze dne ";B2)',
     expectedResult: '"OBJ-001 ze dne 1.3.2024"',
   },
   {
@@ -2660,11 +2660,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: '=CONCATENATE(A2," ",B2)',
+    hint: '=CONCATENATE(A2;" ";B2)',
     checkFn: (f) =>
-      normalizeFormula(f) === 'CONCATENATE(A2," ",B2)' ||
+      normalizeFormula(f) === 'CONCATENATE(A2;" ";B2)' ||
       normalizeFormula(f) === 'A2&" "&B2',
-    correctFormula: '=CONCATENATE(A2," ",B2)',
+    correctFormula: '=CONCATENATE(A2;" ";B2)',
     expectedResult: '"Škoda Octavia"',
   },
   {
@@ -2680,9 +2680,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D2",
-    hint: '=CONCATENATE(A2,".",B2,".",C2)',
-    checkFn: (f) => normalizeFormula(f) === 'CONCATENATE(A2,".",B2,".",C2)',
-    correctFormula: '=CONCATENATE(A2,".",B2,".",C2)',
+    hint: '=CONCATENATE(A2;".";B2;".";C2)',
+    checkFn: (f) => normalizeFormula(f) === 'CONCATENATE(A2;".";B2;".";C2)',
+    correctFormula: '=CONCATENATE(A2;".";B2;".";C2)',
     expectedResult: '"1.1.2024"',
   },
   {
@@ -2698,9 +2698,9 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "D2",
-    hint: '=CONCATENATE(A2,", ",B2,", ",C2)',
-    checkFn: (f) => normalizeFormula(f) === 'CONCATENATE(A2,", ",B2,", ",C2)',
-    correctFormula: '=CONCATENATE(A2,", ",B2,", ",C2)',
+    hint: '=CONCATENATE(A2;", ";B2;", ";C2)',
+    checkFn: (f) => normalizeFormula(f) === 'CONCATENATE(A2;", ";B2;", ";C2)',
+    correctFormula: '=CONCATENATE(A2;", ";B2;", ";C2)',
     expectedResult: '"Hlavní, 123, Praha"',
   },
   {
@@ -2716,11 +2716,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: '=CONCATENATE(A2,"-",B2)',
+    hint: '=CONCATENATE(A2;"-";B2)',
     checkFn: (f) =>
-      normalizeFormula(f) === 'CONCATENATE(A2,"-",B2)' ||
+      normalizeFormula(f) === 'CONCATENATE(A2;"-";B2)' ||
       normalizeFormula(f) === 'A2&"-"&B2',
-    correctFormula: '=CONCATENATE(A2,"-",B2)',
+    correctFormula: '=CONCATENATE(A2;"-";B2)',
     expectedResult: '"FAKT-2024-001"',
   },
   {
@@ -2736,11 +2736,11 @@ const ALL_QUESTIONS = [
       ],
     },
     answerCell: "C2",
-    hint: '=CONCATENATE(A2,"/",B2)',
+    hint: '=CONCATENATE(A2;"/";B2)',
     checkFn: (f) =>
-      normalizeFormula(f) === 'CONCATENATE(A2,"/",B2)' ||
+      normalizeFormula(f) === 'CONCATENATE(A2;"/";B2)' ||
       normalizeFormula(f) === 'A2&"/"&B2',
-    correctFormula: '=CONCATENATE(A2,"/",B2)',
+    correctFormula: '=CONCATENATE(A2;"/";B2)',
     expectedResult: '"A/205"',
   },
 ];
